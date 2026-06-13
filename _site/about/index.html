@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+<title>About</title>
+<meta name="description" content="Learn more about UD Marketing Tools and the purpose behind the project.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="canonical" href="https://udmarketing.online/about/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="About">
+<meta property="og:description" content="Learn more about UD Marketing Tools and the purpose behind the project.">
+<meta property="og:url" content="https://udmarketing.online/about/">
+<meta property="og:site_name" content="UD Marketing Tools">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About">
+<meta name="twitter:description" content="Learn more about UD Marketing Tools and the purpose behind the project.">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="brand brand-text-only" aria-label="UD Marketing Tools home">
+  <span class="brand-text">
+    <strong>UD Marketing Tools</strong>
+    <small>SEO, content, and campaign utilities</small>
+  </span>
+</a>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Open menu"
+      data-nav-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" id="site-nav" aria-label="Main navigation" data-nav>
+      <a href="/" class="">Home</a>
+      <a href="/tools/" class="">Tools</a>
+      <a href="/articles/" class="">Articles</a>
+      <a href="/about/" class="active">About</a>
+      <a href="/contact/" class="">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  (function () {
+    const button = document.querySelector("[data-nav-toggle]");
+    const nav = document.querySelector("[data-nav]");
+    if (!button || !nav) return;
+
+    button.addEventListener("click", function () {
+      const isOpen = nav.classList.toggle("is-open");
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+  })();
+</script>
+
+  <main>
+    
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">About</span>
+    <h1>Built to make practical SEO and content work easier.</h1>
+    <p>
+      UD Marketing Tools is designed as a focused platform for useful writing, SEO, campaign, and support tools that are easy to access and simple to use.
+    </p>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="card card-pad">
+      <h2 class="section-title">Project direction</h2>
+      <p class="section-desc">
+        The site combines practical browser tools with supporting articles so users can take action first and then learn the strategy behind the result.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="card card-pad">
+      <h2 class="section-title">What the site focuses on</h2>
+      <p class="section-desc">
+        The strongest focus areas are writing quality, readability, keyword use, metadata, and campaign support. Utility tools are included, but they are not the main identity of the site.
+      </p>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="brand brand-text-only">
+        <span class="brand-text">
+          <strong>UD Marketing Tools</strong>
+          <small>SEO, content, and campaign utilities</small>
+        </span>
+      </a>
+      <p class="muted">Practical tools and guides for SEO and content work.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Site</h4>
+      <ul>
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/articles/">Articles</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Meta</h4>
+      <ul>
+        <li><a href="/sitemap.xml" target="_blank" rel="noopener noreferrer">Sitemap</a></li>
+        <li><span class="muted">Cloudflare Pages deploy</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <small>© 2026 UD Marketing Tools. All rights reserved.</small>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "UD Marketing Tools",
+  "url": "https://udmarketing.online",
+  "language": "en",
+  "title": "UD Marketing Tools",
+  "description": "Practical SEO, content, and campaign tools for clearer writing and smarter execution.",
+  "defaultOgImage": "/assets/images/og-image.png",
+  "favicon": "/favicon.ico",
+  "copyrightYear": "2026",
+  "contactPage": "/contact/",
+  "articlesPage": "/articles/",
+  "toolsPage": "/tools/",
+  "privacyPage": "/privacy/",
+  "termsPage": "/terms/"
+}

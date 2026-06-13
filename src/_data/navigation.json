@@ -1,0 +1,20 @@
+{
+  "main": [
+    { "label": "Home", "url": "/" },
+    { "label": "Tools", "url": "/tools/" },
+    { "label": "Articles", "url": "/articles/" },
+    { "label": "About", "url": "/about/" },
+    { "label": "Contact", "url": "/contact/" }
+  ],
+  "footerCore": [
+    { "label": "Home", "url": "/" },
+    { "label": "Tools", "url": "/tools/" },
+    { "label": "Articles", "url": "/articles/" },
+    { "label": "About", "url": "/about/" }
+  ],
+  "footerSupport": [
+    { "label": "Contact", "url": "/contact/" },
+    { "label": "Privacy Policy", "url": "/privacy/" },
+    { "label": "Terms & Conditions", "url": "/terms/" }
+  ]
+}

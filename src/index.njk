@@ -1,0 +1,146 @@
+---
+layout: base.njk
+title: Home
+description: Practical SEO, content, and campaign tools for clearer writing and smarter execution.
+permalink: /
+---
+
+<section class="hero-shell">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1>SEO and content tools that help you work faster.</h1>
+      <p class="hero-lead">
+        Use simple tools for writing, readability, metadata, and campaign tasks — then go deeper with practical guides when you need more context.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/tools/" class="btn btn-primary">Explore Tools</a>
+        <a href="/articles/" class="btn btn-secondary">Read Guides</a>
+      </div>
+
+      <ul class="hero-points">
+        <li>No sign-up required for core tools</li>
+        <li>Built for SEO, content, and campaign workflows</li>
+        <li>Simple pages with clean, shareable URLs</li>
+      </ul>
+    </div>
+
+    <div class="hero-panel">
+      <div class="hero-card hero-card-main">
+        <span class="mini-label">Popular tools</span>
+        <div class="hero-tool-list">
+          {% for tool in tools %}
+            {% if tool.featured and loop.index <= 3 %}
+              <a class="hero-tool-item" href="{{ tool.url }}">
+                <span>
+                  <strong>{{ tool.name }}</strong>
+                  <small>{{ tool.category }}</small>
+                </span>
+                <em>{{ tool.cta }}</em>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero-support">
+  <div class="container hero-support-grid">
+    <div class="hero-card mini-stat">
+      <span class="mini-label">Focus</span>
+      <strong>SEO + Content</strong>
+      <p>Practical utilities for writing, metadata, and campaign support.</p>
+    </div>
+
+    <div class="hero-card mini-stat">
+      <span class="mini-label">Structure</span>
+      <strong>Tools + Articles</strong>
+      <p>Use a tool first, then continue into a guide for better execution.</p>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="container trust-row">
+    <div class="trust-item">
+      <strong>Practical output</strong>
+      <span>Focused tools for real writing and marketing tasks.</span>
+    </div>
+    <div class="trust-item">
+      <strong>Cleaner workflows</strong>
+      <span>Move from quick checks to deeper guidance without friction.</span>
+    </div>
+    <div class="trust-item">
+      <strong>Built to scale</strong>
+      <span>Structured for more tools, articles, and internal linking.</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head-split">
+      <div>
+        <span class="eyebrow">Featured Tools</span>
+        <h2 class="section-title">Start with the core tool set.</h2>
+      </div>
+      <p class="section-desc">
+        These highlighted tools are the fastest entry points for readability, writing checks, metadata work, and campaign support.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      {% for tool in tools %}
+        {% if tool.featured %}
+          <article class="feature-card">
+            <div class="feature-top">
+              <span class="feature-tag">{{ tool.category or "Tool" }}</span>
+              <a href="{{ tool.url }}" class="feature-link">Open tool</a>
+            </div>
+
+            <div class="feature-body">
+              <h3>{{ tool.name }}</h3>
+              <p>{{ tool.description }}</p>
+            </div>
+
+            <div class="feature-bottom">
+              <span class="feature-meta">Free to use</span>
+              <a href="{{ tool.url }}" class="btn btn-primary btn-sm">{{ tool.cta }}</a>
+            </div>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="dual-panel">
+      <div class="info-panel">
+        <span class="eyebrow">How it works</span>
+        <h2 class="section-title">Action first. Learning second.</h2>
+        <p class="section-desc">
+          The site is designed so a visitor can solve a task quickly, then continue into related content when they want more context.
+        </p>
+      </div>
+
+      <div class="steps-panel">
+        <div class="step-card">
+          <strong>1. Pick a tool</strong>
+          <p>Start with the task you need to complete right now.</p>
+        </div>
+        <div class="step-card">
+          <strong>2. Get the result</strong>
+          <p>Use a focused interface without extra noise or clutter.</p>
+        </div>
+        <div class="step-card">
+          <strong>3. Read the guide</strong>
+          <p>Move into articles that explain the topic in a simple way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

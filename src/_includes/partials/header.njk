@@ -1,0 +1,45 @@
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="brand brand-text-only" aria-label="UD Marketing Tools home">
+  <span class="brand-text">
+    <strong>UD Marketing Tools</strong>
+    <small>SEO, content, and campaign utilities</small>
+  </span>
+</a>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Open menu"
+      data-nav-toggle
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" id="site-nav" aria-label="Main navigation" data-nav>
+      <a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+      <a href="/tools/" class="{% if '/tools/' in page.url %}active{% endif %}">Tools</a>
+      <a href="/articles/" class="{% if '/articles/' in page.url %}active{% endif %}">Articles</a>
+      <a href="/about/" class="{% if page.url == '/about/' %}active{% endif %}">About</a>
+      <a href="/contact/" class="{% if page.url == '/contact/' %}active{% endif %}">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  (function () {
+    const button = document.querySelector("[data-nav-toggle]");
+    const nav = document.querySelector("[data-nav]");
+    if (!button || !nav) return;
+
+    button.addEventListener("click", function () {
+      const isOpen = nav.classList.toggle("is-open");
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+  })();
+</script>

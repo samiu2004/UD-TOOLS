@@ -1,0 +1,12 @@
+{
+  "name": "ud-marketing-tools",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx @11ty/eleventy --serve --config=./eleventy.config.js",
+    "build": "npx @11ty/eleventy --config=./eleventy.config.js"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0"
+  }
+}

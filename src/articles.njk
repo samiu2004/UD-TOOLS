@@ -1,0 +1,65 @@
+---
+pagination:
+  data: articles
+  size: 1
+  alias: article
+permalink: "/articles/{{ article.slug }}/index.html"
+layout: base.njk
+eleventyComputed:
+  title: "{{ article.title }}"
+  description: "{{ article.description }}"
+---
+
+<section class="page-hero page-hero-compact">
+  <div class="container">
+    <article class="article-page">
+      <header class="article-header">
+        <div class="article-header-top">
+          <span class="feature-tag">Article</span>
+          <p class="article-meta">{{ article.date }}</p>
+        </div>
+
+        <h1>{{ article.title }}</h1>
+
+        <p class="article-description">{{ article.description }}</p>
+      </header>
+
+      <div class="article-content">
+        {{ article.content | safe }}
+      </div>
+
+      {% if article.relatedArticles %}
+      <section class="article-related">
+        <div class="article-related-head">
+          <h2>Related articles</h2>
+          <p>Continue with practical guides that support this topic.</p>
+        </div>
+
+        <div class="article-related-grid">
+          {% for slug in article.relatedArticles %}
+            {% for related in articles %}
+              {% if related.slug == slug %}
+              <article class="feature-card article-card article-card-archive article-card-related">
+                <div class="feature-top">
+                  <span class="feature-tag">Article</span>
+                  <span class="feature-meta">{{ related.date }}</span>
+                </div>
+
+                <div class="feature-body">
+                  <h3>{{ related.title }}</h3>
+                  <p>{{ related.description }}</p>
+                </div>
+
+                <div class="feature-bottom">
+                  <a class="btn btn-secondary btn-sm" href="/articles/{{ related.slug }}/">Read article</a>
+                </div>
+              </article>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+    </article>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+---
+layout: base.njk
+title: Articles
+description: Read practical SEO and content guides on UD Marketing Tools.
+permalink: /articles/
+---
+
+<section class="page-hero page-hero-compact">
+  <div class="container">
+    <div class="page-hero-copy">
+      <span class="page-kicker">Articles</span>
+      <h1>Practical marketing guides for clearer writing, better SEO, and stronger page performance.</h1>
+      <p class="page-hero-lead">
+        Explore simple, actionable articles designed to work together with the tools on UD Marketing Tools.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight articles-index-section">
+  <div class="container">
+    <div class="section-head section-head-split">
+      <div>
+        <span class="mini-label">Latest guides</span>
+        <h2 class="section-title">All articles</h2>
+      </div>
+      <p class="section-desc">
+        Browse practical writing, SEO, and content optimization guides pulled automatically from your articles data.
+      </p>
+    </div>
+
+    <div class="feature-grid articles-grid">
+      {% for article in articles | reverse %}
+      <article class="feature-card article-card article-card-archive">
+        <div class="feature-top">
+          <span class="feature-tag">Article</span>
+          <span class="feature-meta">{{ article.date }}</span>
+        </div>
+
+        <div class="feature-body">
+          <h3>{{ article.title }}</h3>
+          <p>{{ article.description }}</p>
+        </div>
+
+        <div class="feature-bottom">
+          <a class="btn btn-secondary btn-sm" href="/articles/{{ article.slug }}/">Read article</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

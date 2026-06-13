@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Word Counter",
+    "slug": "word-counter",
+    "url": "/tools/word-counter/",
+    "description": "Check word count, character count, sentence count, paragraph count, and estimated reading time for any text.",
+    "category": "Writing Tool",
+    "featured": true,
+    "status": "live",
+    "cta": "Open Tool",
+    "relatedArticles": [
+      "readability-score-guide",
+      "keyword-density-guide"
+    ]
+  },
+  {
+    "name": "Readability Checker",
+    "slug": "readability-checker",
+    "url": "/tools/readability-checker/",
+    "description": "Review how easy your text is to read and improve clarity for blogs, academic writing, emails, and web content.",
+    "category": "Content Clarity",
+    "featured": true,
+    "status": "live",
+    "cta": "Open Tool",
+    "relatedArticles": [
+      "readability-score-guide"
+    ]
+  },
+  {
+    "name": "Keyword Density Checker",
+    "slug": "keyword-density-checker",
+    "url": "/tools/keyword-density-checker/",
+    "description": "Review keyword frequency in content and identify overuse, underuse, or imbalance in search-focused copy.",
+    "category": "SEO Review",
+    "featured": true,
+    "status": "live",
+    "cta": "Open Tool",
+    "relatedArticles": [
+      "keyword-density-guide"
+    ]
+  },
+  {
+    "name": "Meta Tag Generator",
+    "slug": "meta-tag-generator",
+    "url": "/tools/meta-tag-generator/",
+    "description": "Create clean meta titles, descriptions, and essential head tags for pages that need better search presentation.",
+    "category": "Metadata Tool",
+    "featured": true,
+    "status": "live",
+    "cta": "Open Tool",
+    "relatedArticles": [
+      "meta-tags-guide"
+    ]
+  },
+  {
+    "name": "CPC & ROAS Calculator",
+    "slug": "cpc-roas-calculator",
+    "url": "/tools/cpc-roas-calculator/",
+    "description": "Estimate campaign efficiency, ad spend performance, and return on ad spend for practical decision-making.",
+    "category": "Ad Metrics",
+    "featured": true,
+    "status": "live",
+    "cta": "Open Tool",
+    "relatedArticles": []
+  },
+  {
+    "name": "UTM Builder",
+    "slug": "utm-builder",
+    "url": "/tools/utm-builder/",
+    "description": "Build trackable links for paid campaigns, social posts, email promotions, and marketing experiments.",
+    "category": "Campaign Tracking",
+    "featured": true,
+    "status": "live",
+    "cta": "Open Tool",
+    "relatedArticles": []
+  },
+  {
+    "name": "QR Code Generator",
+    "slug": "qr-code-generator",
+    "url": "/tools/qr-code-generator/",
+    "description": "Generate QR codes for links, landing pages, forms, promotions, product pages, and campaign access points.",
+    "category": "Utility Tool",
+    "featured": false,
+    "status": "live",
+    "cta": "Open Tool",
+    "relatedArticles": []
+  },
+  {
+    "name": "QR / Barcode Scanner",
+    "slug": "qr-barcode-scanner",
+    "url": "/tools/qr-barcode-scanner/",
+    "description": "Scan QR codes and supported barcodes through mobile or desktop camera workflows where HTTPS is available.",
+    "category": "Utility Tool",
+    "featured": false,
+    "status": "live",
+    "cta": "Open Tool",
+    "relatedArticles": []
+  }
+]

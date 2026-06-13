@@ -1,0 +1,112 @@
+---
+layout: base.njk
+pagination:
+  data: tools
+  size: 1
+  alias: tool
+permalink: "/tools/{{ tool.slug }}/"
+title: "{{ tool.name }}"
+description: "{{ tool.description }}"
+---
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">{{ tool.category }}</span>
+    <h1>{{ tool.name }}</h1>
+    <p>
+      {{ tool.description }}
+    </p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="page-grid">
+      <div>
+        <div class="tool-panel">
+          <h2>Use this tool</h2>
+          <p class="muted">
+            This page is generated from shared tool data. The tool interface below can be customized for each specific tool.
+          </p>
+
+          {% if tool.slug == "word-counter" %}
+            <div class="form-group">
+              <label for="textInput">Your text</label>
+              <textarea id="textInput" class="tool-input" placeholder="Paste your text here..."></textarea>
+            </div>
+
+            <div class="hero-actions" style="margin-bottom:0;">
+              <button id="clearBtn" class="btn btn-secondary" type="button">Clear Text</button>
+              <button id="sampleBtn" class="btn btn-primary" type="button">Load Example</button>
+            </div>
+
+            <div class="results-grid">
+              <div class="result-box">
+                <strong id="wordCount">0</strong>
+                <span>Words</span>
+              </div>
+              <div class="result-box">
+                <strong id="charCount">0</strong>
+                <span>Characters</span>
+              </div>
+              <div class="result-box">
+                <strong id="charNoSpaceCount">0</strong>
+                <span>Characters without spaces</span>
+              </div>
+              <div class="result-box">
+                <strong id="sentenceCount">0</strong>
+                <span>Sentences</span>
+              </div>
+              <div class="result-box">
+                <strong id="paragraphCount">0</strong>
+                <span>Paragraphs</span>
+              </div>
+              <div class="result-box">
+                <strong id="readingTime">0 min</strong>
+                <span>Reading time</span>
+              </div>
+              <div class="result-box">
+                <strong id="speakingTime">0 min</strong>
+                <span>Speaking time</span>
+              </div>
+              <div class="result-box">
+                <strong id="avgWordsPerSentence">0</strong>
+                <span>Avg. words / sentence</span>
+              </div>
+            </div>
+          {% else %}
+            <div class="content-card">
+              <p>
+                The dedicated interface for {{ tool.name }} will be added in the next migration step.
+              </p>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="content-card" style="margin-top:24px;">
+          <h2>About this tool</h2>
+          <p>
+            {{ tool.description }}
+          </p>
+        </div>
+      </div>
+
+      <aside>
+        <div class="sidebar-card">
+          <h3>Related tools</h3>
+          <ul class="list-clean">
+            {% for item in tools %}
+              {% if item.slug != tool.slug and item.featured %}
+                <li><a class="mini-link" href="{{ item.url }}">{{ item.name }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% if tool.slug == "word-counter" %}
+  <script src="/assets/js/word-counter.js"></script>
+{% endif %}
