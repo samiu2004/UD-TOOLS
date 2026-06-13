@@ -112,6 +112,51 @@ description: "{{ tool.description }}"
               </div>
             </div>
 
+          {% elif tool.slug == "readability-checker" %}
+            <div class="form-group">
+              <label for="readabilityText">Your text</label>
+              <textarea id="readabilityText" class="tool-input" placeholder="Paste your article, email, blog post, or landing page text here..."></textarea>
+            </div>
+
+            <div class="hero-actions" style="margin-bottom:0;">
+              <button id="readabilityClearBtn" class="btn btn-secondary" type="button">Clear Text</button>
+              <button id="readabilitySampleBtn" class="btn btn-primary" type="button">Load Example</button>
+            </div>
+
+            <div class="results-grid">
+              <div class="result-box">
+                <strong id="readabilityWords">0</strong>
+                <span>Words</span>
+              </div>
+              <div class="result-box">
+                <strong id="readabilitySentences">0</strong>
+                <span>Sentences</span>
+              </div>
+              <div class="result-box">
+                <strong id="readabilitySyllables">0</strong>
+                <span>Syllables</span>
+              </div>
+              <div class="result-box">
+                <strong id="fleschScore">0</strong>
+                <span>Flesch Reading Ease</span>
+              </div>
+              <div class="result-box">
+                <strong id="gradeLevel">0</strong>
+                <span>Flesch-Kincaid Grade</span>
+              </div>
+              <div class="result-box">
+                <strong id="readingLevelLabel">—</strong>
+                <span>Reading level</span>
+              </div>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Readability summary</h3>
+              <div id="readabilitySummary">
+                <p class="muted">Readability guidance will appear here after you enter text.</p>
+              </div>
+            </div>
+
           {% else %}
             <div class="content-card">
               <p>
@@ -149,4 +194,6 @@ description: "{{ tool.description }}"
   <script src="/assets/js/word-counter.js"></script>
 {% elif tool.slug == "keyword-density-checker" %}
   <script src="/assets/js/keyword-density.js"></script>
+{% elif tool.slug == "readability-checker" %}
+  <script src="/assets/js/readability-checker.js"></script>
 {% endif %}
