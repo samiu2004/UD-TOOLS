@@ -157,6 +157,68 @@ description: "{{ tool.description }}"
               </div>
             </div>
 
+          {% elif tool.slug == "meta-tag-generator" %}
+            <div class="form-group">
+              <label for="metaTitle">Page title</label>
+              <input id="metaTitle" class="tool-input" type="text" placeholder="Example: Free Keyword Density Checker for SEO Content">
+            </div>
+
+            <div class="form-group">
+              <label for="metaDescription">Meta description</label>
+              <textarea id="metaDescription" class="tool-input" placeholder="Write a concise page description for search results and social previews..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="metaCanonical">Canonical URL</label>
+              <input id="metaCanonical" class="tool-input" type="url" placeholder="https://example.com/page/">
+            </div>
+
+            <div class="form-group">
+              <label for="metaRobots">Robots</label>
+              <input id="metaRobots" class="tool-input" type="text" value="index, follow" placeholder="index, follow">
+            </div>
+
+            <div class="form-group">
+              <label for="metaOgImage">Open Graph / Twitter image URL</label>
+              <input id="metaOgImage" class="tool-input" type="url" placeholder="https://example.com/og-image.jpg">
+            </div>
+
+            <div class="hero-actions" style="margin-bottom:0;">
+              <button id="metaClearBtn" class="btn btn-secondary" type="button">Clear</button>
+              <button id="metaSampleBtn" class="btn btn-primary" type="button">Load Example</button>
+            </div>
+
+            <div class="results-grid">
+              <div class="result-box">
+                <strong id="metaTitleCount">0</strong>
+                <span>Title length</span>
+              </div>
+              <div class="result-box">
+                <strong id="metaDescriptionCount">0</strong>
+                <span>Description length</span>
+              </div>
+              <div class="result-box">
+                <strong id="metaCanonicalStatus">—</strong>
+                <span>Canonical</span>
+              </div>
+              <div class="result-box">
+                <strong id="metaImageStatus">—</strong>
+                <span>Image</span>
+              </div>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Generated meta tags</h3>
+              <textarea id="metaOutput" class="tool-input" rows="14" readonly placeholder="Your generated meta tags will appear here..."></textarea>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Tag guidance</h3>
+              <div id="metaTips">
+                <p class="muted">Guidance will appear here as you fill in the fields.</p>
+              </div>
+            </div>
+
           {% else %}
             <div class="content-card">
               <p>
@@ -196,4 +258,6 @@ description: "{{ tool.description }}"
   <script src="/assets/js/keyword-density.js"></script>
 {% elif tool.slug == "readability-checker" %}
   <script src="/assets/js/readability-checker.js"></script>
+{% elif tool.slug == "meta-tag-generator" %}
+  <script src="/assets/js/meta-tag-generator.js"></script>
 {% endif %}
