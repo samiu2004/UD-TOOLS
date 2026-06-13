@@ -88,15 +88,46 @@
         <div class="tool-panel">
           <h2>Use this tool</h2>
           <p class="muted">
-            This page is generated from shared tool data. The tool interface below can be customized for each specific tool.
+            Use the interface below to work with keyword density checker.
           </p>
 
           
-            <div class="content-card">
-              <p>
-                The dedicated interface for Keyword Density Checker will be added in the next migration step.
-              </p>
+            <div class="form-group">
+              <label for="densityText">Your text</label>
+              <textarea id="densityText" class="tool-input" placeholder="Paste your article, blog post, or landing page copy here..."></textarea>
             </div>
+
+            <div class="hero-actions" style="margin-bottom:0;">
+              <button id="densityClearBtn" class="btn btn-secondary" type="button">Clear Text</button>
+              <button id="densitySampleBtn" class="btn btn-primary" type="button">Load Example</button>
+            </div>
+
+            <div class="results-grid">
+              <div class="result-box">
+                <strong id="densityWordCount">0</strong>
+                <span>Total words</span>
+              </div>
+              <div class="result-box">
+                <strong id="densityUniqueCount">0</strong>
+                <span>Unique words</span>
+              </div>
+              <div class="result-box">
+                <strong id="densityTopKeyword">—</strong>
+                <span>Top keyword</span>
+              </div>
+              <div class="result-box">
+                <strong id="densityTopPercent">0%</strong>
+                <span>Top keyword density</span>
+              </div>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Top keyword usage</h3>
+              <div id="densityResults">
+                <p class="muted">Keyword results will appear here after you enter text.</p>
+              </div>
+            </div>
+
           
         </div>
 
@@ -146,6 +177,8 @@
   </div>
 </section>
 
+
+  <script src="/assets/js/keyword-density.js"></script>
 
   </main>
 
