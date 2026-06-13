@@ -219,6 +219,73 @@ description: "{{ tool.description }}"
               </div>
             </div>
 
+          {% elif tool.slug == "campaign-url-builder" %}
+            <div class="form-group">
+              <label for="campaignBaseUrl">Website URL</label>
+              <input id="campaignBaseUrl" class="tool-input" type="url" placeholder="https://example.com/landing-page/">
+            </div>
+
+            <div class="form-group">
+              <label for="utmSource">Campaign source</label>
+              <input id="utmSource" class="tool-input" type="text" placeholder="google, newsletter, linkedin">
+            </div>
+
+            <div class="form-group">
+              <label for="utmMedium">Campaign medium</label>
+              <input id="utmMedium" class="tool-input" type="text" placeholder="cpc, email, social">
+            </div>
+
+            <div class="form-group">
+              <label for="utmCampaign">Campaign name</label>
+              <input id="utmCampaign" class="tool-input" type="text" placeholder="summer-sale, product-launch">
+            </div>
+
+            <div class="form-group">
+              <label for="utmContent">Campaign content (optional)</label>
+              <input id="utmContent" class="tool-input" type="text" placeholder="button-a, banner-top">
+            </div>
+
+            <div class="form-group">
+              <label for="utmTerm">Campaign term (optional)</label>
+              <input id="utmTerm" class="tool-input" type="text" placeholder="seo-tool, paid-keyword">
+            </div>
+
+            <div class="hero-actions" style="margin-bottom:0;">
+              <button id="campaignClearBtn" class="btn btn-secondary" type="button">Clear</button>
+              <button id="campaignSampleBtn" class="btn btn-primary" type="button">Load Example</button>
+            </div>
+
+            <div class="results-grid">
+              <div class="result-box">
+                <strong id="campaignUrlStatus">—</strong>
+                <span>Base URL</span>
+              </div>
+              <div class="result-box">
+                <strong id="campaignRequiredStatus">—</strong>
+                <span>Required fields</span>
+              </div>
+              <div class="result-box">
+                <strong id="campaignLength">0</strong>
+                <span>URL length</span>
+              </div>
+              <div class="result-box">
+                <strong id="campaignParamCount">0</strong>
+                <span>UTM fields used</span>
+              </div>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Generated campaign URL</h3>
+              <textarea id="campaignOutput" class="tool-input" rows="6" readonly placeholder="Your campaign URL will appear here..."></textarea>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Tracking guidance</h3>
+              <div id="campaignTips">
+                <p class="muted">Tracking guidance will appear here as you fill in the fields.</p>
+              </div>
+            </div>
+
           {% else %}
             <div class="content-card">
               <p>
@@ -260,4 +327,6 @@ description: "{{ tool.description }}"
   <script src="/assets/js/readability-checker.js"></script>
 {% elif tool.slug == "meta-tag-generator" %}
   <script src="/assets/js/meta-tag-generator.js"></script>
+{% elif tool.slug == "campaign-url-builder" %}
+  <script src="/assets/js/campaign-url-builder.js"></script>
 {% endif %}
