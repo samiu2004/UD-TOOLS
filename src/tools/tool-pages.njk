@@ -426,6 +426,63 @@ eleventyComputed:
               </div>
             </div>
 
+          {% elif tool.slug == "qr-barcode-scanner" %}
+            <div class="hero-actions" style="margin-bottom:24px;">
+              <button id="scannerStartBtn" class="btn btn-primary" type="button">Start Camera</button>
+              <button id="scannerStopBtn" class="btn btn-secondary" type="button">Stop Camera</button>
+            </div>
+
+            <div class="form-group">
+              <label for="scannerFileInput">Upload image (QR or barcode)</label>
+              <input id="scannerFileInput" class="tool-input" type="file" accept="image/*">
+            </div>
+
+            <div class="results-grid">
+              <div class="result-box">
+                <strong id="scannerSupportStatus">Checking…</strong>
+                <span>Browser support</span>
+              </div>
+              <div class="result-box">
+                <strong id="scannerCameraStatus">Idle</strong>
+                <span>Camera</span>
+              </div>
+              <div class="result-box">
+                <strong id="scannerDetectedFormat">—</strong>
+                <span>Format</span>
+              </div>
+              <div class="result-box">
+                <strong id="scannerDetectionMode">—</strong>
+                <span>Detection mode</span>
+              </div>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Live scanner</h3>
+              <div style="position:relative; overflow:hidden; border-radius:16px; background:#000;">
+                <video id="scannerVideo" playsinline muted style="width:100%; min-height:280px; background:#000;"></video>
+              </div>
+              <p class="muted" style="margin-top:12px;">Point your camera at a QR code or supported barcode once scanning starts.</p>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Uploaded image preview</h3>
+              <div id="scannerImagePreview" class="content-card" style="min-height:220px; display:flex; align-items:center; justify-content:center; background:var(--color-surface-2);">
+                <p class="muted">Upload an image to scan a QR code or barcode without using the camera.</p>
+              </div>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Decoded result</h3>
+              <textarea id="scannerResult" class="tool-input" rows="6" readonly placeholder="Scanned content will appear here..."></textarea>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Scanner guidance</h3>
+              <div id="scannerTips">
+                <p class="muted">Scanner tips and support notes will appear here.</p>
+              </div>
+            </div>
+
           {% else %}
             <div class="content-card">
               <p>
@@ -473,4 +530,7 @@ eleventyComputed:
   <script src="/assets/js/campaign-url-builder.js"></script>
 {% elif tool.slug == "qr-code-generator" %}
   <script src="/assets/js/qr-code-generator.js"></script>
+{% elif tool.slug == "qr-barcode-scanner" %}
+  <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
+  <script src="/assets/js/qr-barcode-scanner.js"></script>
 {% endif %}
