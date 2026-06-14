@@ -21,12 +21,12 @@
     </button>
 
     <nav class="nav" id="site-nav" aria-label="Main navigation" data-nav>
-      <a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a>
-      <a href="/tools/" class="{% if '/tools/' in page.url %}active{% endif %}">Tools</a>
-      <a href="/articles/" class="{% if '/articles/' in page.url %}active{% endif %}">Articles</a>
-      <a href="/about/" class="{% if page.url == '/about/' %}active{% endif %}">About</a>
-      <a href="/contact/" class="{% if page.url == '/contact/' %}active{% endif %}">Contact</a>
-    </nav>
+  <a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a>
+  <a href="/tools/" class="{% if page.url == '/tools/' or page.url.startsWith('/tools/') %}active{% endif %}">Tools</a>
+  <a href="/articles/" class="{% if page.url == '/articles/' or page.url.startsWith('/articles/') %}active{% endif %}">Articles</a>
+  <a href="/about/" class="{% if page.url == '/about/' %}active{% endif %}">About</a>
+  <a href="/contact/" class="{% if page.url == '/contact/' %}active{% endif %}">Contact</a>
+</nav>
   </div>
 </header>
 
