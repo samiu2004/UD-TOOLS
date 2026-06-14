@@ -220,6 +220,66 @@ eleventyComputed:
               </div>
             </div>
 
+          {% elif tool.slug == "cpc-roas-calculator" %}
+            <div class="form-group">
+              <label for="adSpend">Ad spend</label>
+              <input id="adSpend" class="tool-input" type="number" min="0" step="0.01" placeholder="1000">
+            </div>
+
+            <div class="form-group">
+              <label for="clicks">Clicks</label>
+              <input id="clicks" class="tool-input" type="number" min="0" step="1" placeholder="500">
+            </div>
+
+            <div class="form-group">
+              <label for="conversions">Conversions</label>
+              <input id="conversions" class="tool-input" type="number" min="0" step="1" placeholder="25">
+            </div>
+
+            <div class="form-group">
+              <label for="revenue">Revenue from ads</label>
+              <input id="revenue" class="tool-input" type="number" min="0" step="0.01" placeholder="4000">
+            </div>
+
+            <div class="hero-actions" style="margin-bottom:0;">
+              <button id="cpcClearBtn" class="btn btn-secondary" type="button">Clear</button>
+              <button id="cpcSampleBtn" class="btn btn-primary" type="button">Load Example</button>
+            </div>
+
+            <div class="results-grid">
+              <div class="result-box">
+                <strong id="calcCpc">0.00</strong>
+                <span>CPC</span>
+              </div>
+              <div class="result-box">
+                <strong id="calcCpa">0.00</strong>
+                <span>CPA</span>
+              </div>
+              <div class="result-box">
+                <strong id="calcConvRate">0%</strong>
+                <span>Conversion rate</span>
+              </div>
+              <div class="result-box">
+                <strong id="calcRoas">0x</strong>
+                <span>ROAS</span>
+              </div>
+              <div class="result-box">
+                <strong id="calcRoasPercent">0%</strong>
+                <span>ROAS %</span>
+              </div>
+              <div class="result-box">
+                <strong id="calcProfit">0.00</strong>
+                <span>Revenue minus spend</span>
+              </div>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Performance summary</h3>
+              <div id="cpcSummary">
+                <p class="muted">Campaign guidance will appear here as you fill in the fields.</p>
+              </div>
+            </div>
+
           {% elif tool.slug == "utm-builder" %}
             <div class="form-group">
               <label for="campaignBaseUrl">Website URL</label>
@@ -328,6 +388,8 @@ eleventyComputed:
   <script src="/assets/js/readability-checker.js"></script>
 {% elif tool.slug == "meta-tag-generator" %}
   <script src="/assets/js/meta-tag-generator.js"></script>
+{% elif tool.slug == "cpc-roas-calculator" %}
+  <script src="/assets/js/cpc-roas-calculator.js"></script>
 {% elif tool.slug == "utm-builder" %}
   <script src="/assets/js/campaign-url-builder.js"></script>
 {% endif %}
