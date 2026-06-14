@@ -347,6 +347,85 @@ eleventyComputed:
               </div>
             </div>
 
+          {% elif tool.slug == "qr-code-generator" %}
+            <div class="form-group">
+              <label for="qrContent">Content to encode</label>
+              <textarea id="qrContent" class="tool-input" placeholder="Enter a URL, message, phone number, email, or campaign link..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="qrSize">QR size</label>
+              <select id="qrSize" class="tool-input">
+                <option value="200">200 × 200</option>
+                <option value="300" selected>300 × 300</option>
+                <option value="400">400 × 400</option>
+                <option value="600">600 × 600</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="qrErrorLevel">Error correction</label>
+              <select id="qrErrorLevel" class="tool-input">
+                <option value="L">Low (7%)</option>
+                <option value="M" selected>Medium (15%)</option>
+                <option value="Q">Quartile (25%)</option>
+                <option value="H">High (30%)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="qrMargin">Quiet zone / margin</label>
+              <select id="qrMargin" class="tool-input">
+                <option value="1">1 module</option>
+                <option value="2">2 modules</option>
+                <option value="4" selected>4 modules</option>
+                <option value="8">8 modules</option>
+              </select>
+            </div>
+
+            <div class="hero-actions" style="margin-bottom:0;">
+              <button id="qrClearBtn" class="btn btn-secondary" type="button">Clear</button>
+              <button id="qrSampleBtn" class="btn btn-primary" type="button">Load Example</button>
+            </div>
+
+            <div class="results-grid">
+              <div class="result-box">
+                <strong id="qrContentStatus">—</strong>
+                <span>Content</span>
+              </div>
+              <div class="result-box">
+                <strong id="qrSelectedSize">300</strong>
+                <span>Size</span>
+              </div>
+              <div class="result-box">
+                <strong id="qrSelectedLevel">M</strong>
+                <span>Error correction</span>
+              </div>
+              <div class="result-box">
+                <strong id="qrSelectedMargin">4</strong>
+                <span>Margin</span>
+              </div>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>Generated QR code</h3>
+              <div id="qrPreview" class="content-card" style="min-height:320px; display:flex; align-items:center; justify-content:center; background:var(--color-surface-2);">
+                <p class="muted">Your QR code preview will appear here.</p>
+              </div>
+            </div>
+
+            <div class="hero-actions" style="margin-top:24px; margin-bottom:0;">
+              <button id="qrDownloadPngBtn" class="btn btn-primary" type="button">Download PNG</button>
+              <button id="qrDownloadSvgBtn" class="btn btn-secondary" type="button">Download SVG</button>
+            </div>
+
+            <div class="content-card" style="margin-top:24px;">
+              <h3>QR guidance</h3>
+              <div id="qrTips">
+                <p class="muted">QR best-practice guidance will appear here as you fill in the fields.</p>
+              </div>
+            </div>
+
           {% else %}
             <div class="content-card">
               <p>
@@ -392,4 +471,6 @@ eleventyComputed:
   <script src="/assets/js/cpc-roas-calculator.js"></script>
 {% elif tool.slug == "utm-builder" %}
   <script src="/assets/js/campaign-url-builder.js"></script>
+{% elif tool.slug == "qr-code-generator" %}
+  <script src="/assets/js/qr-code-generator.js"></script>
 {% endif %}
