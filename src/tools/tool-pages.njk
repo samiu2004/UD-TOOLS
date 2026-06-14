@@ -5,8 +5,9 @@ pagination:
   size: 1
   alias: tool
 permalink: "/tools/{{ tool.slug }}/"
-title: "{{ tool.name }}"
-description: "{{ tool.description }}"
+eleventyComputed:
+  title: "{{ tool.name }}"
+  description: "{{ tool.description }}"
 ---
 
 <section class="page-hero">
@@ -219,7 +220,7 @@ description: "{{ tool.description }}"
               </div>
             </div>
 
-          {% elif tool.slug == "campaign-url-builder" %}
+          {% elif tool.slug == "utm-builder" %}
             <div class="form-group">
               <label for="campaignBaseUrl">Website URL</label>
               <input id="campaignBaseUrl" class="tool-input" type="url" placeholder="https://example.com/landing-page/">
@@ -327,6 +328,6 @@ description: "{{ tool.description }}"
   <script src="/assets/js/readability-checker.js"></script>
 {% elif tool.slug == "meta-tag-generator" %}
   <script src="/assets/js/meta-tag-generator.js"></script>
-{% elif tool.slug == "campaign-url-builder" %}
+{% elif tool.slug == "utm-builder" %}
   <script src="/assets/js/campaign-url-builder.js"></script>
 {% endif %}
