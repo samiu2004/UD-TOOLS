@@ -1046,6 +1046,50 @@ textarea.tool-input {
   background: var(--surface-soft);
 }
 
+.faq-section .section-head {
+  margin-bottom: 18px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fff;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  padding: 16px 18px;
+  color: var(--text);
+  font-weight: 800;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  float: right;
+  color: var(--primary);
+  font-weight: 900;
+}
+
+.faq-item[open] summary::after {
+  content: "-";
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 18px 18px;
+  color: var(--muted);
+}
+
 .list-clean {
   list-style: none;
   margin: 0;

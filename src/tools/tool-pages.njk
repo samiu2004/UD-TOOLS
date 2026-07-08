@@ -506,6 +506,25 @@ eleventyComputed:
             {{ tool.description }}
           </p>
         </div>
+
+        {% if tool.faq %}
+          <section class="content-card faq-section" style="margin-top:24px;">
+            <div class="section-head">
+              <span class="eyebrow">FAQ</span>
+              <h2>Frequently asked questions</h2>
+              <p class="section-desc">Quick answers for visitors using {{ tool.name }}.</p>
+            </div>
+
+            <div class="faq-list">
+              {% for item in tool.faq %}
+                <details class="faq-item">
+                  <summary>{{ item.question }}</summary>
+                  <p>{{ item.answer }}</p>
+                </details>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
       </div>
 
       <aside>
@@ -541,4 +560,25 @@ eleventyComputed:
 {% elif tool.slug == "qr-barcode-scanner" %}
   <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
   <script src="/assets/js/qr-barcode-scanner.js"></script>
+{% endif %}
+
+{% if tool.faq %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in tool.faq %}
+    {
+      "@type": "Question",
+      "name": "{{ item.question }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ item.answer }}"
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
 {% endif %}

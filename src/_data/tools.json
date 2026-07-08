@@ -8,6 +8,20 @@
     "featured": true,
     "status": "live",
     "cta": "Open Tool",
+    "faq": [
+      {
+        "question": "What can I check with the Word Counter?",
+        "answer": "You can check total words, characters, characters without spaces, sentences, paragraphs, reading time, speaking time, and average words per sentence."
+      },
+      {
+        "question": "Does the Word Counter save my text?",
+        "answer": "No. The tool runs in your browser and is designed for quick private checks without an account."
+      },
+      {
+        "question": "When should I use a word counter?",
+        "answer": "Use it when editing blog posts, essays, landing pages, emails, product descriptions, or social copy that needs a specific length."
+      }
+    ],
     "relatedArticles": [
       "readability-score-guide",
       "keyword-density-guide"
@@ -22,6 +36,20 @@
     "featured": true,
     "status": "live",
     "cta": "Open Tool",
+    "faq": [
+      {
+        "question": "What does the Readability Checker measure?",
+        "answer": "It reviews words, sentences, syllables, Flesch Reading Ease, Flesch-Kincaid Grade, and a simple reading level label."
+      },
+      {
+        "question": "What readability score should I aim for?",
+        "answer": "For general web content, a clear and accessible score is usually better than a complex one. Match the reading level to your audience."
+      },
+      {
+        "question": "Can readability affect SEO?",
+        "answer": "Clear writing can improve user experience, time on page, and conversions, which can support better content performance."
+      }
+    ],
     "relatedArticles": [
       "readability-score-guide"
     ]
@@ -35,6 +63,20 @@
     "featured": true,
     "status": "live",
     "cta": "Open Tool",
+    "faq": [
+      {
+        "question": "What is keyword density?",
+        "answer": "Keyword density shows how often a word or phrase appears compared with the total word count of your content."
+      },
+      {
+        "question": "Is there a perfect keyword density for SEO?",
+        "answer": "No single percentage guarantees rankings. Use density as a diagnostic to catch repetition and keep your writing natural."
+      },
+      {
+        "question": "What does this checker help me find?",
+        "answer": "It helps identify repeated terms, top keywords, unique word count, and possible overuse in SEO-focused content."
+      }
+    ],
     "relatedArticles": [
       "keyword-density-guide"
     ]
@@ -48,6 +90,20 @@
     "featured": true,
     "status": "live",
     "cta": "Open Tool",
+    "faq": [
+      {
+        "question": "What meta tags can this tool generate?",
+        "answer": "It can generate title, description, canonical, robots, Open Graph, and Twitter card tags for a web page."
+      },
+      {
+        "question": "How long should a meta title be?",
+        "answer": "A practical target is usually around 50 to 60 characters so the title stays clear in search results."
+      },
+      {
+        "question": "Why do meta descriptions matter?",
+        "answer": "Meta descriptions help set expectations in search results and can improve click-through rate when they are specific and useful."
+      }
+    ],
     "relatedArticles": [
       "meta-tags-guide"
     ]
@@ -61,6 +117,20 @@
     "featured": true,
     "status": "live",
     "cta": "Open Tool",
+    "faq": [
+      {
+        "question": "What is CPC?",
+        "answer": "CPC means cost per click. It shows how much you pay on average for each click from an ad campaign."
+      },
+      {
+        "question": "What is ROAS?",
+        "answer": "ROAS means return on ad spend. It compares campaign revenue against ad spend to estimate efficiency."
+      },
+      {
+        "question": "What numbers do I need for this calculator?",
+        "answer": "Enter ad spend, clicks, conversions, and revenue to calculate CPC, CPA, conversion rate, ROAS, and profit."
+      }
+    ],
     "relatedArticles": []
   },
   {
@@ -72,6 +142,20 @@
     "featured": true,
     "status": "live",
     "cta": "Open Tool",
+    "faq": [
+      {
+        "question": "What is a UTM link?",
+        "answer": "A UTM link is a normal URL with tracking parameters added so analytics tools can identify campaign source, medium, and name."
+      },
+      {
+        "question": "Which UTM fields are required?",
+        "answer": "The most important fields are source, medium, and campaign. Content and term are optional for more detailed tracking."
+      },
+      {
+        "question": "When should I use the UTM Builder?",
+        "answer": "Use it before sharing links in email, ads, social posts, newsletters, or partnerships where campaign tracking matters."
+      }
+    ],
     "relatedArticles": []
   },
   {
@@ -83,6 +167,20 @@
     "featured": false,
     "status": "live",
     "cta": "Open Tool",
+    "faq": [
+      {
+        "question": "What can I put inside a QR code?",
+        "answer": "You can encode URLs, campaign links, messages, email addresses, phone numbers, forms, and other short text content."
+      },
+      {
+        "question": "Which QR size should I choose?",
+        "answer": "Use a larger size for print or posters, and keep enough margin around the code so phones can scan it reliably."
+      },
+      {
+        "question": "Can I download the QR code?",
+        "answer": "Yes. The tool supports downloading generated QR codes as PNG or SVG files."
+      }
+    ],
     "relatedArticles": []
   },
   {
@@ -94,6 +192,20 @@
     "featured": false,
     "status": "live",
     "cta": "Open Tool",
+    "faq": [
+      {
+        "question": "Can this scanner use my camera?",
+        "answer": "Yes, supported browsers can scan QR codes through the camera when the site is opened over HTTPS."
+      },
+      {
+        "question": "Can I scan an uploaded image?",
+        "answer": "Yes. You can upload an image containing a QR code or supported barcode and the tool will try to decode it."
+      },
+      {
+        "question": "Why might scanning fail?",
+        "answer": "Scanning can fail when the image is blurry, too small, poorly lit, cropped, or uses a barcode format the browser does not support."
+      }
+    ],
     "relatedArticles": []
   }
 ]
