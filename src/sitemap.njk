@@ -5,12 +5,28 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{% for page in collections.all %}
-  {% if page.url and not page.data.eleventyExcludeFromCollections %}
+{% set staticPages = [
+  '/',
+  '/tools/',
+  '/articles/',
+  '/about/',
+  '/contact/',
+  '/privacy/',
+  '/terms/'
+] %}
+{% for url in staticPages %}
   <url>
-    <loc>https://udmarketing.online{{ page.url }}</loc>
-    <lastmod>{{ page.date.toISOString() }}</lastmod>
+    <loc>{{ site.url }}{{ url }}</loc>
   </url>
-  {% endif %}
+{% endfor %}
+{% for tool in tools %}
+  <url>
+    <loc>{{ site.url }}{{ tool.url }}</loc>
+  </url>
+{% endfor %}
+{% for article in articles %}
+  <url>
+    <loc>{{ site.url }}/articles/{{ article.slug }}/</loc>
+  </url>
 {% endfor %}
 </urlset>
