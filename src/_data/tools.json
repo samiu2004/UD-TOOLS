@@ -156,7 +156,13 @@
         "answer": "Use it before sharing links in email, ads, social posts, newsletters, or partnerships where campaign tracking matters."
       }
     ],
-    "relatedArticles": []
+    "relatedArticles": [
+      "what-is-utm-tracking",
+      "what-are-utm-parameters",
+      "how-to-create-a-tracking-url",
+      "how-to-use-utm-builder-for-google-analytics",
+      "utm-builder-vs-campaign-url-builder"
+    ]
   },
   {
     "name": "QR Code Generator",
