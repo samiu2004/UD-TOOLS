@@ -1,16 +1,16 @@
 ---
 layout: base.njk
-title: Tools
-description: Explore SEO, content, campaign, and utility tools on UD Marketing Tools.
+title: Free Marketing Tools
+description: Explore free SEO, writing, campaign, QR, and marketing utility tools on UD Marketing Tools.
 permalink: /tools/
 ---
 
 <section class="page-hero">
   <div class="container">
     <span class="eyebrow">Tools Directory</span>
-    <h1>Explore practical tools for content, SEO, campaigns, and utility work.</h1>
+    <h1>Free tools for content, SEO, campaigns, and QR workflows.</h1>
     <p>
-      Browse the full set of tools available on UD Marketing Tools. Core tools appear first, followed by secondary utility tools.
+      Browse fast, focused tools for daily marketing tasks. Core writing and SEO tools appear first, followed by campaign and utility workflows.
     </p>
   </div>
 </section>
@@ -19,27 +19,26 @@ permalink: /tools/
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">All Tools</span>
-      <h2 class="section-title">Core and supporting tools in one place.</h2>
+      <h2 class="section-title">Choose the job you need to finish.</h2>
       <p class="section-desc">
-        These cards are generated from shared tool data, making the tools page easier to maintain over time.
+        Each tool has a focused interface, a clean URL, and supporting guidance so visitors can act quickly.
       </p>
     </div>
 
-    <div class="grid-3">
+    <div class="feature-grid">
       {% for tool in tools %}
-        <article class="card card-pad lift">
-          <span class="eyebrow">{{ tool.category }}</span>
-          <h3>{{ tool.name }}</h3>
-          <p>{{ tool.description }}</p>
-
-          {% if tool.featured %}
-            <p class="muted">Priority tool</p>
-          {% else %}
-            <p class="muted">Supporting utility</p>
-          {% endif %}
-
-          <div class="tool-links-row">
-            <a href="{{ tool.url }}" class="btn btn-primary">{{ tool.cta }}</a>
+        <article class="feature-card lift">
+          <div class="feature-top">
+            <span class="feature-tag">{{ tool.category }}</span>
+            <span class="status-dot">{{ "Core" if tool.featured else "Utility" }}</span>
+          </div>
+          <div class="feature-body">
+            <h3>{{ tool.name }}</h3>
+            <p>{{ tool.description }}</p>
+          </div>
+          <div class="feature-bottom">
+            <span class="feature-meta">Free to use</span>
+            <a href="{{ tool.url }}" class="btn btn-primary btn-sm">{{ tool.cta }}</a>
           </div>
         </article>
       {% endfor %}

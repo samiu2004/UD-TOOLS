@@ -12,11 +12,19 @@ eleventyComputed:
 
 <section class="page-hero">
   <div class="container">
-    <span class="eyebrow">{{ tool.category }}</span>
-    <h1>{{ tool.name }}</h1>
-    <p>
-      {{ tool.description }}
-    </p>
+    <div class="tool-hero">
+      <div>
+        <span class="eyebrow">{{ tool.category }}</span>
+        <h1>{{ tool.name }}</h1>
+        <p class="page-hero-lead">
+          {{ tool.description }}
+        </p>
+      </div>
+      <div class="tool-hero-note">
+        <strong>Free to use</strong>
+        <span>No account required. Built for quick browser workflows.</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -27,7 +35,7 @@ eleventyComputed:
         <div class="tool-panel">
           <h2>Use this tool</h2>
           <p class="muted">
-            Use the interface below to work with {{ tool.name | lower }}.
+            Enter your inputs below and the results will update in the browser.
           </p>
 
           {% if tool.slug == "word-counter" %}
@@ -97,7 +105,7 @@ eleventyComputed:
                 <span>Unique words</span>
               </div>
               <div class="result-box">
-                <strong id="densityTopKeyword">—</strong>
+                <strong id="densityTopKeyword">-</strong>
                 <span>Top keyword</span>
               </div>
               <div class="result-box">
@@ -146,7 +154,7 @@ eleventyComputed:
                 <span>Flesch-Kincaid Grade</span>
               </div>
               <div class="result-box">
-                <strong id="readingLevelLabel">—</strong>
+                <strong id="readingLevelLabel">-</strong>
                 <span>Reading level</span>
               </div>
             </div>
@@ -199,11 +207,11 @@ eleventyComputed:
                 <span>Description length</span>
               </div>
               <div class="result-box">
-                <strong id="metaCanonicalStatus">—</strong>
+                <strong id="metaCanonicalStatus">-</strong>
                 <span>Canonical</span>
               </div>
               <div class="result-box">
-                <strong id="metaImageStatus">—</strong>
+                <strong id="metaImageStatus">-</strong>
                 <span>Image</span>
               </div>
             </div>
@@ -318,11 +326,11 @@ eleventyComputed:
 
             <div class="results-grid">
               <div class="result-box">
-                <strong id="campaignUrlStatus">—</strong>
+                <strong id="campaignUrlStatus">-</strong>
                 <span>Base URL</span>
               </div>
               <div class="result-box">
-                <strong id="campaignRequiredStatus">—</strong>
+                <strong id="campaignRequiredStatus">-</strong>
                 <span>Required fields</span>
               </div>
               <div class="result-box">
@@ -356,10 +364,10 @@ eleventyComputed:
             <div class="form-group">
               <label for="qrSize">QR size</label>
               <select id="qrSize" class="tool-input">
-                <option value="200">200 × 200</option>
-                <option value="300" selected>300 × 300</option>
-                <option value="400">400 × 400</option>
-                <option value="600">600 × 600</option>
+                <option value="200">200 x 200</option>
+                <option value="300" selected>300 x 300</option>
+                <option value="400">400 x 400</option>
+                <option value="600">600 x 600</option>
               </select>
             </div>
 
@@ -390,7 +398,7 @@ eleventyComputed:
 
             <div class="results-grid">
               <div class="result-box">
-                <strong id="qrContentStatus">—</strong>
+                <strong id="qrContentStatus">-</strong>
                 <span>Content</span>
               </div>
               <div class="result-box">
@@ -409,7 +417,7 @@ eleventyComputed:
 
             <div class="content-card" style="margin-top:24px;">
               <h3>Generated QR code</h3>
-              <div id="qrPreview" class="content-card" style="min-height:320px; display:flex; align-items:center; justify-content:center; background:var(--color-surface-2);">
+              <div id="qrPreview" class="preview-box" style="min-height:320px;">
                 <p class="muted">Your QR code preview will appear here.</p>
               </div>
             </div>
@@ -447,11 +455,11 @@ eleventyComputed:
                 <span>Camera</span>
               </div>
               <div class="result-box">
-                <strong id="scannerDetectedFormat">—</strong>
+                <strong id="scannerDetectedFormat">-</strong>
                 <span>Format</span>
               </div>
               <div class="result-box">
-                <strong id="scannerDetectionMode">—</strong>
+                <strong id="scannerDetectionMode">-</strong>
                 <span>Detection mode</span>
               </div>
             </div>
@@ -466,7 +474,7 @@ eleventyComputed:
 
             <div class="content-card" style="margin-top:24px;">
               <h3>Uploaded image preview</h3>
-              <div id="scannerImagePreview" class="content-card" style="min-height:220px; display:flex; align-items:center; justify-content:center; background:var(--color-surface-2);">
+              <div id="scannerImagePreview" class="preview-box" style="min-height:220px;">
                 <p class="muted">Upload an image to scan a QR code or barcode without using the camera.</p>
               </div>
             </div>

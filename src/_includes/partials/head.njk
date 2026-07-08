@@ -1,19 +1,27 @@
 <meta charset="utf-8">
-<title>{{ title | default(site.title) }}</title>
-<meta name="description" content="{{ description | default(site.description) }}">
+{% set pageTitle = title | default(site.title) %}
+{% set pageDescription = description | default(site.description) %}
+{% set canonicalUrl = site.url + page.url %}
+{% set ogImage = site.url + (site.defaultOgImage or '/assets/images/og-image.png') %}
+<title>{% if pageTitle == site.title %}{{ site.title }}{% else %}{{ pageTitle }} | {{ site.title }}{% endif %}</title>
+<meta name="description" content="{{ pageDescription }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f766e">
 
-<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="canonical" href="{{ canonicalUrl }}">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="{{ title | default(site.title) }}">
-<meta property="og:description" content="{{ description | default(site.description) }}">
-<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDescription }}">
+<meta property="og:url" content="{{ canonicalUrl }}">
 <meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:image" content="{{ ogImage }}">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ title | default(site.title) }}">
-<meta name="twitter:description" content="{{ description | default(site.description) }}">
+<meta name="twitter:title" content="{{ pageTitle }}">
+<meta name="twitter:description" content="{{ pageDescription }}">
+<meta name="twitter:image" content="{{ ogImage }}">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="stylesheet" href="/assets/css/style.css">
