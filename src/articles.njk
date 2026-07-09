@@ -8,6 +8,7 @@ layout: base.njk
 eleventyComputed:
   title: "{{ article.title }}"
   description: "{{ article.description }}"
+  image: "{{ article.image }}"
 ---
 
 <section class="page-hero page-hero-compact">
@@ -22,6 +23,12 @@ eleventyComputed:
         <h1>{{ article.title }}</h1>
 
         <p class="article-description">{{ article.description }}</p>
+
+        {% if article.image %}
+          <figure class="article-featured-image">
+            <img src="{{ article.image }}" alt="{{ article.imageAlt or article.title }}" loading="eager" width="1200" height="630">
+          </figure>
+        {% endif %}
       </header>
 
       <div class="article-content">
