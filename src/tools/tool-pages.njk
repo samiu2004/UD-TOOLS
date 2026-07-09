@@ -506,6 +506,69 @@ eleventyComputed:
             {{ tool.description }}
           </p>
         </div>
+        {% if tool.guide %}
+          <section class="content-card tool-guide" style="margin-top:24px;">
+            <div class="section-head">
+              <span class="eyebrow">{{ tool.guide.eyebrow }}</span>
+              <h2>{{ tool.guide.title }}</h2>
+              {% for paragraph in tool.guide.intro %}
+                <p class="section-desc">{{ paragraph }}</p>
+              {% endfor %}
+            </div>
+
+            <div class="guide-block">
+              <h3>{{ tool.guide.stepsTitle }}</h3>
+              <div class="guide-steps">
+                {% for step in tool.guide.steps %}
+                  <div class="guide-step">
+                    <strong>{{ loop.index }}. {{ step.title }}</strong>
+                    <p>{{ step.text }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="guide-block">
+              <h3>{{ tool.guide.exampleTitle }}</h3>
+              <p class="muted">{{ tool.guide.exampleIntro }}</p>
+              <dl class="example-list">
+                {% for item in tool.guide.example %}
+                  <div>
+                    <dt>{{ item.label }}</dt>
+                    <dd>{{ item.value }}</dd>
+                  </div>
+                {% endfor %}
+              </dl>
+            </div>
+
+            <div class="guide-block">
+              <h3>{{ tool.guide.bestPracticesTitle }}</h3>
+              <ul class="check-list">
+                {% for item in tool.guide.bestPractices %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            {% if tool.relatedArticles %}
+              <div class="guide-block guide-related">
+                <h3>{{ tool.guide.relatedTitle }}</h3>
+                <p class="muted">{{ tool.guide.relatedText }}</p>
+                <div class="related-link-grid">
+                  {% for slug in tool.relatedArticles %}
+                    {% for article in articles %}
+                      {% if article.slug == slug %}
+                        <a href="/articles/{{ article.slug }}/">{{ article.title }}</a>
+                      {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </section>
+        {% endif %}
+
+
 
         {% if tool.faq %}
           <section class="content-card faq-section" style="margin-top:24px;">
@@ -538,6 +601,21 @@ eleventyComputed:
             {% endfor %}
           </ul>
         </div>
+
+        {% if tool.relatedArticles %}
+          <div class="sidebar-card" style="margin-top:24px;">
+            <h3>Related guides</h3>
+            <ul class="list-clean">
+              {% for slug in tool.relatedArticles %}
+                {% for article in articles %}
+                  {% if article.slug == slug %}
+                    <li><a class="mini-link" href="/articles/{{ article.slug }}/">{{ article.title }}</a></li>
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
       </aside>
     </div>
   </div>

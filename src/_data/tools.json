@@ -137,7 +137,7 @@
     "name": "UTM Builder",
     "slug": "utm-builder",
     "url": "/tools/utm-builder/",
-    "description": "Build trackable links for paid campaigns, social posts, email promotions, and marketing experiments.",
+    "description": "Build UTM tracking links for paid campaigns, social posts, email promotions, and marketing experiments with a clean campaign URL builder.",
     "category": "Campaign Tracking",
     "featured": true,
     "status": "live",
@@ -162,7 +162,73 @@
       "how-to-create-a-tracking-url",
       "how-to-use-utm-builder-for-google-analytics",
       "utm-builder-vs-campaign-url-builder"
-    ]
+    ],
+    "guide": {
+      "eyebrow": "UTM Builder Guide",
+      "title": "Create clean campaign tracking links without manual URL mistakes.",
+      "intro": [
+        "This UTM Builder helps you create tracking URLs for Google Analytics, paid ads, email campaigns, social posts, partner links, and QR campaigns. Instead of typing UTM parameters by hand, you can enter your campaign details and generate a clean URL that is easier to measure later.",
+        "Use it as a UTM Generator, UTM Link Builder, Campaign URL Builder, or Tracking Link Generator whenever you need consistent UTM tracking across marketing channels."
+      ],
+      "stepsTitle": "How to use the UTM Builder",
+      "steps": [
+        {
+          "title": "Paste the destination URL",
+          "text": "Start with the final page you want visitors to reach, such as a landing page, product page, article, signup form, or offer page."
+        },
+        {
+          "title": "Add campaign source",
+          "text": "Use the platform or sender as the source. Common examples include google, facebook, linkedin, newsletter, partner, or instagram."
+        },
+        {
+          "title": "Add campaign medium",
+          "text": "Use the channel type as the medium. Common examples include cpc, email, social, referral, display, or qr."
+        },
+        {
+          "title": "Name the campaign clearly",
+          "text": "Choose a campaign name that will still make sense later, such as summer_sale, ebook_launch, black_friday, or product_demo."
+        },
+        {
+          "title": "Copy and test the tracking URL",
+          "text": "Copy the generated URL, open it in a new tab, and confirm it loads correctly before using it in ads, emails, posts, or QR codes."
+        }
+      ],
+      "exampleTitle": "UTM campaign example",
+      "exampleIntro": "For a newsletter campaign promoting a new guide, your tracking fields could look like this:",
+      "example": [
+        {
+          "label": "Website URL",
+          "value": "https://example.com/utm-guide/"
+        },
+        {
+          "label": "utm_source",
+          "value": "newsletter"
+        },
+        {
+          "label": "utm_medium",
+          "value": "email"
+        },
+        {
+          "label": "utm_campaign",
+          "value": "utm_guide_launch"
+        },
+        {
+          "label": "utm_content",
+          "value": "hero_button"
+        }
+      ],
+      "bestPracticesTitle": "UTM tracking best practices",
+      "bestPractices": [
+        "Use lowercase names so reports do not split the same source into multiple versions.",
+        "Use underscores or hyphens instead of spaces in UTM parameters.",
+        "Keep source, medium, and campaign naming consistent across every channel.",
+        "Do not add UTM parameters to internal links on your own website.",
+        "Document your naming rules if more than one person creates campaign URLs.",
+        "Use utm_content only when you need to compare buttons, creatives, placements, or link versions."
+      ],
+      "relatedTitle": "Learn more about UTM tracking",
+      "relatedText": "These guides explain the concepts behind campaign URLs, UTM parameters, Google Analytics tracking, and tracking URL examples."
+    }
   },
   {
     "name": "QR Code Generator",
