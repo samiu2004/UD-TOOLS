@@ -2,8 +2,7 @@
 {% set pageTitle = title | default(site.title) %}
 {% set pageDescription = description | default(site.description) %}
 {% set canonicalUrl = site.url + page.url %}
-{% set pageImage = image | default(site.defaultOgImage or '/assets/images/og-image.png') %}
-{% set ogImage = site.url + pageImage %}
+{% set ogImage = site.url + (site.defaultOgImage or '/assets/images/og-image.png') %}
 <title>{% if pageTitle == site.title %}{{ site.title }}{% else %}{{ pageTitle }} | {{ site.title }}{% endif %}</title>
 <meta name="description" content="{{ pageDescription }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">

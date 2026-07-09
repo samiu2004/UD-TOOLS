@@ -63,9 +63,7 @@
     "relatedArticles": [
       "what-are-utm-parameters",
       "how-to-create-a-tracking-url"
-    ],
-    "image": "/assets/images/articles/what-is-utm-tracking.png",
-    "imageAlt": "Branded guide image for an article explaining UTM tracking and campaign links"
+    ]
   },
   {
     "title": "What Are UTM Parameters?",
@@ -76,9 +74,7 @@
     "relatedArticles": [
       "what-is-utm-tracking",
       "how-to-use-utm-builder-for-google-analytics"
-    ],
-    "image": "/assets/images/articles/what-are-utm-parameters.png",
-    "imageAlt": "Branded guide image explaining UTM parameters including source medium and campaign"
+    ]
   },
   {
     "title": "How to Create a Tracking URL",
@@ -89,9 +85,7 @@
     "relatedArticles": [
       "what-is-utm-tracking",
       "what-are-utm-parameters"
-    ],
-    "image": "/assets/images/articles/how-to-create-a-tracking-url.png",
-    "imageAlt": "Branded guide image for creating a tracking URL with UTM campaign fields"
+    ]
   },
   {
     "title": "How to Use UTM Builder for Google Analytics",
@@ -102,9 +96,7 @@
     "relatedArticles": [
       "what-are-utm-parameters",
       "utm-builder-vs-campaign-url-builder"
-    ],
-    "image": "/assets/images/articles/how-to-use-utm-builder-for-google-analytics.png",
-    "imageAlt": "Branded guide image for using a UTM builder with Google Analytics campaign reports"
+    ]
   },
   {
     "title": "UTM Builder vs Campaign URL Builder",
@@ -115,8 +107,6 @@
     "relatedArticles": [
       "how-to-use-utm-builder-for-google-analytics",
       "how-to-create-a-tracking-url"
-    ],
-    "image": "/assets/images/articles/utm-builder-vs-campaign-url-builder.png",
-    "imageAlt": "Branded comparison image for UTM Builder versus Campaign URL Builder"
+    ]
   }
 ]

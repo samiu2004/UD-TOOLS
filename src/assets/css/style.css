@@ -1408,17 +1408,3 @@ textarea.tool-input {
   }
 }
 
-.article-featured-image {
-  margin: 28px 0 0;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
-}
-
-.article-featured-image img {
-  width: 100%;
-  aspect-ratio: 1200 / 630;
-  object-fit: cover;
-}
