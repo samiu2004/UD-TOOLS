@@ -58,7 +58,7 @@
     "name": "Keyword Density Checker",
     "slug": "keyword-density-checker",
     "url": "/tools/keyword-density-checker/",
-    "description": "Review keyword frequency in content and identify overuse, underuse, or imbalance in search-focused copy.",
+    "description": "Use a free keyword density checker to review keyword frequency, spot repetition, and keep SEO content natural before publishing.",
     "category": "SEO Review",
     "featured": true,
     "status": "live",
@@ -78,8 +78,78 @@
       }
     ],
     "relatedArticles": [
-      "keyword-density-guide"
-    ]
+      "what-is-keyword-density",
+      "good-keyword-density-for-seo",
+      "how-to-check-keyword-density",
+      "keyword-density-vs-keyword-stuffing",
+      "how-to-use-keywords-naturally"
+    ],
+    "guide": {
+      "eyebrow": "Keyword Density Checker Guide",
+      "title": "Check keyword use without writing for robots.",
+      "intro": [
+        "This keyword density checker helps you see how often important words appear in your content. It is useful when you want to catch accidental repetition, compare keyword balance, or review an article before publishing.",
+        "Use it as a keyword density checker tool, keyword density analyzer, or SEO keyword density checker when you need a quick look at how naturally your target terms appear in a draft."
+      ],
+      "stepsTitle": "How to use the Keyword Density Checker",
+      "steps": [
+        {
+          "title": "Paste your draft",
+          "text": "Add your blog post, landing page copy, product description, or article draft into the text box."
+        },
+        {
+          "title": "Review total and unique words",
+          "text": "Start with the overall word count and unique word count so you understand the size and variety of the text."
+        },
+        {
+          "title": "Check repeated terms",
+          "text": "Look at the top words and phrases. If one term appears too often, read those sentences again and decide whether they sound natural."
+        },
+        {
+          "title": "Compare with search intent",
+          "text": "A keyword density tool can show frequency, but your judgment decides whether the page actually answers the reader’s question."
+        },
+        {
+          "title": "Edit for clarity first",
+          "text": "Use the results as a signal, not a target. Replace forced repetition with clear wording, examples, and related terms."
+        }
+      ],
+      "exampleTitle": "Keyword density example",
+      "exampleIntro": "If a 1,000 word article uses the same exact keyword 35 times, the density is 3.5 percent. That number is not automatically bad, but it is a reason to reread the page and check whether the phrasing feels forced.",
+      "example": [
+        {
+          "label": "Draft length",
+          "value": "1,000 words"
+        },
+        {
+          "label": "Target keyword",
+          "value": "keyword density checker"
+        },
+        {
+          "label": "Keyword uses",
+          "value": "12 mentions"
+        },
+        {
+          "label": "Density",
+          "value": "1.2 percent"
+        },
+        {
+          "label": "Next step",
+          "value": "Read naturally and edit only forced repetition"
+        }
+      ],
+      "bestPracticesTitle": "Keyword density best practices",
+      "bestPractices": [
+        "Do not chase a perfect keyword density percentage.",
+        "Use your main keyword in important places, then write naturally through the rest of the page.",
+        "Mix exact terms with related language when it helps the reader.",
+        "Avoid repeating the same phrase in every paragraph.",
+        "Use a keyword density calculator as a review tool, not as a writing rule.",
+        "Focus on search intent, clarity, and complete answers before keyword frequency."
+      ],
+      "relatedTitle": "Learn more about keyword density",
+      "relatedText": "These guides explain keyword density, safe SEO ranges, checking workflows, keyword stuffing, and natural keyword use."
+    }
   },
   {
     "name": "Meta Tag Generator",
