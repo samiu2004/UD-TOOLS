@@ -1,4 +1,4 @@
----
+﻿---
 pagination:
   data: articles
   size: 1
@@ -6,7 +6,7 @@ pagination:
 permalink: "/articles/{{ article.slug }}/index.html"
 layout: base.njk
 eleventyComputed:
-  title: "{{ article.title }}"
+  title: "{{ article.seoTitle or article.title }}"
   description: "{{ article.description }}"
 ---
 
@@ -84,3 +84,4 @@ eleventyComputed:
 }
 </script>
 {% endif %}
+
