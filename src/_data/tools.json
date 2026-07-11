@@ -350,7 +350,7 @@
     "name": "CPC & ROAS Calculator",
     "slug": "cpc-roas-calculator",
     "url": "/tools/cpc-roas-calculator/",
-    "description": "Estimate campaign efficiency, ad spend performance, and return on ad spend for practical decision-making.",
+    "description": "Use this free ROAS Calculator to estimate return on ad spend, CPC, CPA, conversion rate, and campaign profit from your ad results.",
     "category": "Ad Metrics",
     "featured": true,
     "status": "live",
@@ -369,67 +369,70 @@
         "answer": "Enter ad spend, clicks, conversions, and revenue to calculate CPC, CPA, conversion rate, ROAS, and profit."
       }
     ],
-    "relatedArticles": [],
+    "relatedArticles": [
+      "roas-calculator",
+      "how-to-calculate-roas",
+      "roas-formula",
+      "good-roas",
+      "roas-vs-roi"
+    ],
     "guide": {
-      "eyebrow": "CPC and ROAS Guide",
-      "title": "Measure ad spend before scaling campaigns.",
+      "eyebrow": "ROAS Calculator Guide",
+      "title": "Calculate return on ad spend before increasing your ad budget.",
       "intro": [
-        "The CPC and ROAS Calculator helps you estimate campaign efficiency from ad spend, clicks, conversions, and revenue. It is useful for paid search, paid social, display campaigns, and simple client reports.",
-        "Use the results to understand average cost per click, cost per acquisition, conversion rate, return on ad spend, and profit before deciding whether a campaign is worth scaling."
+        "The ROAS Calculator helps you turn basic campaign numbers into a clear return on ad spend result. Add your ad spend, clicks, conversions, and revenue, then review ROAS, CPC, CPA, conversion rate, and simple profit in one place.",
+        "Use it as a quick return on ad spend calculator before scaling paid search, paid social, display, or ecommerce campaigns. It is especially helpful when you want to compare campaigns using the same date range and the same revenue source."
       ],
-      "stepsTitle": "How to use the CPC and ROAS Calculator",
+      "stepsTitle": "How to use the ROAS Calculator",
       "steps": [
         {
-          "title": "Enter ad spend",
-          "text": "Add the total amount spent on the campaign during the period you are reviewing."
+          "title": "Enter your ad spend",
+          "text": "Add the total amount spent on the campaign or ad set you want to review."
         },
         {
           "title": "Add clicks and conversions",
-          "text": "Use platform or analytics data for clicks and completed actions."
+          "text": "Use the click and conversion numbers from your ad platform or analytics report."
         },
         {
-          "title": "Add revenue",
-          "text": "Enter tracked revenue from the same campaign period when available."
+          "title": "Enter campaign revenue",
+          "text": "Add the revenue connected to the same campaign period so the ROAS formula stays accurate."
         },
         {
-          "title": "Review the metrics",
-          "text": "Compare CPC, CPA, conversion rate, ROAS, and profit to decide what to change next."
+          "title": "Review ROAS and profit",
+          "text": "Use the result to decide whether the campaign is ready to scale, needs testing, or should be paused."
         }
       ],
-      "exampleTitle": "Campaign calculation example",
-      "exampleIntro": "A small ad campaign can be checked before increasing budget.",
+      "exampleTitle": "ROAS calculation example",
+      "exampleIntro": "Here is a simple campaign review using the standard ROAS formula.",
       "example": [
         {
           "label": "Ad spend",
           "value": "$1,000"
         },
         {
-          "label": "Clicks",
-          "value": "500"
-        },
-        {
-          "label": "Conversions",
-          "value": "25"
-        },
-        {
           "label": "Revenue",
           "value": "$4,000"
         },
         {
+          "label": "ROAS formula",
+          "value": "Revenue divided by ad spend"
+        },
+        {
           "label": "Result",
-          "value": "4x ROAS before other costs"
+          "value": "4x ROAS, or 400%"
         }
       ],
-      "bestPracticesTitle": "CPC and ROAS best practices",
+      "bestPracticesTitle": "ROAS calculator best practices",
       "bestPractices": [
-        "Compare campaigns using the same date range.",
-        "Review profit as well as ROAS when product costs are important.",
-        "Do not scale only because clicks are cheap; check conversions too.",
-        "Use consistent tracking links so revenue can be matched to the right campaign."
+        "Compare campaigns using the same date range and attribution window.",
+        "Review profit alongside ROAS when product cost, shipping, or service delivery costs matter.",
+        "Do not scale a campaign only because ROAS looks high; check conversion volume and data quality too.",
+        "Use UTM tracking links so revenue can be matched to the right campaign source."
       ],
-      "relatedTitle": "Related campaign guides",
-      "relatedText": "Use campaign tracking guides with this calculator to connect traffic sources with results."
-    }
+      "relatedTitle": "Related ROAS guides",
+      "relatedText": "Use these guides to understand the ROAS formula, common benchmarks, and the difference between ROAS and ROI."
+    },
+    "seoTitle": "ROAS Calculator"
   },
   {
     "name": "UTM Builder",

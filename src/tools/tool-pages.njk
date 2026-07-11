@@ -6,7 +6,7 @@ pagination:
   alias: tool
 permalink: "/tools/{{ tool.slug }}/"
 eleventyComputed:
-  title: "{{ tool.name }}"
+  title: "{{ tool.seoTitle or tool.name }}"
   description: "{{ tool.description }}"
 ---
 
