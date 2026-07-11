@@ -25,7 +25,63 @@
     "relatedArticles": [
       "readability-score-guide",
       "keyword-density-guide"
-    ]
+    ],
+    "guide": {
+      "eyebrow": "Word Counter Guide",
+      "title": "Check content length before you publish.",
+      "intro": [
+        "The Word Counter helps you review the size and structure of a draft before it goes live. Use it for blog posts, landing pages, essays, emails, product descriptions, and social captions.",
+        "It shows word count, character count, sentence count, paragraph count, reading time, speaking time, and average sentence length so you can edit with better context."
+      ],
+      "stepsTitle": "How to use the Word Counter",
+      "steps": [
+        {
+          "title": "Paste your text",
+          "text": "Add the draft you want to review into the text area."
+        },
+        {
+          "title": "Check the main counts",
+          "text": "Review total words, characters, sentences, paragraphs, and estimated reading time."
+        },
+        {
+          "title": "Compare with your goal",
+          "text": "Match the length to the platform, assignment, SEO brief, or campaign requirement."
+        },
+        {
+          "title": "Edit for clarity",
+          "text": "Trim repeated sections, split long paragraphs, or expand thin areas where the draft needs more detail."
+        }
+      ],
+      "exampleTitle": "Word count example",
+      "exampleIntro": "A short landing page draft can be reviewed quickly before publishing.",
+      "example": [
+        {
+          "label": "Draft type",
+          "value": "Landing page copy"
+        },
+        {
+          "label": "Target length",
+          "value": "500 to 800 words"
+        },
+        {
+          "label": "What to check",
+          "value": "Paragraphs, reading time, and sentence length"
+        },
+        {
+          "label": "Next step",
+          "value": "Shorten repeated copy and keep the call to action clear"
+        }
+      ],
+      "bestPracticesTitle": "Word count best practices",
+      "bestPractices": [
+        "Use word count as an editing signal, not a quality score.",
+        "Check both words and characters when writing for platforms with limits.",
+        "Review average sentence length when copy feels difficult to read.",
+        "Use paragraph count to break large blocks into easier sections."
+      ],
+      "relatedTitle": "Related writing guides",
+      "relatedText": "Use these guides to improve readability, keyword balance, and content structure."
+    }
   },
   {
     "name": "Readability Checker",
@@ -52,7 +108,63 @@
     ],
     "relatedArticles": [
       "readability-score-guide"
-    ]
+    ],
+    "guide": {
+      "eyebrow": "Readability Checker Guide",
+      "title": "Make content easier to understand.",
+      "intro": [
+        "The Readability Checker reviews how easy your writing is to read. It is useful for blog posts, academic drafts, landing pages, support content, emails, and any page where clarity matters.",
+        "Use the score as a practical editing signal. A lower grade level is not always better, but confusing sentences, dense paragraphs, and unnecessary jargon usually reduce performance."
+      ],
+      "stepsTitle": "How to use the Readability Checker",
+      "steps": [
+        {
+          "title": "Paste the draft",
+          "text": "Add the content you want to review into the checker."
+        },
+        {
+          "title": "Review the scores",
+          "text": "Look at Flesch Reading Ease, grade level, word count, sentence count, and syllable estimates."
+        },
+        {
+          "title": "Find hard sections",
+          "text": "If the score is too difficult for your audience, look for long sentences and complex phrasing."
+        },
+        {
+          "title": "Rewrite naturally",
+          "text": "Split long ideas, use clearer words, and keep paragraphs short enough to scan."
+        }
+      ],
+      "exampleTitle": "Readability example",
+      "exampleIntro": "A marketing email should usually be quick to understand.",
+      "example": [
+        {
+          "label": "Draft type",
+          "value": "Email campaign"
+        },
+        {
+          "label": "Goal",
+          "value": "Fast reading and clear action"
+        },
+        {
+          "label": "Warning sign",
+          "value": "Very long sentences or dense paragraphs"
+        },
+        {
+          "label": "Next step",
+          "value": "Shorten sentences and remove unnecessary jargon"
+        }
+      ],
+      "bestPracticesTitle": "Readability best practices",
+      "bestPractices": [
+        "Match the reading level to the audience and topic.",
+        "Use short paragraphs for web pages and mobile readers.",
+        "Read important copy out loud before publishing.",
+        "Keep technical terms only when they are useful and explained."
+      ],
+      "relatedTitle": "Related readability guides",
+      "relatedText": "Continue with practical guidance on readability scores and clearer writing."
+    }
   },
   {
     "name": "Keyword Density Checker",
@@ -176,7 +288,63 @@
     ],
     "relatedArticles": [
       "meta-tags-guide"
-    ]
+    ],
+    "guide": {
+      "eyebrow": "Meta Tag Generator Guide",
+      "title": "Create search snippets that are easier to click.",
+      "intro": [
+        "The Meta Tag Generator helps you draft page titles, meta descriptions, canonical tags, robots tags, Open Graph tags, and Twitter card tags for web pages.",
+        "Use it when publishing a new article, tool, landing page, product page, or campaign page that needs a clear search and social preview."
+      ],
+      "stepsTitle": "How to use the Meta Tag Generator",
+      "steps": [
+        {
+          "title": "Enter the page title",
+          "text": "Write a specific title that explains what the page offers."
+        },
+        {
+          "title": "Add the description",
+          "text": "Summarize the page value in natural language, usually around 120 to 155 characters."
+        },
+        {
+          "title": "Add the canonical URL",
+          "text": "Use the final public URL of the page so search engines understand the preferred version."
+        },
+        {
+          "title": "Copy the tags",
+          "text": "Review the generated code and paste it into the page head or template."
+        }
+      ],
+      "exampleTitle": "Meta tag example",
+      "exampleIntro": "A tool page needs a short title and a clear reason to click.",
+      "example": [
+        {
+          "label": "Page type",
+          "value": "Free SEO tool"
+        },
+        {
+          "label": "Title goal",
+          "value": "Describe the tool in under 60 characters"
+        },
+        {
+          "label": "Description goal",
+          "value": "Explain the benefit in one sentence"
+        },
+        {
+          "label": "Next step",
+          "value": "Check that title and description are unique"
+        }
+      ],
+      "bestPracticesTitle": "Meta tag best practices",
+      "bestPractices": [
+        "Write a unique title and description for every important page.",
+        "Put the main topic near the start of the title.",
+        "Avoid stuffing several keywords into one title.",
+        "Make the description useful enough that a searcher wants to click."
+      ],
+      "relatedTitle": "Related meta tag guides",
+      "relatedText": "Learn how titles and descriptions affect search results and click-through rate."
+    }
   },
   {
     "name": "CPC & ROAS Calculator",
@@ -201,7 +369,67 @@
         "answer": "Enter ad spend, clicks, conversions, and revenue to calculate CPC, CPA, conversion rate, ROAS, and profit."
       }
     ],
-    "relatedArticles": []
+    "relatedArticles": [],
+    "guide": {
+      "eyebrow": "CPC and ROAS Guide",
+      "title": "Measure ad spend before scaling campaigns.",
+      "intro": [
+        "The CPC and ROAS Calculator helps you estimate campaign efficiency from ad spend, clicks, conversions, and revenue. It is useful for paid search, paid social, display campaigns, and simple client reports.",
+        "Use the results to understand average cost per click, cost per acquisition, conversion rate, return on ad spend, and profit before deciding whether a campaign is worth scaling."
+      ],
+      "stepsTitle": "How to use the CPC and ROAS Calculator",
+      "steps": [
+        {
+          "title": "Enter ad spend",
+          "text": "Add the total amount spent on the campaign during the period you are reviewing."
+        },
+        {
+          "title": "Add clicks and conversions",
+          "text": "Use platform or analytics data for clicks and completed actions."
+        },
+        {
+          "title": "Add revenue",
+          "text": "Enter tracked revenue from the same campaign period when available."
+        },
+        {
+          "title": "Review the metrics",
+          "text": "Compare CPC, CPA, conversion rate, ROAS, and profit to decide what to change next."
+        }
+      ],
+      "exampleTitle": "Campaign calculation example",
+      "exampleIntro": "A small ad campaign can be checked before increasing budget.",
+      "example": [
+        {
+          "label": "Ad spend",
+          "value": "$1,000"
+        },
+        {
+          "label": "Clicks",
+          "value": "500"
+        },
+        {
+          "label": "Conversions",
+          "value": "25"
+        },
+        {
+          "label": "Revenue",
+          "value": "$4,000"
+        },
+        {
+          "label": "Result",
+          "value": "4x ROAS before other costs"
+        }
+      ],
+      "bestPracticesTitle": "CPC and ROAS best practices",
+      "bestPractices": [
+        "Compare campaigns using the same date range.",
+        "Review profit as well as ROAS when product costs are important.",
+        "Do not scale only because clicks are cheap; check conversions too.",
+        "Use consistent tracking links so revenue can be matched to the right campaign."
+      ],
+      "relatedTitle": "Related campaign guides",
+      "relatedText": "Use campaign tracking guides with this calculator to connect traffic sources with results."
+    }
   },
   {
     "name": "UTM Builder",
@@ -323,7 +551,63 @@
         "answer": "Yes. The tool supports downloading generated QR codes as PNG or SVG files."
       }
     ],
-    "relatedArticles": []
+    "relatedArticles": [],
+    "guide": {
+      "eyebrow": "QR Code Generator Guide",
+      "title": "Create scannable QR codes for campaigns and links.",
+      "intro": [
+        "The QR Code Generator creates QR codes for URLs, forms, landing pages, offers, menus, events, and campaign links. It is useful when people need to move from print, packaging, signage, or offline materials to a web page.",
+        "For marketing work, combine QR codes with UTM tracking so scans can be measured inside analytics reports."
+      ],
+      "stepsTitle": "How to use the QR Code Generator",
+      "steps": [
+        {
+          "title": "Enter the content",
+          "text": "Paste the URL, campaign link, or short text you want to encode."
+        },
+        {
+          "title": "Choose the size",
+          "text": "Use larger sizes for print, posters, flyers, and packaging."
+        },
+        {
+          "title": "Generate and test",
+          "text": "Create the QR code and scan it with a phone before publishing."
+        },
+        {
+          "title": "Download the file",
+          "text": "Save the QR code as PNG or SVG depending on where it will be used."
+        }
+      ],
+      "exampleTitle": "QR campaign example",
+      "exampleIntro": "A printed flyer can send visitors to a tracked landing page.",
+      "example": [
+        {
+          "label": "Content",
+          "value": "Landing page URL with UTM tags"
+        },
+        {
+          "label": "Use case",
+          "value": "Flyer, poster, or product insert"
+        },
+        {
+          "label": "Format",
+          "value": "SVG for print or PNG for quick sharing"
+        },
+        {
+          "label": "Next step",
+          "value": "Test scan distance and lighting"
+        }
+      ],
+      "bestPracticesTitle": "QR code best practices",
+      "bestPractices": [
+        "Always test the QR code before printing or sharing.",
+        "Keep enough white space around the code so phones can scan it.",
+        "Use a short, stable URL when possible.",
+        "Add UTM parameters when the QR code is part of a campaign."
+      ],
+      "relatedTitle": "Related QR and tracking guides",
+      "relatedText": "Use UTM Builder guides when QR scans need campaign tracking."
+    }
   },
   {
     "name": "QR / Barcode Scanner",
