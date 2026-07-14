@@ -355,6 +355,38 @@ eleventyComputed:
               </div>
             </div>
 
+            <div class="content-card utm-visual-card" style="margin-top:24px;">
+              <div class="visual-head">
+                <span class="mini-label">Campaign flow</span>
+                <h3>How a UTM link reaches Google Analytics</h3>
+              </div>
+
+              <div class="utm-flow" aria-label="UTM tracking flow from campaign click to analytics report">
+                <div class="utm-flow-step">
+                  <span class="utm-flow-icon">1</span>
+                  <strong>Campaign click</strong>
+                  <p>Email, ad, social post, QR code, or partner link</p>
+                </div>
+                <span class="utm-flow-arrow">&rarr;</span>
+                <div class="utm-flow-step">
+                  <span class="utm-flow-icon">2</span>
+                  <strong>UTM tracking URL</strong>
+                  <p><code>utm_source</code>, <code>utm_medium</code>, and <code>utm_campaign</code></p>
+                </div>
+                <span class="utm-flow-arrow">&rarr;</span>
+                <div class="utm-flow-step">
+                  <span class="utm-flow-icon">3</span>
+                  <strong>Analytics report</strong>
+                  <p>Compare source, medium, campaign, visits, and conversions</p>
+                </div>
+              </div>
+
+              <div class="utm-example-url">
+                <span>Example</span>
+                <code>example.com/offer/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=summer_sale</code>
+              </div>
+            </div>
+
           {% elif tool.slug == "qr-code-generator" %}
             <div class="form-group">
               <label for="qrContent">Content to encode</label>
