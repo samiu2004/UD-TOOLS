@@ -4,8 +4,140 @@ title: Free Marketing Tools
 description: Explore free SEO, writing, campaign, QR, and marketing utility tools on UD Marketing Tools.
 permalink: /tools/
 ---
+<style>
+  .tools-hero.tools-hero-self-contained { padding-bottom: 8px; }
+  .tools-hero-self-contained .tools-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.72fr);
+    gap: 44px;
+    align-items: center;
+  }
+  .tools-hero-self-contained .tools-hero-copy { max-width: 760px; }
+  .tools-hero-self-contained .tools-hero-panel {
+    position: relative;
+    display: block;
+    min-height: 318px;
+    padding: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    border-radius: 22px;
+    background: radial-gradient(circle at 18% 20%, rgba(20, 184, 166, 0.16), transparent 28%), radial-gradient(circle at 90% 4%, rgba(37, 99, 235, 0.14), transparent 32%), linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
+    box-shadow: 0 22px 55px rgba(15, 23, 42, 0.10);
+  }
+  .tools-hero-self-contained .tools-panel-top {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+    align-items: center;
+    max-width: 230px;
+  }
+  .tools-hero-self-contained .tools-panel-top strong { color: #111827; font-size: 1.02rem; }
+  .tools-hero-self-contained .tools-panel-top small { grid-column: 2; color: #64748b; font-weight: 700; }
+  .tools-hero-self-contained .live-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 0 7px rgba(16, 185, 129, 0.14);
+    animation: toolsLivePulse 1.9s ease-in-out infinite;
+  }
+  .tools-hero-self-contained .tools-orbit {
+    position: absolute;
+    inset: 34px 28px auto auto;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-radius: 50%;
+    animation: toolsSlowSpin 18s linear infinite;
+  }
+  .tools-hero-self-contained .tools-orbit span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2563eb;
+  }
+  .tools-hero-self-contained .tools-orbit span:nth-child(1) { top: -5px; left: 54px; }
+  .tools-hero-self-contained .tools-orbit span:nth-child(2) { right: 10px; bottom: 18px; background: #14b8a6; }
+  .tools-hero-self-contained .tools-orbit span:nth-child(3) { left: 8px; bottom: 28px; background: #f59e0b; }
+  .tools-hero-self-contained .tool-stack {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 12px;
+    margin-top: 34px;
+  }
+  .tools-hero-self-contained .tool-stack-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 12px;
+    row-gap: 2px;
+    align-items: center;
+    width: min(100%, 360px);
+    padding: 14px 16px;
+    border: 1px solid rgba(24, 34, 48, 0.08);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.94);
+    color: #111827;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+    text-decoration: none;
+    animation: toolsCardFloat 5.4s ease-in-out infinite;
+  }
+  .tools-hero-self-contained .tool-stack-card span {
+    display: inline-grid;
+    grid-row: span 2;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: rgba(37, 99, 235, 0.10);
+    color: #1d4ed8;
+    font-size: 0.78rem;
+    font-weight: 900;
+  }
+  .tools-hero-self-contained .tool-stack-card strong { min-width: 0; font-size: 1rem; }
+  .tools-hero-self-contained .tool-stack-card small { color: #64748b; font-weight: 700; }
+  .tools-hero-self-contained .stack-card-two { margin-left: 42px; animation-delay: 0.55s; }
+  .tools-hero-self-contained .stack-card-three { margin-left: 18px; animation-delay: 1.1s; }
+  .tools-hero-self-contained .stack-card-two span { background: rgba(20, 184, 166, 0.14); color: #0f766e; }
+  .tools-hero-self-contained .stack-card-three span { background: rgba(245, 158, 11, 0.16); color: #92400e; }
+  .tools-hero-self-contained .tools-panel-badges { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tools-hero-self-contained .tools-panel-badges span {
+    display: inline-block;
+    padding: 8px 10px;
+    border: 1px solid rgba(37, 99, 235, 0.13);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.76);
+    color: #64748b;
+    font-size: 0.82rem;
+    font-weight: 900;
+  }
+  .tools-directory-section { padding-top: 42px; }
+  @keyframes toolsCardFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes toolsLivePulse { 0%, 100% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0.14); } 50% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0.05); } }
+  @keyframes toolsSlowSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    .tools-hero-self-contained .live-dot,
+    .tools-hero-self-contained .tools-orbit,
+    .tools-hero-self-contained .tool-stack-card { animation: none; }
+  }
+  @media (max-width: 1024px) {
+    .tools-hero-self-contained .tools-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+    .tools-hero-self-contained .tools-hero-panel { min-height: 300px; }
+  }
+  @media (max-width: 760px) {
+    .tools-hero-self-contained .tools-hero-panel { padding: 18px; }
+    .tools-hero-self-contained .stack-card-two,
+    .tools-hero-self-contained .stack-card-three { margin-left: 0; }
+    .tools-hero-self-contained .tools-orbit { opacity: 0.55; right: 18px; }
+    .tools-directory-section { padding-top: 34px; }
+  }
+</style>
 
-<section class="page-hero tools-hero">
+
+<section class="page-hero tools-hero tools-hero-self-contained">
   <div class="container">
     <div class="tools-hero-grid">
       <div class="tools-hero-copy">
