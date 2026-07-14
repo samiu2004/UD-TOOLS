@@ -15,6 +15,37 @@ permalink: /tools/
   </div>
 </section>
 
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">All Tools</span>
+      <h2 class="section-title">Choose the job you need to finish.</h2>
+      <p class="section-desc">
+        Each tool has a focused interface, a clean URL, and supporting guidance so visitors can act quickly.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      {% for tool in tools %}
+        <article class="feature-card lift">
+          <div class="feature-top">
+            <span class="feature-tag">{{ tool.category }}</span>
+            <span class="status-dot">{{ "Core" if tool.featured else "Utility" }}</span>
+          </div>
+          <div class="feature-body">
+            <h3>{{ tool.name }}</h3>
+            <p>{{ tool.description }}</p>
+          </div>
+          <div class="feature-bottom">
+            <span class="feature-meta">Free to use</span>
+            <a href="{{ tool.url }}" class="btn btn-primary btn-sm">{{ tool.cta }}</a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <section class="section section-tight">
   <div class="container">
     <div class="cluster-panel cluster-panel-compact">
@@ -77,37 +108,6 @@ permalink: /tools/
         <a href="/articles/roas-formula/">ROAS Formula Explained</a>
         <a href="/articles/good-roas/">Good ROAS Benchmarks</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">All Tools</span>
-      <h2 class="section-title">Choose the job you need to finish.</h2>
-      <p class="section-desc">
-        Each tool has a focused interface, a clean URL, and supporting guidance so visitors can act quickly.
-      </p>
-    </div>
-
-    <div class="feature-grid">
-      {% for tool in tools %}
-        <article class="feature-card lift">
-          <div class="feature-top">
-            <span class="feature-tag">{{ tool.category }}</span>
-            <span class="status-dot">{{ "Core" if tool.featured else "Utility" }}</span>
-          </div>
-          <div class="feature-body">
-            <h3>{{ tool.name }}</h3>
-            <p>{{ tool.description }}</p>
-          </div>
-          <div class="feature-bottom">
-            <span class="feature-meta">Free to use</span>
-            <a href="{{ tool.url }}" class="btn btn-primary btn-sm">{{ tool.cta }}</a>
-          </div>
-        </article>
-      {% endfor %}
     </div>
   </div>
 </section>
