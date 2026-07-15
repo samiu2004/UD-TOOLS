@@ -170,27 +170,36 @@
     "name": "Keyword Density Checker",
     "slug": "keyword-density-checker",
     "url": "/tools/keyword-density-checker/",
-    "description": "Use a free keyword density checker to review keyword frequency, spot repetition, and keep SEO content natural before publishing.",
+    "description": "Use this free keyword density checker tool to check keyword density, calculate keyword frequency, and review SEO content before publishing.",
     "category": "SEO Review",
     "featured": true,
     "status": "live",
     "cta": "Open Tool",
     "faq": [
       {
-        "question": "What is keyword density?",
-        "answer": "Keyword density shows how often a word or phrase appears compared with the total word count of your content."
+        "question": "What is a keyword density checker?",
+        "answer": "A keyword density checker reviews text and shows how often words or phrases appear compared with the total word count."
+      },
+      {
+        "question": "How do I calculate keyword density?",
+        "answer": "Divide the number of keyword mentions by the total word count, then multiply by 100 to get a percentage."
+      },
+      {
+        "question": "Is this keyword density checker free?",
+        "answer": "Yes. You can paste text and check keyword density in your browser without creating an account."
       },
       {
         "question": "Is there a perfect keyword density for SEO?",
         "answer": "No single percentage guarantees rankings. Use density as a diagnostic to catch repetition and keep your writing natural."
       },
       {
-        "question": "What does this checker help me find?",
-        "answer": "It helps identify repeated terms, top keywords, unique word count, and possible overuse in SEO-focused content."
+        "question": "What is the difference between keyword density and keyword stuffing?",
+        "answer": "Keyword density is a measurement. Keyword stuffing is forced repetition that makes content less helpful and less natural."
       }
     ],
     "relatedArticles": [
       "what-is-keyword-density",
+      "how-to-calculate-keyword-density",
       "good-keyword-density-for-seo",
       "how-to-check-keyword-density",
       "keyword-density-vs-keyword-stuffing",
@@ -200,8 +209,8 @@
       "eyebrow": "Keyword Density Checker Guide",
       "title": "Check keyword use without writing for robots.",
       "intro": [
-        "This keyword density checker helps you see how often important words appear in your content. It is useful when you want to catch accidental repetition, compare keyword balance, or review an article before publishing.",
-        "Use it as a keyword density checker tool, keyword density analyzer, or SEO keyword density checker when you need a quick look at how naturally your target terms appear in a draft."
+        "This keyword density checker helps you see how often important words appear in your content. Use it to check keyword density, calculate keyword frequency, review repeated terms, and spot phrases that may sound forced before publishing.",
+        "Use it as a keyword density checker tool, word density checker, keyword density calculator, keyword density analyzer, or SEO keyword density checker when you need a quick look at how naturally your target terms appear in a draft."
       ],
       "stepsTitle": "How to use the Keyword Density Checker",
       "steps": [
@@ -210,16 +219,16 @@
           "text": "Add your blog post, landing page copy, product description, or article draft into the text box."
         },
         {
-          "title": "Review total and unique words",
-          "text": "Start with the overall word count and unique word count so you understand the size and variety of the text."
+          "title": "Review word count and unique words",
+          "text": "Start with the total word count and unique word count so you understand the size and variety of the text."
         },
         {
-          "title": "Check repeated terms",
-          "text": "Look at the top words and phrases. If one term appears too often, read those sentences again and decide whether they sound natural."
+          "title": "Check keyword density",
+          "text": "Look at repeated words and phrases to see whether your primary keyword appears naturally or too often."
         },
         {
-          "title": "Compare with search intent",
-          "text": "A keyword density tool can show frequency, but your judgment decides whether the page actually answers the reader’s question."
+          "title": "Calculate the percentage",
+          "text": "Use the density result as a quick percentage check, then read the sentence examples before editing."
         },
         {
           "title": "Edit for clarity first",
@@ -257,11 +266,13 @@
         "Mix exact terms with related language when it helps the reader.",
         "Avoid repeating the same phrase in every paragraph.",
         "Use a keyword density calculator as a review tool, not as a writing rule.",
+        "Check both exact phrases and repeated single words.",
         "Focus on search intent, clarity, and complete answers before keyword frequency."
       ],
       "relatedTitle": "Learn more about keyword density",
       "relatedText": "These guides explain keyword density, safe SEO ranges, checking workflows, keyword stuffing, and natural keyword use."
-    }
+    },
+    "seoTitle": "Keyword Density Checker"
   },
   {
     "name": "Meta Tag Generator",
