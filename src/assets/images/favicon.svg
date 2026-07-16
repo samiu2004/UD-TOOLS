@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="UD Marketing Tools">
-  <rect width="64" height="64" rx="12" fill="#111827"/>
-  <path d="M16 17h8v18c0 6 3.2 9.4 8 9.4s8-3.4 8-9.4V17h8v18.3C48 46 41.7 52 32 52S16 46 16 35.3V17z" fill="#ffffff"/>
-  <path d="M48 17h-8v27h8c8.8 0 14-5.2 14-13.5S56.8 17 48 17z" fill="#0f766e" opacity=".95" transform="translate(-14 0)"/>
+  <rect width="64" height="64" rx="14" fill="#111827"/>
+  <path d="M18 17v18c0 8.6 5.4 14 14 14s14-5.4 14-14V17h-9v18c0 3.9-1.8 6.1-5 6.1s-5-2.2-5-6.1V17h-9z" fill="#ffffff"/>
+  <circle cx="46" cy="18" r="4" fill="#0f766e"/>
 </svg>
