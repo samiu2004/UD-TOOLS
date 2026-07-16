@@ -6,6 +6,7 @@
   "description": "Practical SEO, content, and campaign tools for clearer writing and smarter execution.",
   "defaultOgImage": "/assets/images/og-image.png",
   "favicon": "/assets/images/favicon.svg",
+  "googleAnalyticsId": "G-SWZ0TLE78R",
   "copyrightYear": "2026",
   "contactPage": "/contact/",
   "articlesPage": "/articles/",
