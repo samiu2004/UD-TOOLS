@@ -278,84 +278,110 @@
     "name": "Meta Tag Generator",
     "slug": "meta-tag-generator",
     "url": "/tools/meta-tag-generator/",
-    "description": "Create clean meta titles, descriptions, and essential head tags for pages that need better search presentation.",
+    "description": "Use this free meta tag generator to create SEO titles, meta descriptions, canonical tags, Open Graph tags, and Twitter card markup.",
     "category": "Metadata Tool",
     "featured": true,
     "status": "live",
     "cta": "Open Tool",
     "faq": [
       {
-        "question": "What meta tags can this tool generate?",
-        "answer": "It can generate title, description, canonical, robots, Open Graph, and Twitter card tags for a web page."
+        "question": "What is a meta tag generator?",
+        "answer": "A meta tag generator creates HTML tags for page titles, descriptions, canonical URLs, robots settings, Open Graph previews, and Twitter card previews."
       },
       {
-        "question": "How long should a meta title be?",
-        "answer": "A practical target is usually around 50 to 60 characters so the title stays clear in search results."
+        "question": "Is this meta tag generator free?",
+        "answer": "Yes. You can create meta tags in your browser without an account or signup."
       },
       {
-        "question": "Why do meta descriptions matter?",
-        "answer": "Meta descriptions help set expectations in search results and can improve click-through rate when they are specific and useful."
+        "question": "What meta title length should I use?",
+        "answer": "A practical meta title target is usually around 50 to 60 characters, with the main topic near the beginning."
+      },
+      {
+        "question": "How long should a meta description be?",
+        "answer": "Many pages use a meta description around 120 to 155 characters, written as a clear reason to click from search results."
+      },
+      {
+        "question": "Do Open Graph tags help SEO?",
+        "answer": "Open Graph tags mainly control social previews. They do not replace SEO tags, but they help links look clearer when shared."
       }
     ],
     "relatedArticles": [
-      "meta-tags-guide"
+      "meta-tags-guide",
+      "how-to-use-meta-tag-generator-for-seo",
+      "ud-marketing-tools-beginner-guide"
     ],
     "guide": {
       "eyebrow": "Meta Tag Generator Guide",
-      "title": "Create search snippets that are easier to click.",
+      "title": "Create SEO and social preview tags before publishing.",
       "intro": [
-        "The Meta Tag Generator helps you draft page titles, meta descriptions, canonical tags, robots tags, Open Graph tags, and Twitter card tags for web pages.",
-        "Use it when publishing a new article, tool, landing page, product page, or campaign page that needs a clear search and social preview."
+        "This meta tag generator helps you create meta titles, meta descriptions, canonical tags, robots tags, Open Graph tags, and Twitter card markup for a web page. Use it when a page needs a cleaner search snippet or a better social sharing preview.",
+        "It works as a free meta tag generator, SEO meta tag generator, meta title generator, meta description generator, Open Graph generator, and Twitter card generator for everyday publishing workflows."
       ],
       "stepsTitle": "How to use the Meta Tag Generator",
       "steps": [
         {
           "title": "Enter the page title",
-          "text": "Write a specific title that explains what the page offers."
+          "text": "Write a specific title that names the page topic and gives searchers a reason to click."
         },
         {
-          "title": "Add the description",
-          "text": "Summarize the page value in natural language, usually around 120 to 155 characters."
+          "title": "Write the meta description",
+          "text": "Summarize the page in one useful sentence. Keep it natural, specific, and close to what the page actually delivers."
         },
         {
           "title": "Add the canonical URL",
           "text": "Use the final public URL of the page so search engines understand the preferred version."
         },
         {
-          "title": "Copy the tags",
-          "text": "Review the generated code and paste it into the page head or template."
+          "title": "Choose robots settings",
+          "text": "Most public pages should be indexable. Use noindex only when you intentionally do not want a page in search results."
+        },
+        {
+          "title": "Create social preview tags",
+          "text": "Add Open Graph and Twitter card values so shared links have a clear title, description, and image."
+        },
+        {
+          "title": "Copy and review the markup",
+          "text": "Copy the generated tags, paste them into the page head, and check that each page has unique metadata."
         }
       ],
       "exampleTitle": "Meta tag example",
-      "exampleIntro": "A tool page needs a short title and a clear reason to click.",
+      "exampleIntro": "A tool page should use a short title, a specific description, and the final canonical URL.",
       "example": [
         {
           "label": "Page type",
           "value": "Free SEO tool"
         },
         {
-          "label": "Title goal",
-          "value": "Describe the tool in under 60 characters"
+          "label": "Meta title",
+          "value": "Meta Tag Generator"
         },
         {
-          "label": "Description goal",
-          "value": "Explain the benefit in one sentence"
+          "label": "Meta description",
+          "value": "Create SEO titles, descriptions, canonical tags, and social preview markup."
+        },
+        {
+          "label": "Canonical URL",
+          "value": "https://udmarketing.online/tools/meta-tag-generator/"
         },
         {
           "label": "Next step",
-          "value": "Check that title and description are unique"
+          "value": "Check that the title and description are unique before publishing"
         }
       ],
       "bestPracticesTitle": "Meta tag best practices",
       "bestPractices": [
-        "Write a unique title and description for every important page.",
-        "Put the main topic near the start of the title.",
-        "Avoid stuffing several keywords into one title.",
-        "Make the description useful enough that a searcher wants to click."
+        "Use one clear primary topic per page title.",
+        "Write every meta title and description for the specific page, not the whole website.",
+        "Keep important words near the start of the title.",
+        "Do not stuff several keywords into one title tag.",
+        "Make the meta description sound like a useful search result, not a generic summary.",
+        "Use the canonical URL for the final preferred page version.",
+        "Add Open Graph tags when the page may be shared on social platforms."
       ],
       "relatedTitle": "Related meta tag guides",
-      "relatedText": "Learn how titles and descriptions affect search results and click-through rate."
-    }
+      "relatedText": "Use these guides to understand meta titles, descriptions, social previews, and practical SEO metadata workflows."
+    },
+    "seoTitle": "Meta Tag Generator"
   },
   {
     "name": "CPC & ROAS Calculator",
