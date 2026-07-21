@@ -16,7 +16,7 @@ permalink: /
 
       <div class="hero-actions">
         <a href="/tools/" class="btn btn-primary">Explore Tools</a>
-        <a href="/tools/word-counter/" class="btn btn-secondary">Start With Word Counter</a>
+        <a href="/tools/utm-builder/" class="btn btn-secondary">Start With UTM Builder</a>
       </div>
 
       <ul class="hero-points">
@@ -30,27 +30,30 @@ permalink: /
       <div class="hero-card hero-card-main">
         <span class="mini-label">Popular tools</span>
         <div class="hero-tool-list">
-          {% for tool in tools %}
-            {% if tool.featured and loop.index <= 3 %}
-              <a class="hero-tool-item" href="{{ tool.url }}">
-                <span>
-                  <strong>{{ tool.name }}</strong>
-                  <small>{{ tool.category }}</small>
-                </span>
-                <em>{{ tool.cta }}</em>
-              </a>
-            {% endif %}
+          {% set popularToolSlugs = ["utm-builder", "keyword-density-checker", "serp-snippet-preview"] %}
+          {% for slug in popularToolSlugs %}
+            {% for tool in tools %}
+              {% if tool.slug == slug %}
+                <a class="hero-tool-item" href="{{ tool.url }}">
+                  <span>
+                    <strong>{{ tool.name }}</strong>
+                    <small>{{ tool.category }}</small>
+                  </span>
+                  <em>{{ tool.cta }}</em>
+                </a>
+              {% endif %}
+            {% endfor %}
           {% endfor %}
         </div>
       </div>
       <div class="hero-metrics">
         <div>
-          <strong>8</strong>
+          <strong>{{ tools | length }}</strong>
           <span>Live tools</span>
         </div>
         <div>
-          <strong>0</strong>
-          <span>Login steps</span>
+          <strong>{{ articles | length }}</strong>
+          <span>Practical guides</span>
         </div>
       </div>
     </div>

@@ -128,7 +128,7 @@ permalink: /articles/
       <article class="feature-card article-card article-card-archive">
         <div class="feature-top">
           <span class="feature-tag">Article</span>
-          <span class="feature-meta">{{ article.date }}</span>
+          <time class="feature-meta" datetime="{{ article.date }}">{{ article.date | displayDate }}</time>
         </div>
 
         <div class="feature-body">

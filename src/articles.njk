@@ -16,12 +16,17 @@ eleventyComputed:
       <header class="article-header">
         <div class="article-header-top">
           <span class="feature-tag">Article</span>
-          <p class="article-meta">{{ article.date }}</p>
         </div>
 
         <h1>{{ article.title }}</h1>
 
         <p class="article-description">{{ article.description }}</p>
+
+        <div class="article-byline">
+          <span>By <strong>{{ site.author.name }}</strong></span>
+          <span class="article-byline-separator" aria-hidden="true">&bull;</span>
+          <time datetime="{{ article.date }}">Published {{ article.date | displayDate }}</time>
+        </div>
       </header>
 
       <div class="article-content">
@@ -42,7 +47,7 @@ eleventyComputed:
               <article class="feature-card article-card article-card-archive article-card-related">
                 <div class="feature-top">
                   <span class="feature-tag">Article</span>
-                  <span class="feature-meta">{{ related.date }}</span>
+                  <time class="feature-meta" datetime="{{ related.date }}">{{ related.date | displayDate }}</time>
                 </div>
 
                 <div class="feature-body">
@@ -63,6 +68,31 @@ eleventyComputed:
     </article>
   </div>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ article.title | dump | safe }},
+  "description": {{ article.description | dump | safe }},
+  "datePublished": {{ article.date | dump | safe }},
+  "dateModified": {{ (article.modified or article.date) | dump | safe }},
+  "author": {
+    "@type": "Person",
+    "name": {{ site.author.name | dump | safe }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.name | dump | safe }},
+    "url": {{ site.url | dump | safe }}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}/articles/{{ article.slug }}/"
+  },
+  "image": "{{ site.url }}{{ site.defaultOgImage }}"
+}
+</script>
 
 {% if article.faq %}
 <script type="application/ld+json">

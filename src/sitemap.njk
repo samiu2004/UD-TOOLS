@@ -27,6 +27,7 @@ eleventyExcludeFromCollections: true
 {% for article in articles %}
   <url>
     <loc>{{ site.url }}/articles/{{ article.slug }}/</loc>
+    <lastmod>{{ article.modified or article.date }}</lastmod>
   </url>
 {% endfor %}
 </urlset>
