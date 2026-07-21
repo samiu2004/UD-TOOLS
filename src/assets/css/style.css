@@ -1170,9 +1170,9 @@ textarea.tool-input {
   position: relative;
   display: grid;
   gap: 12px;
-  width: min(100%, 470px);
+  width: min(100%, 370px);
   justify-self: end;
-  padding: 18px;
+  padding: 16px;
   border: 1px solid rgba(15, 118, 110, 0.18);
   border-radius: var(--radius-lg);
   background: var(--text);
@@ -1202,6 +1202,8 @@ textarea.tool-input {
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .keyword-hero-results-head strong {
@@ -1211,7 +1213,7 @@ textarea.tool-input {
 
 .keyword-hero-stat-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -1220,8 +1222,8 @@ textarea.tool-input {
 }
 
 .keyword-hero-stat-grid .keyword-stat-box {
-  min-height: 90px;
-  padding: 12px 10px;
+  min-height: 78px;
+  padding: 12px;
   border: 0;
   border-right: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
@@ -1230,6 +1232,16 @@ textarea.tool-input {
 }
 
 .keyword-hero-stat-grid .keyword-stat-box:last-child {
+  border-right: 0;
+}
+
+.keyword-hero-stat-grid .keyword-stat-box:nth-child(1),
+.keyword-hero-stat-grid .keyword-stat-box:nth-child(2) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.keyword-hero-stat-grid .keyword-stat-box:nth-child(2),
+.keyword-hero-stat-grid .keyword-stat-box:nth-child(4) {
   border-right: 0;
 }
 
@@ -1246,7 +1258,13 @@ textarea.tool-input {
 
 .keyword-hero-stat-grid .keyword-stat-box strong {
   color: #fff;
-  font-size: clamp(1.08rem, 1.8vw, 1.34rem);
+  max-width: 100%;
+  overflow: hidden;
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 .keyword-hero-stat-grid .info-dot {
@@ -1801,19 +1819,6 @@ textarea.tool-input {
   .keyword-reason-grid,
   .keyword-page-grid aside {
     grid-template-columns: 1fr;
-  }
-
-  .keyword-hero-stat-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .keyword-hero-stat-grid .keyword-stat-box:nth-child(2) {
-    border-right: 0;
-  }
-
-  .keyword-hero-stat-grid .keyword-stat-box:nth-child(1),
-  .keyword-hero-stat-grid .keyword-stat-box:nth-child(2) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .keyword-tool-hero {
