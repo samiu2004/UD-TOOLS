@@ -10,9 +10,9 @@ eleventyComputed:
   description: "{{ tool.description }}"
 ---
 
-<section class="page-hero">
+<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero{% endif %}">
   <div class="container">
-    <div class="tool-hero">
+    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' %} keyword-tool-hero{% endif %}">
       <div>
         <span class="eyebrow">{{ tool.category }}</span>
         <h1>{{ tool.name }}</h1>

@@ -1152,15 +1152,42 @@ textarea.tool-input {
   margin-top: 0 !important;
 }
 
+.keyword-page-hero {
+  padding: 34px 0 12px;
+}
+
+.keyword-tool-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.48fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.keyword-tool-hero h1 {
+  max-width: 680px;
+}
+
 .keyword-hero-results {
+  position: relative;
   display: grid;
-  gap: 14px;
-  padding: 18px;
+  gap: 16px;
+  width: min(100%, 430px);
+  justify-self: end;
+  padding: 20px;
   border: 1px solid rgba(24, 34, 48, 0.08);
   border-radius: var(--radius-lg);
   background: var(--surface);
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  animation: liveResultGlow 4.2s ease-in-out infinite;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.keyword-hero-results::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-soft));
 }
 
 .keyword-hero-results:hover {
@@ -1184,7 +1211,12 @@ textarea.tool-input {
 .keyword-hero-stat-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
+}
+
+.keyword-hero-stat-grid .keyword-stat-box {
+  min-height: 104px;
+  padding: 14px;
 }
 
 .keyword-tool-layout {
@@ -1293,10 +1325,11 @@ textarea.tool-input {
 
 .keyword-reasons-section {
   margin-top: 24px;
+  padding: 20px;
 }
 
 .keyword-reasons-section .section-head {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .keyword-reason-grid {
@@ -1304,14 +1337,29 @@ textarea.tool-input {
 }
 
 .keyword-reason-card {
+  position: relative;
   display: grid;
-  gap: 8px;
-  padding: 16px;
+  gap: 10px;
+  min-height: 150px;
+  padding: 18px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: var(--surface-soft);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-soft) 100%);
+  overflow: hidden;
   transition: transform 0.2s ease, border-color 0.2s ease;
-  animation: reasonFloat 6s ease-in-out infinite;
+  animation: reasonFloat 7s ease-in-out infinite;
+}
+
+.keyword-reason-card::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 0;
+  height: 3px;
+  border-radius: 999px 999px 0 0;
+  background: var(--primary);
+  opacity: 0.75;
 }
 
 .keyword-reason-card:nth-child(2) {
@@ -1323,6 +1371,12 @@ textarea.tool-input {
 }
 
 .keyword-reason-card span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: var(--primary-soft);
   color: var(--primary);
   font-size: 0.82rem;
   font-weight: 900;
@@ -1517,6 +1571,17 @@ textarea.tool-input {
   }
 }
 
+@keyframes liveResultGlow {
+  0%,
+  100% {
+    box-shadow: var(--shadow-sm);
+  }
+
+  50% {
+    box-shadow: 0 18px 38px rgba(15, 118, 110, 0.12);
+  }
+}
+
 @keyframes reasonFloat {
   0%,
   100% {
@@ -1697,6 +1762,15 @@ textarea.tool-input {
   .keyword-reason-grid,
   .keyword-page-grid aside {
     grid-template-columns: 1fr;
+  }
+
+  .keyword-tool-hero {
+    gap: 22px;
+  }
+
+  .keyword-hero-results {
+    width: 100%;
+    justify-self: stretch;
   }
 
   .hero-actions {
