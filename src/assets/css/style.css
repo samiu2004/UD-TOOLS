@@ -1094,6 +1094,227 @@ textarea.tool-input {
   background: var(--surface-soft);
 }
 
+.serp-workspace {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(360px, 1.1fr);
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.serp-fields,
+.serp-preview-panel {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-soft);
+}
+
+.field-label-row,
+.serp-preview-head,
+.serp-preview-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.field-label-row > span {
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+textarea.serp-description-input {
+  min-height: 132px;
+}
+
+.serp-field-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.serp-field-status > span {
+  flex: 0 0 auto;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.serp-field-status > span[data-tone="missing"] {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.serp-field-status > span[data-tone="warning"] {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.serp-field-status > span[data-tone="good"] {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.serp-field-status small {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.serp-actions {
+  margin-bottom: 0;
+}
+
+.serp-preview-panel {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.serp-preview-head {
+  align-items: flex-start;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.serp-preview-head .eyebrow {
+  margin-bottom: 7px;
+}
+
+.serp-preview-head h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.serp-device-switch {
+  display: inline-flex;
+  flex: 0 0 auto;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface-soft);
+}
+
+.serp-device-switch button {
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.serp-device-switch button.is-active {
+  background: var(--text);
+  color: #fff;
+}
+
+.serp-preview {
+  width: 100%;
+  max-width: 610px;
+  min-height: 230px;
+  margin: 24px auto;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  transition: max-width 220ms ease;
+}
+
+.serp-preview[data-device="mobile"] {
+  max-width: 390px;
+}
+
+.serp-source-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.serp-source-icon {
+  display: inline-grid;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--text);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 900;
+}
+
+.serp-source-row > div {
+  min-width: 0;
+}
+
+.serp-source-row strong,
+.serp-source-row span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.serp-source-row strong {
+  color: #202124;
+  font-size: 0.88rem;
+}
+
+.serp-source-row span {
+  max-width: 460px;
+  color: #4d5156;
+  font-size: 0.76rem;
+}
+
+.serp-preview-title {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 14px 0 6px;
+  color: #1a0dab;
+  font-family: Arial, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.serp-preview-description {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  color: #4d5156;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.serp-preview-note {
+  align-items: flex-end;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.serp-preview-note p {
+  max-width: 460px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
 .faq-section .section-head {
   margin-bottom: 18px;
 }
@@ -2497,5 +2718,37 @@ textarea.tool-input {
 
   .tools-directory-section {
     padding-top: 34px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .serp-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .serp-fields,
+  .serp-preview-panel {
+    padding: 16px;
+  }
+
+  .serp-preview-head,
+  .serp-preview-note {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .serp-device-switch {
+    align-self: flex-start;
+  }
+
+  .serp-preview {
+    min-height: 220px;
+    padding: 16px;
+  }
+
+  .serp-preview-note .btn {
+    width: 100%;
   }
 }

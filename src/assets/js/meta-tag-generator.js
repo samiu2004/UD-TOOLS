@@ -105,7 +105,7 @@ if (metaTitle) {
     metaDescription.value = "Generate clean title tags, meta descriptions, canonical URLs, Open Graph tags, and Twitter card markup for better search and social previews.";
     metaCanonical.value = "https://udmarketing.online/tools/meta-tag-generator/";
     metaRobots.value = "index, follow";
-    metaOgImage.value = "https://udmarketing.online/assets/images/meta-tag-generator-preview.jpg";
+    metaOgImage.value = "https://udmarketing.online/assets/images/og-image.png";
     updateMetaTags();
     metaTitle.focus();
   }

@@ -292,6 +292,75 @@ eleventyComputed:
               </div>
             </div>
 
+          {% elif tool.slug == "serp-snippet-preview" %}
+            <div class="serp-workspace">
+              <div class="serp-fields">
+                <div class="form-group">
+                  <div class="field-label-row">
+                    <label for="serpTitle">Page title</label>
+                    <span id="serpTitleCount">0 / 60</span>
+                  </div>
+                  <input id="serpTitle" class="tool-input" type="text" maxlength="120" placeholder="Enter the title shown in search results">
+                  <div class="serp-field-status">
+                    <span id="serpTitleStatus" data-tone="missing">Missing</span>
+                    <small>30 to 60 characters is a practical editing range.</small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="field-label-row">
+                    <label for="serpDescription">Meta description</label>
+                    <span id="serpDescriptionCount">0 / 160</span>
+                  </div>
+                  <textarea id="serpDescription" class="tool-input serp-description-input" maxlength="320" placeholder="Write a clear reason for searchers to visit the page"></textarea>
+                  <div class="serp-field-status">
+                    <span id="serpDescriptionStatus" data-tone="missing">Missing</span>
+                    <small>120 to 160 characters usually gives enough useful context.</small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="serpUrl">Page URL</label>
+                  <input id="serpUrl" class="tool-input" type="url" placeholder="https://example.com/page/">
+                </div>
+
+                <div class="hero-actions serp-actions">
+                  <button id="serpSampleBtn" class="btn btn-primary" type="button">Load Example</button>
+                  <button id="serpClearBtn" class="btn btn-secondary" type="button">Clear</button>
+                </div>
+              </div>
+
+              <div class="serp-preview-panel">
+                <div class="serp-preview-head">
+                  <div>
+                    <span class="eyebrow">Live preview</span>
+                    <h3>Google search snippet</h3>
+                  </div>
+                  <div class="serp-device-switch" aria-label="Preview size">
+                    <button class="is-active" type="button" data-serp-device="desktop" aria-pressed="true">Desktop</button>
+                    <button type="button" data-serp-device="mobile" aria-pressed="false">Mobile</button>
+                  </div>
+                </div>
+
+                <div id="serpPreview" class="serp-preview" data-device="desktop" aria-live="polite">
+                  <div class="serp-source-row">
+                    <span class="serp-source-icon" aria-hidden="true">UD</span>
+                    <div>
+                      <strong>UD Marketing Tools</strong>
+                      <span id="serpPreviewUrl">https://example.com/page/</span>
+                    </div>
+                  </div>
+                  <p id="serpPreviewTitle" class="serp-preview-title">Your page title will appear here</p>
+                  <p id="serpPreviewDescription" class="serp-preview-description">Add a meta description to preview how your page could look in Google search results.</p>
+                </div>
+
+                <div class="serp-preview-note">
+                  <p>Google may rewrite or shorten a snippet. Use this preview for editing, not as a guaranteed display.</p>
+                  <button id="serpCopyBtn" class="btn btn-secondary btn-sm" type="button">Copy Preview</button>
+                </div>
+              </div>
+            </div>
+
           {% elif tool.slug == "cpc-roas-calculator" %}
             <div class="form-group">
               <label for="adSpend">Ad spend</label>
@@ -725,6 +794,8 @@ eleventyComputed:
   <script src="/assets/js/readability-checker.js"></script>
 {% elif tool.slug == "meta-tag-generator" %}
   <script src="/assets/js/meta-tag-generator.js"></script>
+{% elif tool.slug == "serp-snippet-preview" %}
+  <script src="/assets/js/serp-snippet-preview.js"></script>
 {% elif tool.slug == "cpc-roas-calculator" %}
   <script src="/assets/js/cpc-roas-calculator.js"></script>
 {% elif tool.slug == "utm-builder" %}

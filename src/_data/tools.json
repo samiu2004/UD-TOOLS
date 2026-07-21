@@ -308,6 +308,9 @@
     "relatedArticles": [
       "meta-tags-guide",
       "how-to-use-meta-tag-generator-for-seo",
+      "serp-snippet-preview-guide",
+      "meta-title-length",
+      "meta-description-length",
       "ud-marketing-tools-beginner-guide"
     ],
     "guide": {
@@ -382,6 +385,108 @@
       "relatedText": "Use these guides to understand meta titles, descriptions, social previews, and practical SEO metadata workflows."
     },
     "seoTitle": "Meta Tag Generator"
+  },
+  {
+    "name": "SERP Snippet Preview",
+    "slug": "serp-snippet-preview",
+    "url": "/tools/serp-snippet-preview/",
+    "description": "Preview a Google search snippet and check your page title, meta description, and URL before publishing.",
+    "category": "SEO Preview",
+    "featured": true,
+    "status": "live",
+    "cta": "Open Tool",
+    "faq": [
+      {
+        "question": "What is a SERP snippet preview?",
+        "answer": "A SERP snippet preview shows how a page title, URL, and meta description may look in a Google search result before the page is published."
+      },
+      {
+        "question": "Will Google show my snippet exactly like this?",
+        "answer": "Not always. Google can shorten or rewrite titles and descriptions based on the query, device, and page content. The preview is an editing guide."
+      },
+      {
+        "question": "How long should a meta title be?",
+        "answer": "A practical editing range is around 30 to 60 characters, but clarity and relevance matter more than hitting an exact number."
+      },
+      {
+        "question": "How long should a meta description be?",
+        "answer": "Many useful descriptions are around 120 to 160 characters. Write a specific summary and reason to click rather than filling space."
+      },
+      {
+        "question": "Does this tool save my content?",
+        "answer": "No. The preview runs in your browser and does not require an account."
+      }
+    ],
+    "relatedArticles": [
+      "serp-snippet-preview-guide",
+      "meta-title-length",
+      "meta-description-length",
+      "meta-tags-guide",
+      "how-to-use-meta-tag-generator-for-seo"
+    ],
+    "guide": {
+      "eyebrow": "SERP Preview Guide",
+      "title": "Review the search result before the page goes live.",
+      "intro": [
+        "The SERP Snippet Preview turns a page title, meta description, and URL into a realistic search result layout. Use it while editing a new page or improving an existing result that receives impressions but few clicks.",
+        "It works as a Google snippet preview, search result preview, meta title preview, and meta description preview. The desktop and mobile modes help you catch unclear or overly long copy before publishing."
+      ],
+      "stepsTitle": "How to use the SERP Snippet Preview",
+      "steps": [
+        {
+          "title": "Enter the page title",
+          "text": "Write a specific title that names the page topic and makes the benefit clear."
+        },
+        {
+          "title": "Add the meta description",
+          "text": "Summarize what the visitor will find and give a truthful reason to choose the result."
+        },
+        {
+          "title": "Add the final page URL",
+          "text": "Use the public canonical URL so you can review how the domain and path read together."
+        },
+        {
+          "title": "Compare desktop and mobile",
+          "text": "Switch preview sizes and check whether the important words stay clear in both layouts."
+        },
+        {
+          "title": "Edit for meaning first",
+          "text": "Use the length signals to catch obvious problems, then choose the wording that best matches the page."
+        }
+      ],
+      "exampleTitle": "Search snippet example",
+      "exampleIntro": "A useful tool page snippet should name the job, explain the result, and match the page content.",
+      "example": [
+        {
+          "label": "Page type",
+          "value": "Free SEO tool"
+        },
+        {
+          "label": "Title",
+          "value": "SERP Snippet Preview Tool"
+        },
+        {
+          "label": "Description",
+          "value": "Preview a page title, URL, and meta description before publishing."
+        },
+        {
+          "label": "Review",
+          "value": "Check clarity on desktop and mobile"
+        }
+      ],
+      "bestPracticesTitle": "SERP snippet best practices",
+      "bestPractices": [
+        "Put the main topic near the beginning of the title when it reads naturally.",
+        "Give each important page a unique title and description.",
+        "Describe the actual page instead of making a promise the content cannot support.",
+        "Use length ranges as editing guidance, not fixed ranking rules.",
+        "Keep the visible URL short and understandable where possible.",
+        "Review Search Console queries before rewriting a page that already earns impressions."
+      ],
+      "relatedTitle": "Related search snippet guides",
+      "relatedText": "Continue with practical guides for title length, description length, metadata, and search preview editing."
+    },
+    "seoTitle": "SERP Snippet Preview"
   },
   {
     "name": "CPC & ROAS Calculator",
