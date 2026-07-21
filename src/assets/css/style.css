@@ -1153,12 +1153,12 @@ textarea.tool-input {
 }
 
 .keyword-page-hero {
-  padding: 34px 0 12px;
+  padding: 30px 0 10px;
 }
 
 .keyword-tool-hero {
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.48fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 0.42fr);
+  gap: 30px;
   align-items: center;
 }
 
@@ -1169,16 +1169,15 @@ textarea.tool-input {
 .keyword-hero-results {
   position: relative;
   display: grid;
-  gap: 16px;
-  width: min(100%, 430px);
+  gap: 12px;
+  width: min(100%, 440px);
   justify-self: end;
-  padding: 20px;
+  padding: 18px;
   border: 1px solid rgba(24, 34, 48, 0.08);
   border-radius: var(--radius-lg);
   background: var(--surface);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
-  animation: liveResultGlow 4.2s ease-in-out infinite;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
@@ -1210,13 +1209,30 @@ textarea.tool-input {
 
 .keyword-hero-stat-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-soft);
 }
 
 .keyword-hero-stat-grid .keyword-stat-box {
-  min-height: 104px;
-  padding: 14px;
+  min-height: 96px;
+  padding: 12px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.keyword-hero-stat-grid .keyword-stat-box:last-child {
+  border-right: 0;
+}
+
+.keyword-hero-stat-grid .keyword-stat-box:hover {
+  transform: none;
+  border-color: var(--line);
 }
 
 .keyword-tool-layout {
@@ -1758,10 +1774,22 @@ textarea.tool-input {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .keyword-hero-stat-grid,
   .keyword-reason-grid,
   .keyword-page-grid aside {
     grid-template-columns: 1fr;
+  }
+
+  .keyword-hero-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .keyword-hero-stat-grid .keyword-stat-box:nth-child(2) {
+    border-right: 0;
+  }
+
+  .keyword-hero-stat-grid .keyword-stat-box:nth-child(1),
+  .keyword-hero-stat-grid .keyword-stat-box:nth-child(2) {
+    border-bottom: 1px solid var(--line);
   }
 
   .keyword-tool-hero {
@@ -2399,6 +2427,16 @@ textarea.tool-input {
   .keyword-stat-grid,
   .keyword-hero-stat-grid {
     grid-template-columns: 1fr;
+  }
+
+  .keyword-hero-stat-grid .keyword-stat-box,
+  .keyword-hero-stat-grid .keyword-stat-box:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .keyword-hero-stat-grid .keyword-stat-box:last-child {
+    border-bottom: 0;
   }
 }
 
