@@ -4,6 +4,7 @@ title: Free SEO and Marketing Tools
 description: Use free browser-based tools for word counts, readability, keyword density, meta tags, UTM links, campaign math, and QR workflows.
 permalink: /
 ---
+{% from "partials/tool-icon.njk" import toolCard %}
 
 <section class="hero-shell">
   <div class="container hero-grid">
@@ -118,25 +119,10 @@ permalink: /
       </p>
     </div>
 
-    <div class="feature-grid">
+    <div class="tool-directory-grid tool-directory-grid-featured">
       {% for tool in tools %}
         {% if tool.featured %}
-          <article class="feature-card">
-            <div class="feature-top">
-              <span class="feature-tag">{{ tool.category or "Tool" }}</span>
-              <a href="{{ tool.url }}" class="feature-link">Open tool</a>
-            </div>
-
-            <div class="feature-body">
-              <h3>{{ tool.name }}</h3>
-              <p>{{ tool.description }}</p>
-            </div>
-
-            <div class="feature-bottom">
-              <span class="feature-meta">Free to use</span>
-              <a href="{{ tool.url }}" class="btn btn-primary btn-sm">{{ tool.cta }}</a>
-            </div>
-          </article>
+          {{ toolCard(tool) }}
         {% endif %}
       {% endfor %}
     </div>

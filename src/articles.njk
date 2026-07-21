@@ -9,6 +9,26 @@ eleventyComputed:
   title: "{{ article.seoTitle or article.title }}"
   description: "{{ article.description }}"
 ---
+{% set articleOutline = article.content | articleOutline %}
+{% set articleMarkup = article.content | articleBody %}
+{% set articleMinutes = article.content | readingTime %}
+
+{% if "utm" in article.slug or "tracking-url" in article.slug or "campaign-url" in article.slug %}
+  {% set relatedToolUrl = "/tools/utm-builder/" %}
+  {% set relatedToolName = "UTM Builder" %}
+{% elif "keyword-density" in article.slug or "keywords-naturally" in article.slug %}
+  {% set relatedToolUrl = "/tools/keyword-density-checker/" %}
+  {% set relatedToolName = "Keyword Density Checker" %}
+{% elif "roas" in article.slug %}
+  {% set relatedToolUrl = "/tools/cpc-roas-calculator/" %}
+  {% set relatedToolName = "ROAS Calculator" %}
+{% elif "meta" in article.slug or "serp" in article.slug %}
+  {% set relatedToolUrl = "/tools/meta-tag-generator/" %}
+  {% set relatedToolName = "Meta Tag Generator" %}
+{% else %}
+  {% set relatedToolUrl = "/tools/readability-checker/" %}
+  {% set relatedToolName = "Readability Checker" %}
+{% endif %}
 
 <section class="page-hero page-hero-compact">
   <div class="container">
@@ -26,11 +46,56 @@ eleventyComputed:
           <span>By <strong>{{ site.author.name }}</strong></span>
           <span class="article-byline-separator" aria-hidden="true">&bull;</span>
           <time datetime="{{ article.date }}">Published {{ article.date | displayDate }}</time>
+          <span class="article-byline-separator" aria-hidden="true">&bull;</span>
+          <span>{{ articleMinutes }} min read</span>
         </div>
       </header>
 
-      <div class="article-content">
-        {{ article.content | safe }}
+      {% if article.image %}
+      <figure class="article-hero-image">
+        <img src="{{ article.image }}" alt="{{ article.imageAlt or article.title }}" width="1200" height="630" fetchpriority="high">
+      </figure>
+      {% endif %}
+
+      {% if articleOutline | length %}
+      <details class="article-toc article-toc-mobile">
+        <summary>Table of contents</summary>
+        <ol>
+          {% for heading in articleOutline %}
+          <li class="toc-{{ heading.level }}"><a href="#{{ heading.id }}">{{ heading.text }}</a></li>
+          {% endfor %}
+        </ol>
+      </details>
+      {% endif %}
+
+      <div class="article-reading-layout">
+        {% if articleOutline | length %}
+        <aside class="article-toc article-toc-desktop">
+          <p class="article-toc-title">On this page</p>
+          <nav aria-label="Table of contents">
+            <ol>
+              {% for heading in articleOutline %}
+              <li class="toc-{{ heading.level }}"><a href="#{{ heading.id }}">{{ heading.text }}</a></li>
+              {% endfor %}
+            </ol>
+          </nav>
+        </aside>
+        {% endif %}
+
+        <div class="article-main-column">
+          <div class="article-content">
+            {{ articleMarkup | safe }}
+          </div>
+
+          <aside class="article-tool-cta">
+            <div>
+              <span class="mini-label">Put this into practice</span>
+              <h2>Continue with the free {{ relatedToolName }}.</h2>
+              <p>Open the browser-based tool and apply the steps from this guide without creating an account.</p>
+            </div>
+            <a class="btn btn-accent" href="{{ relatedToolUrl }}">Open {{ relatedToolName }}</a>
+          </aside>
+        </div>
       </div>
 
       {% if article.relatedArticles %}
@@ -46,7 +111,7 @@ eleventyComputed:
               {% if related.slug == slug %}
               <article class="feature-card article-card article-card-archive article-card-related">
                 <div class="feature-top">
-                  <span class="feature-tag">Article</span>
+                  <span class="article-card-kind">Related guide</span>
                   <time class="feature-meta" datetime="{{ related.date }}">{{ related.date | displayDate }}</time>
                 </div>
 
@@ -56,7 +121,8 @@ eleventyComputed:
                 </div>
 
                 <div class="feature-bottom">
-                  <a class="btn btn-secondary btn-sm" href="/articles/{{ related.slug }}/">Read article</a>
+                  <span class="article-card-author">By {{ site.author.name }}</span>
+                  <a class="article-read-link" href="/articles/{{ related.slug }}/">Read guide <span aria-hidden="true">&rarr;</span></a>
                 </div>
               </article>
               {% endif %}
@@ -90,7 +156,7 @@ eleventyComputed:
     "@type": "WebPage",
     "@id": "{{ site.url }}/articles/{{ article.slug }}/"
   },
-  "image": "{{ site.url }}{{ site.defaultOgImage }}"
+  "image": "{{ site.url }}{{ article.image or site.defaultOgImage }}"
 }
 </script>
 

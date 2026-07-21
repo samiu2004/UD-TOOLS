@@ -1,0 +1,58 @@
+{% macro toolIcon(slug) %}
+<svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  {% if slug == "word-counter" %}
+    <path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18" />
+  {% elif slug == "readability-checker" %}
+    <path d="M12 7v14M3 18a1 1 0 0 1-1-1V5a2 2 0 0 1 2-2h5a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3Z" />
+    <path d="M21 12V5a2 2 0 0 0-2-2h-5a3 3 0 0 0-3 3M16 19l2 2 4-4" />
+  {% elif slug == "keyword-density-checker" %}
+    <path d="m21 21-4.3-4.3M11 8h4M9 12h6M7 16h4" />
+    <circle cx="11" cy="11" r="8" />
+  {% elif slug == "meta-tag-generator" %}
+    <path d="M12.6 2.6a2 2 0 0 0-2.8 0L2.6 9.8a2 2 0 0 0 0 2.8l8.8 8.8a2 2 0 0 0 2.8 0l7.2-7.2a2 2 0 0 0 0-2.8Z" />
+    <circle cx="8.5" cy="8.5" r="1.5" />
+  {% elif slug == "serp-snippet-preview" %}
+    <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
+  {% elif slug == "cpc-roas-calculator" %}
+    <rect width="16" height="20" x="4" y="2" rx="2" />
+    <path d="M8 6h8M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" />
+  {% elif slug == "utm-builder" %}
+    <path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1" />
+    <path d="M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7.1 7.1l1.1-1.1" />
+  {% elif slug == "qr-code-generator" %}
+    <rect width="5" height="5" x="3" y="3" rx="1" /><rect width="5" height="5" x="16" y="3" rx="1" />
+    <rect width="5" height="5" x="3" y="16" rx="1" /><path d="M16 16h3v3M21 16v.01M16 21h.01M21 21v.01M12 7v3a2 2 0 0 1-2 2H7M3 12h.01M12 3h.01M12 16v.01M16 12h1M21 12v.01M12 21v-1" />
+  {% else %}
+    <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8v8M10 8v8M14 8v8M17 8v8" />
+  {% endif %}
+</svg>
+{% endmacro %}
+
+{% macro toolCard(tool) %}
+  {% if tool.slug == "word-counter" or tool.slug == "readability-checker" %}
+    {% set toolTone = "writing" %}
+  {% elif tool.slug == "meta-tag-generator" %}
+    {% set toolTone = "metadata" %}
+  {% elif tool.slug == "cpc-roas-calculator" or tool.slug == "utm-builder" %}
+    {% set toolTone = "campaign" %}
+  {% elif tool.slug == "qr-code-generator" or tool.slug == "qr-barcode-scanner" %}
+    {% set toolTone = "utility" %}
+  {% else %}
+    {% set toolTone = "seo" %}
+  {% endif %}
+  <article class="tool-directory-card tool-tone-{{ toolTone }}" data-tool-card data-tool-category="{{ toolTone }}" data-tool-search-text="{{ tool.name }} {{ tool.category }} {{ tool.description }}">
+    <div class="tool-card-top">
+      <span class="tool-card-icon">{{ toolIcon(tool.slug) }}</span>
+      {% if tool.featured %}<span class="tool-card-badge">Featured</span>{% endif %}
+    </div>
+    <div class="tool-card-body">
+      <span class="tool-card-category">{{ tool.category }}</span>
+      <h3>{{ tool.name }}</h3>
+      <p>{{ tool.description }}</p>
+    </div>
+    <div class="tool-card-bottom">
+      <span class="tool-card-meta">Browser-based <b aria-hidden="true">&bull;</b> No signup</span>
+      <a href="{{ tool.url }}" class="tool-card-action" aria-label="Open {{ tool.name }}">Open tool <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </article>
+{% endmacro %}

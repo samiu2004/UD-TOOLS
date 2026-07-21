@@ -4,83 +4,7 @@ title: Free Marketing Tools
 description: Explore free SEO, writing, campaign, QR, and marketing utility tools on UD Marketing Tools.
 permalink: /tools/
 ---
-<style>
-  .tools-hero-clean { padding-bottom: 18px; }
-  .tools-hero-clean .tools-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(370px, 0.78fr);
-    gap: 56px;
-    align-items: center;
-  }
-  .tools-hero-clean .tools-hero-copy { max-width: 690px; }
-  .tools-hero-clean .tools-hero-copy h1 { max-width: 650px; }
-  .tools-hero-clean .tools-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 26px;
-  }
-  .tools-hero-clean .tools-quick-panel {
-    overflow: hidden;
-    border: 1px solid rgba(24, 34, 48, 0.12);
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
-  }
-  .tools-hero-clean .tools-quick-head {
-    padding: 18px 20px 14px;
-    border-bottom: 1px solid rgba(24, 34, 48, 0.09);
-  }
-  .tools-hero-clean .tools-quick-head strong,
-  .tools-hero-clean .tools-quick-head span { display: block; }
-  .tools-hero-clean .tools-quick-head strong { color: #111827; font-size: 1rem; }
-  .tools-hero-clean .tools-quick-head span { margin-top: 3px; color: #64748b; font-size: 0.82rem; }
-  .tools-hero-clean .tools-quick-list { display: grid; }
-  .tools-hero-clean .tools-quick-item {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 14px;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid rgba(24, 34, 48, 0.08);
-    color: #111827;
-    text-decoration: none;
-    transition: background-color 180ms ease;
-  }
-  .tools-hero-clean .tools-quick-item:hover { background: #f4f7fa; }
-  .tools-hero-clean .tools-quick-item strong,
-  .tools-hero-clean .tools-quick-item small { display: block; }
-  .tools-hero-clean .tools-quick-item strong { font-size: 0.94rem; }
-  .tools-hero-clean .tools-quick-item small { margin-top: 3px; color: #64748b; font-size: 0.78rem; }
-  .tools-hero-clean .tools-quick-item em { color: #0f766e; font-size: 0.82rem; font-style: normal; font-weight: 900; }
-  .tools-hero-clean .tools-quick-summary {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    background: #111827;
-    color: #fff;
-  }
-  .tools-hero-clean .tools-quick-summary span {
-    padding: 12px 8px;
-    border-right: 1px solid rgba(255, 255, 255, 0.13);
-    text-align: center;
-    font-size: 0.74rem;
-    font-weight: 800;
-  }
-  .tools-hero-clean .tools-quick-summary span:last-child { border-right: 0; }
-  .tools-directory-section { padding-top: 34px; }
-  @media (max-width: 1024px) {
-    .tools-hero-clean .tools-hero-grid { grid-template-columns: 1fr; gap: 30px; }
-    .tools-hero-clean .tools-quick-panel { max-width: 680px; }
-  }
-  @media (max-width: 760px) {
-    .tools-hero-clean .tools-hero-actions .btn { width: 100%; }
-    .tools-hero-clean .tools-quick-item { padding: 14px 16px; }
-    .tools-hero-clean .tools-quick-summary { grid-template-columns: 1fr; }
-    .tools-hero-clean .tools-quick-summary span { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.13); }
-    .tools-hero-clean .tools-quick-summary span:last-child { border-bottom: 0; }
-  }
-</style>
-
+{% from "partials/tool-icon.njk" import toolCard %}
 
 <section class="page-hero tools-hero tools-hero-clean">
   <div class="container">
@@ -91,9 +15,15 @@ permalink: /tools/
         <p>
           Browser-based tools for tracking links, reviewing content, creating metadata, measuring campaigns, and finishing everyday marketing tasks.
         </p>
-        <div class="tools-hero-actions">
-          <a class="btn btn-primary" href="/tools/utm-builder/">Open UTM Builder</a>
-          <a class="btn btn-secondary" href="#all-tools">Browse All Tools</a>
+        <form class="tool-finder" role="search" data-tool-finder>
+          <label class="sr-only" for="tool-search">Find a marketing tool</label>
+          <input id="tool-search" type="search" placeholder="Try: check keyword density" autocomplete="off" data-tool-search>
+          <button class="btn btn-accent" type="submit">Find a Tool</button>
+        </form>
+        <div class="tool-task-links" aria-label="Popular tasks">
+          <a href="/tools/keyword-density-checker/">Analyze content</a>
+          <a href="/tools/utm-builder/">Build a tracking URL</a>
+          <a href="/tools/cpc-roas-calculator/">Calculate ROAS</a>
         </div>
       </div>
 
@@ -117,9 +47,9 @@ permalink: /tools/
           </a>
         </div>
         <div class="tools-quick-summary">
-          <span>{{ tools | length }} tools</span>
-          <span>{{ articles | length }} guides</span>
-          <span>No signup</span>
+          <span><strong>{{ tools | length }}</strong> live tools</span>
+          <span><strong>{{ articles | length }}</strong> guides</span>
+          <span><strong>0</strong> signup steps</span>
         </div>
       </aside>
     </div>
@@ -136,26 +66,68 @@ permalink: /tools/
       </p>
     </div>
 
-    <div class="feature-grid">
+    <div class="tool-filter-bar" aria-label="Filter tools by category" data-tool-filters>
+      <button class="is-active" type="button" data-tool-filter="all">All tools</button>
+      <button type="button" data-tool-filter="writing">Writing</button>
+      <button type="button" data-tool-filter="seo">SEO</button>
+      <button type="button" data-tool-filter="metadata">Metadata</button>
+      <button type="button" data-tool-filter="campaign">Campaigns</button>
+      <button type="button" data-tool-filter="utility">QR utilities</button>
+    </div>
+    <p class="tool-filter-status" aria-live="polite" data-tool-status>{{ tools | length }} tools available</p>
+
+    <div class="tool-directory-grid" data-tool-grid>
       {% for tool in tools %}
-        <article class="feature-card lift">
-          <div class="feature-top">
-            <span class="feature-tag">{{ tool.category }}</span>
-            <span class="status-dot">{{ "Core" if tool.featured else "Utility" }}</span>
-          </div>
-          <div class="feature-body">
-            <h3>{{ tool.name }}</h3>
-            <p>{{ tool.description }}</p>
-          </div>
-          <div class="feature-bottom">
-            <span class="feature-meta">Free to use</span>
-            <a href="{{ tool.url }}" class="btn btn-primary btn-sm">{{ tool.cta }}</a>
-          </div>
-        </article>
+        {{ toolCard(tool) }}
       {% endfor %}
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    const searchForm = document.querySelector("[data-tool-finder]");
+    const searchInput = document.querySelector("[data-tool-search]");
+    const filterBar = document.querySelector("[data-tool-filters]");
+    const cards = Array.from(document.querySelectorAll("[data-tool-card]"));
+    const status = document.querySelector("[data-tool-status]");
+    if (!searchForm || !searchInput || !filterBar || !cards.length || !status) return;
+
+    let activeFilter = "all";
+
+    function updateTools() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+
+      cards.forEach(function (card) {
+        const matchesCategory = activeFilter === "all" || card.dataset.toolCategory === activeFilter;
+        const matchesSearch = !query || card.dataset.toolSearchText.toLowerCase().includes(query);
+        const shouldShow = matchesCategory && matchesSearch;
+        card.hidden = !shouldShow;
+        if (shouldShow) visible += 1;
+      });
+
+      status.textContent = visible === 1 ? "1 tool available" : visible + " tools available";
+    }
+
+    filterBar.addEventListener("click", function (event) {
+      const button = event.target.closest("[data-tool-filter]");
+      if (!button) return;
+      activeFilter = button.dataset.toolFilter;
+      filterBar.querySelectorAll("button").forEach(function (item) {
+        item.classList.toggle("is-active", item === button);
+      });
+      updateTools();
+    });
+
+    searchInput.addEventListener("input", updateTools);
+    searchForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      updateTools();
+      document.querySelector("#all-tools").scrollIntoView({ behavior: "smooth" });
+    });
+  })();
+</script>
 
 <section class="section section-tight">
   <div class="container">

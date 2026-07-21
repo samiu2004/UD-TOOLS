@@ -127,7 +127,7 @@ permalink: /articles/
       {% for article in articles | reverse %}
       <article class="feature-card article-card article-card-archive">
         <div class="feature-top">
-          <span class="feature-tag">Article</span>
+          <span class="article-card-kind">Practical guide</span>
           <time class="feature-meta" datetime="{{ article.date }}">{{ article.date | displayDate }}</time>
         </div>
 
@@ -137,7 +137,8 @@ permalink: /articles/
         </div>
 
         <div class="feature-bottom">
-          <a class="btn btn-secondary btn-sm" href="/articles/{{ article.slug }}/">Read article</a>
+          <span class="article-card-author">By {{ site.author.name }}</span>
+          <a class="article-read-link" href="/articles/{{ article.slug }}/">Read guide <span aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
       {% endfor %}

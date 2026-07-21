@@ -1,3 +1,17 @@
+<section class="footer-cta" aria-label="Start using free marketing tools">
+  <div class="container footer-cta-inner">
+    <div>
+      <span class="eyebrow">Free browser tools</span>
+      <h2>Start tracking a campaign in minutes.</h2>
+      <p>Build a clean UTM link or explore the complete tool directory. No account required.</p>
+    </div>
+    <div class="footer-cta-actions">
+      <a class="btn btn-accent" href="/tools/utm-builder/">Open UTM Builder</a>
+      <a class="btn btn-on-dark" href="/tools/">Explore All Tools</a>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
@@ -12,33 +26,42 @@
     </div>
 
     <div class="footer-col">
-      <p class="footer-heading">Site</p>
+      <p class="footer-heading">Popular tools</p>
       <ul>
-        <li><a href="/tools/">Tools</a></li>
-        <li><a href="/articles/">Articles</a></li>
+        <li><a href="/tools/utm-builder/">UTM Builder</a></li>
+        <li><a href="/tools/keyword-density-checker/">Keyword Density Checker</a></li>
+        <li><a href="/tools/cpc-roas-calculator/">ROAS Calculator</a></li>
+        <li><a href="/tools/meta-tag-generator/">Meta Tag Generator</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <p class="footer-heading">Guides</p>
+      <ul>
+        <li><a href="/articles/what-is-utm-tracking/">UTM Tracking</a></li>
+        <li><a href="/articles/what-is-keyword-density/">Keyword Density</a></li>
+        <li><a href="/articles/roas-calculator/">ROAS</a></li>
+        <li><a href="/articles/">All Articles</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <p class="footer-heading">Company</p>
+      <ul>
         <li><a href="/about/">About</a></li>
         <li><a href="/contact/">Contact</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <p class="footer-heading">Legal</p>
-      <ul>
         <li><a href="/privacy/">Privacy Policy</a></li>
         <li><a href="/terms/">Terms &amp; Conditions</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <p class="footer-heading">Meta</p>
-      <ul>
-        <li><a href="/sitemap.xml" target="_blank" rel="noopener noreferrer">Sitemap</a></li>
-        <li><span class="muted">Fast static site on Cloudflare Pages</span></li>
       </ul>
     </div>
   </div>
 
   <div class="container footer-bottom">
     <small>&copy; {{ (site.copyrightYear or "2026") }} UD Marketing Tools. All rights reserved.</small>
+    <div>
+      <a href="/sitemap.xml">Sitemap</a>
+      <span aria-hidden="true">&bull;</span>
+      <span>Fast static tools on Cloudflare Pages</span>
+    </div>
   </div>
 </footer>
