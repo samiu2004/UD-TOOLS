@@ -1170,13 +1170,14 @@ textarea.tool-input {
   position: relative;
   display: grid;
   gap: 12px;
-  width: min(100%, 440px);
+  width: min(100%, 470px);
   justify-self: end;
   padding: 18px;
-  border: 1px solid rgba(24, 34, 48, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.18);
   border-radius: var(--radius-lg);
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
+  background: var(--text);
+  color: #fff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -1191,8 +1192,8 @@ textarea.tool-input {
 
 .keyword-hero-results:hover {
   transform: translateY(-2px);
-  border-color: rgba(15, 118, 110, 0.22);
-  box-shadow: var(--shadow-md);
+  border-color: rgba(15, 118, 110, 0.42);
+  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.2);
 }
 
 .keyword-hero-results-head {
@@ -1205,6 +1206,7 @@ textarea.tool-input {
 
 .keyword-hero-results-head strong {
   font-size: 1.05rem;
+  color: #fff;
 }
 
 .keyword-hero-stat-grid {
@@ -1212,18 +1214,19 @@ textarea.tool-input {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);
-  background: var(--surface-soft);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .keyword-hero-stat-grid .keyword-stat-box {
-  min-height: 96px;
-  padding: 12px;
+  min-height: 90px;
+  padding: 12px 10px;
   border: 0;
-  border-right: 1px solid var(--line);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
   background: transparent;
+  color: #fff;
 }
 
 .keyword-hero-stat-grid .keyword-stat-box:last-child {
@@ -1232,7 +1235,28 @@ textarea.tool-input {
 
 .keyword-hero-stat-grid .keyword-stat-box:hover {
   transform: none;
-  border-color: var(--line);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.keyword-hero-stat-grid .keyword-stat-box > span {
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.keyword-hero-stat-grid .keyword-stat-box strong {
+  color: #fff;
+  font-size: clamp(1.08rem, 1.8vw, 1.34rem);
+}
+
+.keyword-hero-stat-grid .info-dot {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.keyword-hero-results .keyword-live-status {
+  color: #cbd5e1;
 }
 
 .keyword-tool-layout {
@@ -1789,7 +1813,7 @@ textarea.tool-input {
 
   .keyword-hero-stat-grid .keyword-stat-box:nth-child(1),
   .keyword-hero-stat-grid .keyword-stat-box:nth-child(2) {
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .keyword-tool-hero {
@@ -2432,7 +2456,7 @@ textarea.tool-input {
   .keyword-hero-stat-grid .keyword-stat-box,
   .keyword-hero-stat-grid .keyword-stat-box:nth-child(2) {
     border-right: 0;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .keyword-hero-stat-grid .keyword-stat-box:last-child {
