@@ -22,7 +22,7 @@ permalink: /about/
   <div class="container">
     <div class="results-grid">
       <div class="result-box">
-        <strong>8</strong>
+        <strong>{{ tools | length }}</strong>
         <span>Free tools</span>
       </div>
       <div class="result-box">
@@ -101,14 +101,9 @@ permalink: /about/
         <div class="sidebar-card">
           <h3>All tools</h3>
           <ul class="list-clean">
-            <li><a class="mini-link" href="/tools/word-counter/">Word Counter</a></li>
-            <li><a class="mini-link" href="/tools/keyword-density-checker/">Keyword Density Checker</a></li>
-            <li><a class="mini-link" href="/tools/readability-checker/">Readability Checker</a></li>
-            <li><a class="mini-link" href="/tools/meta-tag-generator/">Meta Tag Generator</a></li>
-            <li><a class="mini-link" href="/tools/cpc-roas-calculator/">CPC & ROAS Calculator</a></li>
-            <li><a class="mini-link" href="/tools/utm-builder/">UTM Builder</a></li>
-            <li><a class="mini-link" href="/tools/qr-code-generator/">QR Code Generator</a></li>
-            <li><a class="mini-link" href="/tools/qr-barcode-scanner/">QR & Barcode Scanner</a></li>
+            {% for tool in tools %}
+            <li><a class="mini-link" href="{{ tool.url }}">{{ tool.name }}</a></li>
+            {% endfor %}
           </ul>
         </div>
 
