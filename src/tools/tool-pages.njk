@@ -85,39 +85,76 @@ eleventyComputed:
             </div>
 
           {% elif tool.slug == "keyword-density-checker" %}
-            <div class="form-group">
-              <label for="densityText">Your text</label>
-              <textarea id="densityText" class="tool-input" placeholder="Paste your article, blog post, or landing page copy here..."></textarea>
-            </div>
+            <div class="keyword-tool-layout">
+              <div class="keyword-input-card">
+                <div class="keyword-tool-head">
+                  <h3>Paste your content</h3>
+                  <span><span id="densityCharCount">0</span> characters</span>
+                </div>
 
-            <div class="hero-actions" style="margin-bottom:0;">
-              <button id="densityClearBtn" class="btn btn-secondary" type="button">Clear Text</button>
-              <button id="densitySampleBtn" class="btn btn-primary" type="button">Load Example</button>
-            </div>
+                <textarea id="densityText" class="tool-input keyword-tool-textarea" placeholder="Paste your article, blog post, product description, or landing page copy here..."></textarea>
 
-            <div class="results-grid">
-              <div class="result-box">
-                <strong id="densityWordCount">0</strong>
-                <span>Total words</span>
+                <div class="keyword-tool-actions">
+                  <button id="densitySampleBtn" class="btn btn-primary" type="button">Load Example</button>
+                  <button id="densityClearBtn" class="btn btn-secondary" type="button">Clear Text</button>
+                </div>
               </div>
-              <div class="result-box">
-                <strong id="densityUniqueCount">0</strong>
-                <span>Unique words</span>
-              </div>
-              <div class="result-box">
-                <strong id="densityTopKeyword">-</strong>
-                <span>Top keyword</span>
-              </div>
-              <div class="result-box">
-                <strong id="densityTopPercent">0%</strong>
-                <span>Top keyword density</span>
-              </div>
-            </div>
 
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Top keyword usage</h3>
-              <div id="densityResults">
-                <p class="muted">Keyword results will appear here after you enter text.</p>
+              <div class="keyword-results-card">
+                <div class="keyword-tool-head">
+                  <h3>Live results</h3>
+                  <span class="keyword-live-status"><span aria-hidden="true"></span>Analyzing as you type</span>
+                </div>
+
+                <div class="keyword-stat-grid">
+                  <div class="keyword-stat-box">
+                    <span>Words <button class="info-dot" type="button" aria-label="Total words found in your content" data-tooltip="Total words found in your pasted content.">i</button></span>
+                    <strong id="densityWordCount">0</strong>
+                  </div>
+                  <div class="keyword-stat-box">
+                    <span>Unique terms <button class="info-dot" type="button" aria-label="Unique useful words" data-tooltip="Useful words counted after removing basic stop words.">i</button></span>
+                    <strong id="densityUniqueCount">0</strong>
+                  </div>
+                  <div class="keyword-stat-box">
+                    <span>Top keyword <button class="info-dot" type="button" aria-label="Most repeated keyword" data-tooltip="The most repeated useful term in the text.">i</button></span>
+                    <strong id="densityTopKeyword">-</strong>
+                  </div>
+                  <div class="keyword-stat-box">
+                    <span>Density <button class="info-dot" type="button" aria-label="Top keyword density" data-tooltip="How much the top keyword appears compared with total words.">i</button></span>
+                    <strong id="densityTopPercent">0%</strong>
+                  </div>
+                </div>
+
+                <div class="keyword-signal-card">
+                  <div>
+                    <strong>SEO Signal</strong>
+                    <span id="densitySignal">Normal</span>
+                  </div>
+                  <div class="keyword-signal-meter" aria-hidden="true"><span id="densitySignalMeter"></span></div>
+                </div>
+
+                <div class="keyword-table-head">
+                  <h3>Keyword table</h3>
+                  <button id="densityCopyBtn" class="btn btn-secondary btn-sm" type="button">Copy Report</button>
+                </div>
+
+                <div class="keyword-table-wrap">
+                  <table class="keyword-results-table">
+                    <thead>
+                      <tr>
+                        <th>Keyword</th>
+                        <th>Count</th>
+                        <th>Density</th>
+                        <th>Signal</th>
+                      </tr>
+                    </thead>
+                    <tbody id="densityResults">
+                      <tr>
+                        <td colspan="4">Keyword results will appear here after you enter text.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
 
