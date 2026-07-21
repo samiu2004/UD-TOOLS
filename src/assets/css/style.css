@@ -1138,15 +1138,65 @@ textarea.tool-input {
   color: var(--muted);
 }
 
+.keyword-page-grid {
+  grid-template-columns: 1fr;
+}
+
+.keyword-page-grid aside {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.keyword-page-grid aside .sidebar-card {
+  margin-top: 0 !important;
+}
+
+.keyword-hero-results {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(24, 34, 48, 0.08);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.keyword-hero-results:hover {
+  transform: translateY(-2px);
+  border-color: rgba(15, 118, 110, 0.22);
+  box-shadow: var(--shadow-md);
+}
+
+.keyword-hero-results-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.keyword-hero-results-head strong {
+  font-size: 1.05rem;
+}
+
+.keyword-hero-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
 .keyword-tool-layout {
   display: grid;
-  grid-template-columns: minmax(280px, 5fr) minmax(320px, 7fr);
+  grid-template-columns: 1fr;
   gap: 16px;
   align-items: start;
 }
 
 .keyword-input-card,
-.keyword-results-card {
+.keyword-results-card,
+.keyword-reasons-section {
   display: grid;
   gap: 14px;
   padding: 18px;
@@ -1159,14 +1209,17 @@ textarea.tool-input {
 
 .keyword-input-card:hover,
 .keyword-results-card:hover,
+.keyword-reasons-section:hover,
 .keyword-stat-box:hover,
-.keyword-signal-card:hover {
+.keyword-signal-card:hover,
+.keyword-reason-card:hover {
   transform: translateY(-2px);
   border-color: rgba(15, 118, 110, 0.22);
 }
 
 .keyword-input-card:hover,
-.keyword-results-card:hover {
+.keyword-results-card:hover,
+.keyword-reasons-section:hover {
   box-shadow: var(--shadow-md);
 }
 
@@ -1191,7 +1244,7 @@ textarea.tool-input {
 }
 
 .keyword-tool-textarea {
-  min-height: 330px;
+  min-height: 380px;
 }
 
 .keyword-tool-actions {
@@ -1200,10 +1253,14 @@ textarea.tool-input {
   flex-wrap: wrap;
 }
 
-.keyword-stat-grid {
+.keyword-stat-grid,
+.keyword-reason-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
+}
+
+.keyword-stat-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .keyword-stat-box {
@@ -1232,6 +1289,53 @@ textarea.tool-input {
   font-size: clamp(1.05rem, 2vw, 1.28rem);
   line-height: 1.2;
   overflow-wrap: anywhere;
+}
+
+.keyword-reasons-section {
+  margin-top: 24px;
+}
+
+.keyword-reasons-section .section-head {
+  margin-bottom: 4px;
+}
+
+.keyword-reason-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.keyword-reason-card {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-soft);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  animation: reasonFloat 6s ease-in-out infinite;
+}
+
+.keyword-reason-card:nth-child(2) {
+  animation-delay: 0.45s;
+}
+
+.keyword-reason-card:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.keyword-reason-card span {
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.keyword-reason-card strong {
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.keyword-reason-card p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .info-dot {
@@ -1413,6 +1517,17 @@ textarea.tool-input {
   }
 }
 
+@keyframes reasonFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
 .list-clean {
   list-style: none;
   margin: 0;
@@ -1576,6 +1691,12 @@ textarea.tool-input {
 
   .keyword-stat-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .keyword-hero-stat-grid,
+  .keyword-reason-grid,
+  .keyword-page-grid aside {
+    grid-template-columns: 1fr;
   }
 
   .hero-actions {
@@ -2193,6 +2314,7 @@ textarea.tool-input {
 @media (prefers-reduced-motion: reduce) {
   .live-dot,
   .keyword-live-status span,
+  .keyword-reason-card,
   .tools-orbit,
   .tool-stack-card {
     animation: none;
@@ -2200,7 +2322,8 @@ textarea.tool-input {
 }
 
 @media (max-width: 520px) {
-  .keyword-stat-grid {
+  .keyword-stat-grid,
+  .keyword-hero-stat-grid {
     grid-template-columns: 1fr;
   }
 }

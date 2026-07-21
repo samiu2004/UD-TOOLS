@@ -20,17 +20,44 @@ eleventyComputed:
           {{ tool.description }}
         </p>
       </div>
-      <div class="tool-hero-note">
-        <strong>Free to use</strong>
-        <span>No account required. Built for quick browser workflows.</span>
-      </div>
+      {% if tool.slug == "keyword-density-checker" %}
+        <div class="keyword-hero-results">
+          <div class="keyword-hero-results-head">
+            <strong>Live results</strong>
+            <span class="keyword-live-status"><span aria-hidden="true"></span>Real-time</span>
+          </div>
+          <div class="keyword-hero-stat-grid">
+            <div class="keyword-stat-box">
+              <span>Words <button class="info-dot" type="button" aria-label="Total words found in your content" data-tooltip="Total words found in your pasted content.">i</button></span>
+              <strong id="densityWordCount">0</strong>
+            </div>
+            <div class="keyword-stat-box">
+              <span>Unique terms <button class="info-dot" type="button" aria-label="Unique useful words" data-tooltip="Useful words counted after removing basic stop words.">i</button></span>
+              <strong id="densityUniqueCount">0</strong>
+            </div>
+            <div class="keyword-stat-box">
+              <span>Top keyword <button class="info-dot" type="button" aria-label="Most repeated keyword" data-tooltip="The most repeated useful term in the text.">i</button></span>
+              <strong id="densityTopKeyword">-</strong>
+            </div>
+            <div class="keyword-stat-box">
+              <span>Density <button class="info-dot" type="button" aria-label="Top keyword density" data-tooltip="How much the top keyword appears compared with total words.">i</button></span>
+              <strong id="densityTopPercent">0%</strong>
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="tool-hero-note">
+          <strong>Free to use</strong>
+          <span>No account required. Built for quick browser workflows.</span>
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
 
 <section class="section-tight">
   <div class="container">
-    <div class="page-grid">
+    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid{% endif %}">
       <div>
         <div class="tool-panel">
           <h2>Use the {{ tool.name }}</h2>
@@ -101,30 +128,6 @@ eleventyComputed:
               </div>
 
               <div class="keyword-results-card">
-                <div class="keyword-tool-head">
-                  <h3>Live results</h3>
-                  <span class="keyword-live-status"><span aria-hidden="true"></span>Analyzing as you type</span>
-                </div>
-
-                <div class="keyword-stat-grid">
-                  <div class="keyword-stat-box">
-                    <span>Words <button class="info-dot" type="button" aria-label="Total words found in your content" data-tooltip="Total words found in your pasted content.">i</button></span>
-                    <strong id="densityWordCount">0</strong>
-                  </div>
-                  <div class="keyword-stat-box">
-                    <span>Unique terms <button class="info-dot" type="button" aria-label="Unique useful words" data-tooltip="Useful words counted after removing basic stop words.">i</button></span>
-                    <strong id="densityUniqueCount">0</strong>
-                  </div>
-                  <div class="keyword-stat-box">
-                    <span>Top keyword <button class="info-dot" type="button" aria-label="Most repeated keyword" data-tooltip="The most repeated useful term in the text.">i</button></span>
-                    <strong id="densityTopKeyword">-</strong>
-                  </div>
-                  <div class="keyword-stat-box">
-                    <span>Density <button class="info-dot" type="button" aria-label="Top keyword density" data-tooltip="How much the top keyword appears compared with total words.">i</button></span>
-                    <strong id="densityTopPercent">0%</strong>
-                  </div>
-                </div>
-
                 <div class="keyword-signal-card">
                   <div>
                     <strong>SEO Signal</strong>
@@ -154,6 +157,30 @@ eleventyComputed:
                       </tr>
                     </tbody>
                   </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="keyword-reasons-section">
+              <div class="section-head">
+                <span class="eyebrow">Why use this tool?</span>
+                <h2>Find keyword issues before readers do.</h2>
+              </div>
+              <div class="keyword-reason-grid">
+                <div class="keyword-reason-card">
+                  <span>01</span>
+                  <strong>Catch repetition</strong>
+                  <p>Spot terms that appear too often before the content feels forced.</p>
+                </div>
+                <div class="keyword-reason-card">
+                  <span>02</span>
+                  <strong>Check topic focus</strong>
+                  <p>See whether the main keyword and related terms support the page intent.</p>
+                </div>
+                <div class="keyword-reason-card">
+                  <span>03</span>
+                  <strong>Edit naturally</strong>
+                  <p>Use density as a signal, then improve clarity instead of stuffing keywords.</p>
                 </div>
               </div>
             </div>
