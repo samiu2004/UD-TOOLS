@@ -97,11 +97,9 @@ main {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-lg);
-  display: inline-grid;
-  place-items: center;
-  background: var(--text);
-  color: #fff;
-  font-weight: 800;
+  display: block;
+  object-fit: contain;
+  background: transparent;
   flex-shrink: 0;
 }
 
@@ -3403,7 +3401,7 @@ textarea.serp-description-input {
 }
 
 .site-footer .brand-mark {
-  background: var(--primary);
+  background: transparent;
 }
 
 .site-footer .brand-text strong,

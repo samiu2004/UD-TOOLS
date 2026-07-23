@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="UD Marketing Tools">
-  <rect width="64" height="64" rx="14" fill="#111827"/>
-  <path d="M18 17v18c0 8.6 5.4 14 14 14s14-5.4 14-14V17h-9v18c0 3.9-1.8 6.1-5 6.1s-5-2.2-5-6.1V17h-9z" fill="#ffffff"/>
-  <circle cx="46" cy="18" r="4" fill="#0f766e"/>
+  <rect width="64" height="64" rx="14" fill="#101828"/>
+  <path d="M31 13v38M31 13h9c12 0 19 7 19 19s-7 19-19 19h-9"
+    fill="none" stroke="#2dd4bf" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M11 13v22c0 12 7 19 18 19s19-7 19-19V23"
+    fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
