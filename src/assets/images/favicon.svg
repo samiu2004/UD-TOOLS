@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="UD Marketing Tools">
-  <rect width="64" height="64" rx="14" fill="#101828"/>
-  <path d="M11 14v21c0 12 7 19 18 19s19-7 19-19V24"
-    fill="none" stroke="#fff" stroke-width="8" stroke-linecap="square" stroke-linejoin="round"/>
-  <path d="M31 14h9c11 0 18 7 18 18s-7 19-18 19h-9V34"
-    fill="none" stroke="#fff" stroke-width="8" stroke-linecap="square" stroke-linejoin="round"/>
-  <path d="M31 34v17h9c11 0 18-8 18-19"
-    fill="none" stroke="#2dd4bf" stroke-width="8" stroke-linecap="square" stroke-linejoin="round"/>
-</svg>
