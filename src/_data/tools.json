@@ -24,7 +24,7 @@
     ],
     "relatedArticles": [
       "readability-score-guide",
-      "keyword-density-guide"
+      "what-is-keyword-density"
     ],
     "guide": {
       "eyebrow": "Word Counter Guide",
@@ -509,12 +509,14 @@
       {
         "question": "What numbers do I need for this calculator?",
         "answer": "Enter ad spend, clicks, conversions, and revenue to calculate CPC, CPA, conversion rate, ROAS, and profit."
+      },
+      {
+        "question": "Is ROAS the same as profit?",
+        "answer": "No. ROAS compares advertising revenue with ad spend. Product costs, shipping, salaries, and other expenses are not included."
       }
     ],
     "relatedArticles": [
-      "roas-calculator",
       "how-to-calculate-roas",
-      "roas-formula",
       "good-roas",
       "roas-vs-roi"
     ],
@@ -572,7 +574,7 @@
         "Use UTM tracking links so revenue can be matched to the right campaign source."
       ],
       "relatedTitle": "Related ROAS guides",
-      "relatedText": "Use these guides to understand the ROAS formula, common benchmarks, and the difference between ROAS and ROI."
+      "relatedText": "Use these guides to understand ROAS calculations, common benchmarks, and the difference between ROAS and ROI."
     },
     "seoTitle": "ROAS Calculator"
   },
