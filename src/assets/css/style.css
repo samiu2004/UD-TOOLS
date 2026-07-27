@@ -844,6 +844,43 @@ p {
   color: var(--primary-dark);
 }
 
+.article-content code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.article-table-wrap {
+  max-width: 68ch;
+  margin: 24px 0;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.article-table-wrap table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+}
+
+.article-table-wrap th,
+.article-table-wrap td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-table-wrap th {
+  background: var(--surface-soft);
+  font-size: 0.9rem;
+}
+
+.article-table-wrap tr:last-child td {
+  border-bottom: 0;
+}
+
 .article-content blockquote {
   margin: 24px 0;
   padding: 18px 20px;
