@@ -1,3 +1,35 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/satoshi-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/satoshi-medium.woff2") format("woff2");
+  font-weight: 500 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/satoshi-bold.woff2") format("woff2");
+  font-weight: 700 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/satoshi-black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #f3f6f6;
   --surface: #ffffff;
@@ -3080,27 +3112,27 @@ textarea.serp-description-input {
 }
 
 .tool-tone-writing {
-  --tool-accent: #138574;
+  --tool-accent: #0b6b5f;
   --tool-soft: #def3ee;
 }
 
 .tool-tone-seo {
-  --tool-accent: #2f6fda;
+  --tool-accent: #2458ad;
   --tool-soft: #e8effc;
 }
 
 .tool-tone-metadata {
-  --tool-accent: #187ba3;
+  --tool-accent: #0b6387;
   --tool-soft: #e2f2f8;
 }
 
 .tool-tone-campaign {
-  --tool-accent: #b96814;
+  --tool-accent: #8a4500;
   --tool-soft: #fff0d7;
 }
 
 .tool-tone-utility {
-  --tool-accent: #bd554d;
+  --tool-accent: #963b35;
   --tool-soft: #fbe8e5;
 }
 
@@ -3225,7 +3257,7 @@ textarea.serp-description-input {
 }
 
 .article-card-kind {
-  color: var(--accent);
+  color: var(--accent-dark);
   font-size: 0.76rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -3387,8 +3419,8 @@ textarea.serp-description-input {
 }
 
 .footer-cta .eyebrow {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background: var(--primary-dark);
+  color: #ffffff;
 }
 
 .footer-cta h2 {
@@ -3399,7 +3431,7 @@ textarea.serp-description-input {
 
 .footer-cta p {
   margin: 0;
-  color: #d7f5ef;
+  color: #ffffff;
 }
 
 .footer-cta-actions {

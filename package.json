@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "npx @11ty/eleventy --serve --config=./eleventy.config.js",
-    "build": "npx @11ty/eleventy --config=./eleventy.config.js"
+    "build": "npx @11ty/eleventy --config=./eleventy.config.js && node scripts/minify-css.js"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.1.5",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "cheerio": "^1.0.0"
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3"
   }
 }
