@@ -2,8 +2,9 @@
   {
     "name": "Word Counter",
     "slug": "word-counter",
+    "primaryKeyword": "word counter",
     "url": "/tools/word-counter/",
-    "description": "Check word count, character count, sentence count, paragraph count, and estimated reading time for any text.",
+    "description": "Use this free Word Counter to check words, characters, sentences, paragraphs, reading time, and speaking time for any text.",
     "category": "Writing Tool",
     "featured": true,
     "status": "live",
@@ -86,8 +87,9 @@
   {
     "name": "Readability Checker",
     "slug": "readability-checker",
+    "primaryKeyword": "readability checker",
     "url": "/tools/readability-checker/",
-    "description": "Review how easy your text is to read and improve clarity for blogs, academic writing, emails, and web content.",
+    "description": "Use this free Readability Checker to measure reading ease, grade level, sentence length, and content clarity directly in your browser.",
     "category": "Content Clarity",
     "featured": true,
     "status": "live",
@@ -169,6 +171,7 @@
   {
     "name": "Keyword Density Checker",
     "slug": "keyword-density-checker",
+    "primaryKeyword": "keyword density checker",
     "url": "/tools/keyword-density-checker/",
     "description": "Use this free keyword density checker tool to check keyword density, calculate keyword frequency, and review SEO content before publishing.",
     "category": "SEO Review",
@@ -277,6 +280,7 @@
   {
     "name": "Meta Tag Generator",
     "slug": "meta-tag-generator",
+    "primaryKeyword": "meta tag generator",
     "url": "/tools/meta-tag-generator/",
     "description": "Use this free meta tag generator to create SEO titles, meta descriptions, canonical tags, Open Graph tags, and Twitter card markup.",
     "category": "Metadata Tool",
@@ -389,8 +393,9 @@
   {
     "name": "SERP Snippet Preview",
     "slug": "serp-snippet-preview",
+    "primaryKeyword": "SERP snippet preview",
     "url": "/tools/serp-snippet-preview/",
-    "description": "Preview a Google search snippet and check your page title, meta description, and URL before publishing.",
+    "description": "Use this free SERP Snippet Preview to check how your SEO title, meta description, and URL may appear in Google search results.",
     "category": "SEO Preview",
     "featured": true,
     "status": "live",
@@ -491,6 +496,7 @@
   {
     "name": "CPC & ROAS Calculator",
     "slug": "cpc-roas-calculator",
+    "primaryKeyword": "ROAS calculator",
     "url": "/tools/cpc-roas-calculator/",
     "description": "Use this free ROAS Calculator to estimate return on ad spend, CPC, CPA, conversion rate, and campaign profit from your ad results.",
     "category": "Ad Metrics",
@@ -581,6 +587,7 @@
   {
     "name": "UTM Builder",
     "slug": "utm-builder",
+    "primaryKeyword": "UTM builder",
     "url": "/tools/utm-builder/",
     "description": "Use this free UTM Builder to create tracking URLs for Google Analytics, ads, email, social posts, and campaign reporting.",
     "category": "Campaign Tracking",
@@ -688,8 +695,9 @@
   {
     "name": "QR Code Generator",
     "slug": "qr-code-generator",
+    "primaryKeyword": "QR code generator",
     "url": "/tools/qr-code-generator/",
-    "description": "Generate QR codes for links, landing pages, forms, promotions, product pages, and campaign access points.",
+    "description": "Use this free QR Code Generator to create downloadable QR codes for links, landing pages, forms, promotions, products, and campaigns.",
     "category": "Utility Tool",
     "featured": false,
     "status": "live",
@@ -769,8 +777,9 @@
   {
     "name": "QR / Barcode Scanner",
     "slug": "qr-barcode-scanner",
+    "primaryKeyword": "QR barcode scanner",
     "url": "/tools/qr-barcode-scanner/",
-    "description": "Scan QR codes and supported barcodes through mobile or desktop camera workflows where HTTPS is available.",
+    "description": "Use this free QR Barcode Scanner to scan QR codes and supported barcodes with your mobile or desktop camera over a secure connection.",
     "category": "Utility Tool",
     "featured": false,
     "status": "live",
