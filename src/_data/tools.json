@@ -173,7 +173,7 @@
     "slug": "keyword-density-checker",
     "primaryKeyword": "keyword density checker",
     "url": "/tools/keyword-density-checker/",
-    "description": "Use this free keyword density checker tool to check keyword density, calculate keyword frequency, and review SEO content before publishing.",
+    "description": "Check keyword density, calculate keyword percentage, and review repeated terms with this free keyword density calculator for SEO content. No sign-up required.",
     "category": "SEO Review",
     "featured": true,
     "status": "live",
@@ -275,7 +275,7 @@
       "relatedTitle": "Learn more about keyword density",
       "relatedText": "These guides explain keyword density, safe SEO ranges, checking workflows, keyword stuffing, and natural keyword use."
     },
-    "seoTitle": "Keyword Density Checker"
+    "seoTitle": "Keyword Density Checker and Calculator"
   },
   {
     "name": "Meta Tag Generator",
