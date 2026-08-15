@@ -698,12 +698,12 @@
     "slug": "utm-link-checker",
     "primaryKeyword": "UTM link checker",
     "url": "/tools/utm-link-checker/",
-    "description": "Use this free UTM Link Checker to validate campaign URLs, inspect UTM parameters, find missing fields, and export a clear tracking report.",
+    "description": "Validate UTM links, find missing campaign parameters, and export a clear tracking report with this free browser-based UTM Link Checker.",
     "category": "Campaign Tracking",
     "featured": true,
     "status": "live",
     "cta": "Check Link",
-    "seoTitle": "UTM Link Checker and Parameter Validator",
+    "seoTitle": "UTM Link Checker and Validator",
     "faq": [
       {
         "question": "What does a UTM link checker do?",
