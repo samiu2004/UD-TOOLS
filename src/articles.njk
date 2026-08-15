@@ -13,7 +13,10 @@ eleventyComputed:
 {% set articleMarkup = article.content | articleBody %}
 {% set articleMinutes = article.content | readingTime %}
 
-{% if "utm" in article.slug or "tracking-url" in article.slug or "campaign-url" in article.slug %}
+{% if article.slug == "utm-parameter-validation-rules" %}
+  {% set relatedToolUrl = "/tools/utm-link-checker/" %}
+  {% set relatedToolName = "UTM Link Checker" %}
+{% elif "utm" in article.slug or "tracking-url" in article.slug or "campaign-url" in article.slug %}
   {% set relatedToolUrl = "/tools/utm-builder/" %}
   {% set relatedToolName = "UTM Builder" %}
 {% elif "keyword-density" in article.slug or "keywords-naturally" in article.slug %}

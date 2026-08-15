@@ -621,7 +621,8 @@
       "what-are-utm-parameters",
       "how-to-create-a-tracking-url",
       "how-to-use-utm-builder-for-google-analytics",
-      "utm-builder-vs-campaign-url-builder"
+      "utm-builder-vs-campaign-url-builder",
+      "utm-parameter-validation-rules"
     ],
     "guide": {
       "eyebrow": "UTM Builder Guide",
@@ -691,6 +692,112 @@
       "relatedText": "These guides explain the concepts behind campaign URLs, UTM parameters, Google Analytics tracking, and tracking URL examples."
     },
     "seoTitle": "UTM Builder"
+  },
+  {
+    "name": "UTM Link Checker",
+    "slug": "utm-link-checker",
+    "primaryKeyword": "UTM link checker",
+    "url": "/tools/utm-link-checker/",
+    "description": "Use this free UTM Link Checker to validate campaign URLs, inspect UTM parameters, find missing fields, and export a clear tracking report.",
+    "category": "Campaign Tracking",
+    "featured": true,
+    "status": "live",
+    "cta": "Check Link",
+    "seoTitle": "UTM Link Checker and Parameter Validator",
+    "faq": [
+      {
+        "question": "What does a UTM link checker do?",
+        "answer": "A UTM link checker reads an existing campaign URL and reports whether its source, medium, campaign, and optional UTM parameters are present and usable."
+      },
+      {
+        "question": "Which UTM parameters should every campaign link include?",
+        "answer": "Most campaign links should include utm_source, utm_medium, and utm_campaign. Optional fields such as utm_content and utm_term should be used only when they support reporting."
+      },
+      {
+        "question": "Can I check several UTM links at once?",
+        "answer": "Yes. Batch mode checks one URL per line and lets you download the results as a CSV file."
+      },
+      {
+        "question": "Does this tool open or track the URLs I enter?",
+        "answer": "No. Validation runs in your browser. The checker parses the text locally and does not visit the destination or send the links to a server."
+      },
+      {
+        "question": "What is the difference between the UTM Builder and UTM Link Checker?",
+        "answer": "The UTM Builder creates a new campaign URL. The UTM Link Checker inspects an existing URL before it is published or added to a report."
+      }
+    ],
+    "relatedArticles": [
+      "utm-parameter-validation-rules",
+      "what-are-utm-parameters",
+      "how-to-create-a-tracking-url",
+      "how-to-use-utm-builder-for-google-analytics"
+    ],
+    "guide": {
+      "eyebrow": "UTM Link Checker Guide",
+      "title": "Validate campaign links before they reach your audience.",
+      "intro": [
+        "The UTM Link Checker inspects an existing tracking URL without opening it. It checks the URL structure, required UTM fields, empty values, duplicate parameters, capitalization, spaces, and fragments that may make campaign reporting harder to trust.",
+        "Use single mode for one important link or batch mode to review a campaign sheet. The checker runs locally in your browser and can export a CSV report for your records."
+      ],
+      "stepsTitle": "How to check a UTM link",
+      "steps": [
+        {
+          "title": "Paste the complete campaign URL",
+          "text": "Include the destination and every query parameter exactly as the link will be published."
+        },
+        {
+          "title": "Review required UTM fields",
+          "text": "Confirm that utm_source, utm_medium, and utm_campaign each have a meaningful value."
+        },
+        {
+          "title": "Read the issue report",
+          "text": "Check for empty values, duplicate fields, uppercase naming, spaces, or URL fragments that need attention."
+        },
+        {
+          "title": "Copy the normalized URL",
+          "text": "Use the normalized copy when the suggested formatting matches your campaign naming rules."
+        },
+        {
+          "title": "Test the final destination",
+          "text": "Open the finished link yourself and confirm that redirects preserve its query parameters before launch."
+        }
+      ],
+      "exampleTitle": "UTM validation example",
+      "exampleIntro": "A newsletter link should identify the sender, channel, and campaign consistently.",
+      "example": [
+        {
+          "label": "Destination",
+          "value": "https://example.com/offer/"
+        },
+        {
+          "label": "utm_source",
+          "value": "weekly_newsletter"
+        },
+        {
+          "label": "utm_medium",
+          "value": "email"
+        },
+        {
+          "label": "utm_campaign",
+          "value": "summer_launch"
+        },
+        {
+          "label": "Expected result",
+          "value": "Valid URL with all three required fields"
+        }
+      ],
+      "bestPracticesTitle": "UTM validation best practices",
+      "bestPractices": [
+        "Check links after they are copied into the final publishing platform.",
+        "Keep UTM values lowercase when your naming convention uses lowercase.",
+        "Use one separator style, such as underscores or hyphens, across campaigns.",
+        "Do not use UTM parameters on links between pages of your own website.",
+        "Confirm that redirects preserve the complete query string.",
+        "Keep a naming reference when several people create campaign links."
+      ],
+      "relatedTitle": "Related UTM guides",
+      "relatedText": "Learn how UTM parameters work, how to create tracking URLs, and how to find campaigns in GA4."
+    }
   },
   {
     "name": "QR Code Generator",

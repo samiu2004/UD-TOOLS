@@ -520,6 +520,145 @@ eleventyComputed:
               </div>
             </div>
 
+          {% elif tool.slug == "utm-link-checker" %}
+            <div class="utm-checker" data-utm-checker>
+              <div class="utm-checker-modes" role="tablist" aria-label="UTM checker mode">
+                <button class="is-active" type="button" role="tab" aria-selected="true" data-utm-mode="single">Single link</button>
+                <button type="button" role="tab" aria-selected="false" data-utm-mode="batch">Batch check</button>
+              </div>
+
+              <section class="utm-checker-pane" data-utm-pane="single">
+                <div class="form-group">
+                  <label for="utmCheckUrl">Campaign URL</label>
+                  <textarea id="utmCheckUrl" class="tool-input utm-checker-input" rows="4" spellcheck="false" placeholder="https://example.com/offer/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=summer_launch"></textarea>
+                </div>
+
+                <div class="hero-actions utm-checker-actions">
+                  <button id="utmCheckBtn" class="btn btn-primary" type="button">Check Link</button>
+                  <button id="utmCheckSampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                  <button id="utmCheckClearBtn" class="btn btn-secondary" type="button">Clear</button>
+                </div>
+
+                <div class="results-grid utm-checker-summary" aria-live="polite">
+                  <div class="result-box">
+                    <strong id="utmCheckStatus">Not checked</strong>
+                    <span>Overall status</span>
+                  </div>
+                  <div class="result-box">
+                    <strong id="utmCheckRequired">0 / 3</strong>
+                    <span>Required fields</span>
+                  </div>
+                  <div class="result-box">
+                    <strong id="utmCheckIssues">0</strong>
+                    <span>Issues found</span>
+                  </div>
+                  <div class="result-box">
+                    <strong id="utmCheckWarnings">0</strong>
+                    <span>Warnings</span>
+                  </div>
+                </div>
+
+                <div id="utmCheckNotice" class="utm-checker-notice" data-tone="neutral" role="status">
+                  Paste a campaign URL and run the checker to see its UTM fields.
+                </div>
+
+                <div class="content-card utm-checker-report">
+                  <div class="utm-checker-section-head">
+                    <div>
+                      <span class="mini-label">Parameter report</span>
+                      <h3>UTM fields and recommendations</h3>
+                    </div>
+                    <button id="utmCopyReportBtn" class="btn btn-secondary btn-sm" type="button" disabled>Copy Report</button>
+                  </div>
+                  <div class="utm-checker-table-wrap">
+                    <table class="utm-checker-table">
+                      <thead>
+                        <tr>
+                          <th>Parameter</th>
+                          <th>Value</th>
+                          <th>Status</th>
+                          <th>Recommendation</th>
+                        </tr>
+                      </thead>
+                      <tbody id="utmCheckResults">
+                        <tr><td colspan="4">No link checked yet.</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="content-card utm-checker-output-card">
+                  <div class="utm-checker-section-head">
+                    <div>
+                      <span class="mini-label">Normalized copy</span>
+                      <h3>Cleaned campaign URL</h3>
+                    </div>
+                    <button id="utmCopyUrlBtn" class="btn btn-secondary btn-sm" type="button" disabled>Copy URL</button>
+                  </div>
+                  <textarea id="utmCheckOutput" class="tool-input" rows="4" readonly placeholder="A normalized copy will appear here after validation."></textarea>
+                  <p class="muted utm-checker-note">Normalization trims UTM values, changes spaces to underscores, and lowercases UTM names and values. Existing non-UTM parameters are preserved.</p>
+                </div>
+              </section>
+
+              <section class="utm-checker-pane" data-utm-pane="batch" hidden>
+                <div class="form-group">
+                  <label for="utmBatchUrls">Campaign URLs <span class="muted">(one per line, up to 100)</span></label>
+                  <textarea id="utmBatchUrls" class="tool-input utm-batch-input" rows="10" spellcheck="false" placeholder="https://example.com/email/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=launch&#10;https://example.com/ad/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=launch"></textarea>
+                </div>
+
+                <div class="hero-actions utm-checker-actions">
+                  <button id="utmBatchCheckBtn" class="btn btn-primary" type="button">Check URLs</button>
+                  <button id="utmBatchSampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                  <button id="utmBatchClearBtn" class="btn btn-secondary" type="button">Clear</button>
+                  <button id="utmBatchCsvBtn" class="btn btn-secondary" type="button" disabled>Download CSV</button>
+                </div>
+
+                <div class="results-grid utm-checker-summary" aria-live="polite">
+                  <div class="result-box">
+                    <strong id="utmBatchTotal">0</strong>
+                    <span>URLs checked</span>
+                  </div>
+                  <div class="result-box">
+                    <strong id="utmBatchValid">0</strong>
+                    <span>Ready</span>
+                  </div>
+                  <div class="result-box">
+                    <strong id="utmBatchReview">0</strong>
+                    <span>Need review</span>
+                  </div>
+                  <div class="result-box">
+                    <strong id="utmBatchInvalid">0</strong>
+                    <span>Invalid</span>
+                  </div>
+                </div>
+
+                <div class="content-card utm-checker-report">
+                  <div class="utm-checker-section-head">
+                    <div>
+                      <span class="mini-label">Batch report</span>
+                      <h3>Campaign URL validation results</h3>
+                    </div>
+                  </div>
+                  <div class="utm-checker-table-wrap">
+                    <table class="utm-checker-table utm-batch-table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>URL</th>
+                          <th>Status</th>
+                          <th>Required</th>
+                          <th>Issues</th>
+                        </tr>
+                      </thead>
+                      <tbody id="utmBatchResults">
+                        <tr><td colspan="5">Add one URL per line to create a batch report.</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+            </div>
+
           {% elif tool.slug == "qr-code-generator" %}
             <div class="form-group">
               <label for="qrContent">Content to encode</label>
@@ -800,12 +939,37 @@ eleventyComputed:
   <script src="/assets/js/cpc-roas-calculator.js"></script>
 {% elif tool.slug == "utm-builder" %}
   <script src="/assets/js/campaign-url-builder.js"></script>
+{% elif tool.slug == "utm-link-checker" %}
+  <script src="/assets/js/utm-link-checker.js"></script>
 {% elif tool.slug == "qr-code-generator" %}
   <script src="/assets/js/qr-code-generator.js"></script>
 {% elif tool.slug == "qr-barcode-scanner" %}
   <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
   <script src="/assets/js/qr-barcode-scanner.js"></script>
 {% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": {{ tool.name | dump | safe }},
+  "url": "{{ site.url }}{{ tool.url }}",
+  "description": {{ tool.description | dump | safe }},
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.name | dump | safe }},
+    "url": {{ site.url | dump | safe }}
+  }
+}
+</script>
 
 {% if tool.faq %}
 <script type="application/ld+json">
