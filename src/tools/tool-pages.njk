@@ -869,6 +869,18 @@ eleventyComputed:
                 </div>
               </div>
             {% endif %}
+
+            {% if tool.workflowLinks %}
+              <div class="guide-block guide-related">
+                <h3>{{ tool.workflowLinks.title }}</h3>
+                <p class="muted">{{ tool.workflowLinks.text }}</p>
+                <div class="related-link-grid">
+                  {% for link in tool.workflowLinks.links %}
+                    <a href="{{ link.url }}">{{ link.label }}</a>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
           </section>
         {% endif %}
 

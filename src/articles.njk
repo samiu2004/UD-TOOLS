@@ -90,6 +90,23 @@ eleventyComputed:
             {{ articleMarkup | safe }}
           </div>
 
+          {% if article.faq %}
+          <section class="article-faq faq-section" aria-labelledby="article-faq-title">
+            <div class="section-head">
+              <span class="eyebrow">FAQ</span>
+              <h2 id="article-faq-title">Frequently asked questions</h2>
+            </div>
+            <div class="faq-list">
+              {% for item in article.faq %}
+              <details class="faq-item">
+                <summary>{{ item.question }}</summary>
+                <p>{{ item.answer }}</p>
+              </details>
+              {% endfor %}
+            </div>
+          </section>
+          {% endif %}
+
           <aside class="article-tool-cta">
             <div>
               <span class="mini-label">Put this into practice</span>

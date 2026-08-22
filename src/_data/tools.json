@@ -173,7 +173,7 @@
     "slug": "keyword-density-checker",
     "primaryKeyword": "keyword density checker",
     "url": "/tools/keyword-density-checker/",
-    "description": "Check keyword density, calculate percentages, and find repeated terms with this free SEO keyword density calculator. No sign-up required.",
+    "description": "Use this free keyword density checker and calculator to measure keyword percentage, review repeated terms, and improve SEO content naturally.",
     "category": "SEO Review",
     "featured": true,
     "status": "live",
@@ -186,6 +186,10 @@
       {
         "question": "How do I calculate keyword density?",
         "answer": "Divide the number of keyword mentions by the total word count, then multiply by 100 to get a percentage."
+      },
+      {
+        "question": "What does a keyword density calculator measure?",
+        "answer": "It measures how often a word or phrase appears as a percentage of the total word count. The result is a diagnostic, not a ranking target."
       },
       {
         "question": "Is this keyword density checker free?",
@@ -274,6 +278,20 @@
       ],
       "relatedTitle": "Learn more about keyword density",
       "relatedText": "These guides explain keyword density, safe SEO ranges, checking workflows, keyword stuffing, and natural keyword use."
+    },
+    "workflowLinks": {
+      "title": "Continue your content review",
+      "text": "Use these focused guides to interpret the calculator instead of chasing a fixed percentage.",
+      "links": [
+        {
+          "label": "How to Calculate Keyword Density",
+          "url": "/articles/how-to-calculate-keyword-density/"
+        },
+        {
+          "label": "Keyword Density vs Keyword Stuffing",
+          "url": "/articles/keyword-density-vs-keyword-stuffing/"
+        }
+      ]
     },
     "seoTitle": "Keyword Density Checker and Calculator"
   },
@@ -589,7 +607,7 @@
     "slug": "utm-builder",
     "primaryKeyword": "UTM builder",
     "url": "/tools/utm-builder/",
-    "description": "Use this free UTM Builder to create tracking URLs for Google Analytics, ads, email, social posts, and campaign reporting.",
+    "description": "Use this free UTM Builder and campaign URL builder to create tracking links for GA4, ads, email, social media, and campaign reports.",
     "category": "Campaign Tracking",
     "featured": true,
     "status": "live",
@@ -614,6 +632,10 @@
       {
         "question": "Should I use UTM parameters on internal links?",
         "answer": "No. UTM parameters are best for external campaign links. Using them on internal website navigation can make analytics reports messy."
+      },
+      {
+        "question": "How do I check a tracking URL after building it?",
+        "answer": "Open the finished URL to confirm the destination works, then use the UTM Link Checker to review required fields, duplicate parameters, empty values, and naming consistency."
       }
     ],
     "relatedArticles": [
@@ -691,6 +713,20 @@
       "relatedTitle": "Learn more about UTM tracking",
       "relatedText": "These guides explain the concepts behind campaign URLs, UTM parameters, Google Analytics tracking, and tracking URL examples."
     },
+    "workflowLinks": {
+      "title": "Build, validate, then publish",
+      "text": "Create the campaign URL here, then check its structure before placing it in an ad, email, social post, or QR code.",
+      "links": [
+        {
+          "label": "Check the finished UTM link",
+          "url": "/tools/utm-link-checker/"
+        },
+        {
+          "label": "Review UTM validation rules",
+          "url": "/articles/utm-parameter-validation-rules/"
+        }
+      ]
+    },
     "seoTitle": "UTM Builder"
   },
   {
@@ -698,12 +734,12 @@
     "slug": "utm-link-checker",
     "primaryKeyword": "UTM link checker",
     "url": "/tools/utm-link-checker/",
-    "description": "Validate UTM links, find missing campaign parameters, and export a clear tracking report with this free browser-based UTM Link Checker.",
+    "description": "Use this free UTM Link Checker and UTM URL checker to find missing, empty, or duplicate campaign parameters before publishing a tracking link.",
     "category": "Campaign Tracking",
     "featured": true,
     "status": "live",
     "cta": "Check Link",
-    "seoTitle": "UTM Link Checker and Validator",
+    "seoTitle": "UTM Link Checker for Campaign URLs",
     "faq": [
       {
         "question": "What does a UTM link checker do?",
@@ -724,6 +760,10 @@
       {
         "question": "What is the difference between the UTM Builder and UTM Link Checker?",
         "answer": "The UTM Builder creates a new campaign URL. The UTM Link Checker inspects an existing URL before it is published or added to a report."
+      },
+      {
+        "question": "Is a UTM URL checker the same as a UTM link checker?",
+        "answer": "Yes. Both names describe a tool that inspects an existing campaign URL and reports problems with its UTM parameters."
       }
     ],
     "relatedArticles": [
@@ -736,7 +776,7 @@
       "eyebrow": "UTM Link Checker Guide",
       "title": "Validate campaign links before they reach your audience.",
       "intro": [
-        "The UTM Link Checker inspects an existing tracking URL without opening it. It checks the URL structure, required UTM fields, empty values, duplicate parameters, capitalization, spaces, and fragments that may make campaign reporting harder to trust.",
+        "The UTM Link Checker works as a UTM URL checker for an existing tracking link without opening it. It checks the URL structure, required UTM fields, empty values, duplicate parameters, capitalization, spaces, and fragments that may make campaign reporting harder to trust.",
         "Use single mode for one important link or batch mode to review a campaign sheet. The checker runs locally in your browser and can export a CSV report for your records."
       ],
       "stepsTitle": "How to check a UTM link",
@@ -797,6 +837,20 @@
       ],
       "relatedTitle": "Related UTM guides",
       "relatedText": "Learn how UTM parameters work, how to create tracking URLs, and how to find campaigns in GA4."
+    },
+    "workflowLinks": {
+      "title": "Fix or rebuild a campaign URL",
+      "text": "Use the validation guide to understand each warning, or rebuild the link with consistent campaign values.",
+      "links": [
+        {
+          "label": "Open the UTM Builder",
+          "url": "/tools/utm-builder/"
+        },
+        {
+          "label": "Read the UTM validation rules",
+          "url": "/articles/utm-parameter-validation-rules/"
+        }
+      ]
     }
   },
   {

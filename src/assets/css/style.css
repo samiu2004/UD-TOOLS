@@ -3391,6 +3391,16 @@ textarea.serp-description-input {
   color: #fff;
 }
 
+.article-faq {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.article-faq + .article-tool-cta {
+  margin-top: 32px;
+}
+
 .article-tool-cta .mini-label {
   color: #7ee0d1;
 }
