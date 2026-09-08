@@ -10,9 +10,9 @@ eleventyComputed:
   description: "{{ tool.description }}"
 ---
 
-<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero{% endif %}">
+<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-hero{% endif %}">
   <div class="container">
-    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' %} keyword-tool-hero{% endif %}">
+    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' %} keyword-tool-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-hero{% endif %}">
       <div>
         <span class="eyebrow">{{ tool.category }}</span>
         <h1>{{ tool.name }}</h1>
@@ -45,7 +45,7 @@ eleventyComputed:
             </div>
           </div>
         </div>
-      {% else %}
+      {% elif tool.slug != "utm-builder" %}
         <div class="tool-hero-note">
           <strong>Free to use</strong>
           <span>No account required. Built for quick browser workflows.</span>
@@ -55,15 +55,17 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="section-tight">
+<section class="section-tight{% if tool.slug == 'utm-builder' %} utm-builder-section{% endif %}">
   <div class="container">
-    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid{% endif %}">
+    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-grid{% endif %}">
       <div>
-        <div class="tool-panel">
-          <h2>Use the {{ tool.name }}</h2>
-          <p class="muted">
-            Enter your inputs below and the results will update in the browser.
-          </p>
+        <div class="tool-panel{% if tool.slug == 'utm-builder' %} utm-builder-panel{% endif %}">
+          {% if tool.slug != "utm-builder" %}
+            <h2>Use the {{ tool.name }}</h2>
+            <p class="muted">
+              Enter your inputs below and the results will update in the browser.
+            </p>
+          {% endif %}
 
           {% if tool.slug == "word-counter" %}
             <div class="form-group">
@@ -422,73 +424,131 @@ eleventyComputed:
             </div>
 
           {% elif tool.slug == "utm-builder" %}
-            <div class="form-group">
-              <label for="campaignBaseUrl">Website URL</label>
-              <input id="campaignBaseUrl" class="tool-input" type="url" placeholder="https://example.com/landing-page/">
+            <div class="utm-builder-shell">
+              <header class="utm-workspace-heading">
+                <span class="mini-label">Campaign URL workspace</span>
+                <h2>Build a trackable campaign URL</h2>
+                <p>Enter the destination and three campaign fields. Your URL is validated and generated in your browser.</p>
+              </header>
+
+              <form id="campaignForm" class="utm-builder-workspace" novalidate>
+                <section class="utm-builder-form" aria-labelledby="campaignFieldsTitle">
+                  <div class="utm-step-heading">
+                    <span aria-hidden="true">1</span>
+                    <div>
+                      <h3 id="campaignFieldsTitle">Destination URL</h3>
+                      <p>Use the final page visitors should reach.</p>
+                    </div>
+                  </div>
+
+                  <div class="form-group utm-field">
+                    <label for="campaignBaseUrl">Destination URL <span>Required</span></label>
+                    <input id="campaignBaseUrl" class="tool-input" type="url" inputmode="url" autocomplete="url" spellcheck="false" required aria-describedby="campaignBaseUrlHint campaignBaseUrlError" placeholder="https://example.com/landing-page/">
+                    <p id="campaignBaseUrlHint" class="utm-field-hint">Include <strong>https://</strong>. Existing non-UTM parameters and fragments are preserved.</p>
+                    <p id="campaignBaseUrlError" class="utm-field-error" role="alert" hidden>Enter a complete http:// or https:// web address.</p>
+                  </div>
+
+                  <div class="utm-section-heading">
+                    <span aria-hidden="true">2</span>
+                    <div>
+                      <h3>Campaign parameters</h3>
+                      <p>These required values identify the traffic in analytics.</p>
+                    </div>
+                  </div>
+
+                  <div class="utm-primary-fields">
+                    <div class="form-group utm-field">
+                      <label for="utmSource">Source <span>Required</span></label>
+                      <input id="utmSource" class="tool-input" type="text" autocomplete="off" required aria-describedby="utmSourceHint utmSourceError" placeholder="newsletter">
+                      <p id="utmSourceHint" class="utm-field-hint">Where the traffic comes from.</p>
+                      <p id="utmSourceError" class="utm-field-error" role="alert" hidden>Add a campaign source.</p>
+                    </div>
+
+                    <div class="form-group utm-field">
+                      <label for="utmMedium">Medium <span>Required</span></label>
+                      <input id="utmMedium" class="tool-input" type="text" autocomplete="off" required aria-describedby="utmMediumHint utmMediumError" placeholder="email">
+                      <p id="utmMediumHint" class="utm-field-hint">The marketing channel or method.</p>
+                      <p id="utmMediumError" class="utm-field-error" role="alert" hidden>Add a campaign medium.</p>
+                    </div>
+
+                    <div class="form-group utm-field">
+                      <label for="utmCampaign">Campaign <span>Required</span></label>
+                      <input id="utmCampaign" class="tool-input" type="text" autocomplete="off" required aria-describedby="utmCampaignHint utmCampaignError" placeholder="summer-sale">
+                      <p id="utmCampaignHint" class="utm-field-hint">A consistent name for this promotion.</p>
+                      <p id="utmCampaignError" class="utm-field-error" role="alert" hidden>Add a campaign name.</p>
+                    </div>
+                  </div>
+
+                  <details id="campaignOptionalFields" class="utm-optional-fields">
+                    <summary>
+                      <span>Optional campaign details</span>
+                      <small>Content and term</small>
+                    </summary>
+                    <div class="utm-optional-fields-body">
+                      <div class="form-group utm-field">
+                        <label for="utmContent">Content</label>
+                        <input id="utmContent" class="tool-input" type="text" autocomplete="off" placeholder="hero-button">
+                        <p class="utm-field-hint">Distinguish links, creatives, or placements.</p>
+                      </div>
+
+                      <div class="form-group utm-field">
+                        <label for="utmTerm">Term</label>
+                        <input id="utmTerm" class="tool-input" type="text" autocomplete="off" placeholder="seo-tools">
+                        <p class="utm-field-hint">Track paid keywords or audience terms.</p>
+                      </div>
+                    </div>
+                  </details>
+
+                  <div class="utm-builder-actions">
+                    <button id="campaignGenerateBtn" class="btn btn-primary" type="submit">Generate URL</button>
+                    <button id="campaignSampleBtn" class="btn btn-secondary" type="button">Load example</button>
+                    <button id="campaignClearBtn" class="utm-reset-button" type="button">Reset</button>
+                  </div>
+                </section>
+
+                <section id="campaignResultPanel" class="utm-builder-result" data-state="waiting" aria-labelledby="campaignResultTitle">
+                  <div class="utm-result-heading">
+                    <div>
+                      <span class="mini-label">Generated result</span>
+                      <h3 id="campaignResultTitle">Campaign URL</h3>
+                    </div>
+                    <strong id="campaignRequiredStatus" class="utm-result-state">Incomplete</strong>
+                  </div>
+
+                  <p id="campaignStatusMessage" class="utm-status-message" role="status" aria-live="polite">Add the destination and required campaign fields to generate a URL.</p>
+
+                  <div class="utm-output-wrap">
+                    <label for="campaignOutput">Generated campaign URL</label>
+                    <textarea id="campaignOutput" class="tool-input" rows="5" readonly spellcheck="false" aria-describedby="campaignStatusMessage" placeholder="Your campaign URL will appear here."></textarea>
+                    <button id="campaignCopyBtn" class="btn btn-primary utm-copy-button" type="button" disabled>Copy URL</button>
+                  </div>
+
+                  <dl class="utm-result-meta">
+                    <div>
+                      <dt>Destination</dt>
+                      <dd id="campaignUrlStatus">Missing</dd>
+                    </div>
+                    <div>
+                      <dt>URL length</dt>
+                      <dd id="campaignLength">0</dd>
+                    </div>
+                    <div>
+                      <dt>UTM fields</dt>
+                      <dd id="campaignParamCount">0</dd>
+                    </div>
+                  </dl>
+
+                  <div class="utm-result-guidance">
+                    <h4>Validation guidance</h4>
+                    <div id="campaignTips">
+                      <p>Add the destination URL first. This is the page you want people to visit.</p>
+                    </div>
+                  </div>
+                </section>
+              </form>
             </div>
 
-            <div class="form-group">
-              <label for="utmSource">Campaign source</label>
-              <input id="utmSource" class="tool-input" type="text" placeholder="google, newsletter, linkedin">
-            </div>
-
-            <div class="form-group">
-              <label for="utmMedium">Campaign medium</label>
-              <input id="utmMedium" class="tool-input" type="text" placeholder="cpc, email, social">
-            </div>
-
-            <div class="form-group">
-              <label for="utmCampaign">Campaign name</label>
-              <input id="utmCampaign" class="tool-input" type="text" placeholder="summer-sale, product-launch">
-            </div>
-
-            <div class="form-group">
-              <label for="utmContent">Campaign content (optional)</label>
-              <input id="utmContent" class="tool-input" type="text" placeholder="button-a, banner-top">
-            </div>
-
-            <div class="form-group">
-              <label for="utmTerm">Campaign term (optional)</label>
-              <input id="utmTerm" class="tool-input" type="text" placeholder="seo-tool, paid-keyword">
-            </div>
-
-            <div class="hero-actions" style="margin-bottom:0;">
-              <button id="campaignClearBtn" class="btn btn-secondary" type="button">Clear</button>
-              <button id="campaignSampleBtn" class="btn btn-primary" type="button">Load Example</button>
-            </div>
-
-            <div class="results-grid">
-              <div class="result-box">
-                <strong id="campaignUrlStatus">-</strong>
-                <span>Base URL</span>
-              </div>
-              <div class="result-box">
-                <strong id="campaignRequiredStatus">-</strong>
-                <span>Required fields</span>
-              </div>
-              <div class="result-box">
-                <strong id="campaignLength">0</strong>
-                <span>URL length</span>
-              </div>
-              <div class="result-box">
-                <strong id="campaignParamCount">0</strong>
-                <span>UTM fields used</span>
-              </div>
-            </div>
-
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Generated campaign URL</h3>
-              <textarea id="campaignOutput" class="tool-input" rows="6" readonly placeholder="Your campaign URL will appear here..."></textarea>
-            </div>
-
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Tracking guidance</h3>
-              <div id="campaignTips">
-                <p class="muted">Tracking guidance will appear here as you fill in the fields.</p>
-              </div>
-            </div>
-
-            <div class="content-card utm-visual-card" style="margin-top:24px;">
+            <div class="utm-visual-card utm-builder-learning">
               <div class="visual-head">
                 <span class="mini-label">Campaign flow</span>
                 <h3>How a UTM link reaches Google Analytics</h3>
@@ -906,7 +966,7 @@ eleventyComputed:
         {% endif %}
       </div>
 
-      <aside>
+      <aside{% if tool.slug == 'utm-builder' %} class="utm-builder-resources"{% endif %}>
         <div class="sidebar-card">
           <h3>Related tools</h3>
           <ul class="list-clean">
