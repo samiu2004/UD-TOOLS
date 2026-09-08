@@ -10,9 +10,9 @@ eleventyComputed:
   description: "{{ tool.description }}"
 ---
 
-<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-hero{% endif %}">
+<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero task-tool-page-hero{% endif %}{% if tool.slug == 'utm-link-checker' %} task-tool-page-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-hero{% endif %}">
   <div class="container">
-    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' %} keyword-tool-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-hero{% endif %}">
+    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' %} task-tool-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-hero{% endif %}">
       <div>
         <span class="eyebrow">{{ tool.category }}</span>
         <h1>{{ tool.name }}</h1>
@@ -20,32 +20,7 @@ eleventyComputed:
           {{ tool.description }}
         </p>
       </div>
-      {% if tool.slug == "keyword-density-checker" %}
-        <div class="keyword-hero-results">
-          <div class="keyword-hero-results-head">
-            <strong>Live results</strong>
-            <span class="keyword-live-status"><span aria-hidden="true"></span>Real-time</span>
-          </div>
-          <div class="keyword-hero-stat-grid">
-            <div class="keyword-stat-box">
-              <span>Words <button class="info-dot" type="button" aria-label="Total words found in your content" data-tooltip="Total words found in your pasted content.">i</button></span>
-              <strong id="densityWordCount">0</strong>
-            </div>
-            <div class="keyword-stat-box">
-              <span>Unique <button class="info-dot" type="button" aria-label="Unique useful words" data-tooltip="Useful words counted after removing basic stop words.">i</button></span>
-              <strong id="densityUniqueCount">0</strong>
-            </div>
-            <div class="keyword-stat-box">
-              <span>Top term <button class="info-dot" type="button" aria-label="Most repeated keyword" data-tooltip="The most repeated useful term in the text.">i</button></span>
-              <strong id="densityTopKeyword">-</strong>
-            </div>
-            <div class="keyword-stat-box">
-              <span>Density <button class="info-dot" type="button" aria-label="Top keyword density" data-tooltip="How much the top keyword appears compared with total words.">i</button></span>
-              <strong id="densityTopPercent">0%</strong>
-            </div>
-          </div>
-        </div>
-      {% elif tool.slug != "utm-builder" %}
+      {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" %}
         <div class="tool-hero-note">
           <strong>Free to use</strong>
           <span>No account required. Built for quick browser workflows.</span>
@@ -55,12 +30,12 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="section-tight{% if tool.slug == 'utm-builder' %} utm-builder-section{% endif %}">
+<section class="section-tight{% if tool.slug == 'utm-builder' %} utm-builder-section{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' %} task-tool-section{% endif %}">
   <div class="container">
-    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-grid{% endif %}">
+    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid task-tool-page-grid{% endif %}{% if tool.slug == 'utm-link-checker' %} task-tool-page-grid{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-grid{% endif %}">
       <div>
-        <div class="tool-panel{% if tool.slug == 'utm-builder' %} utm-builder-panel{% endif %}">
-          {% if tool.slug != "utm-builder" %}
+        <div class="tool-panel{% if tool.slug == 'utm-builder' %} utm-builder-panel{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' %} task-tool-panel{% endif %}">
+          {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" %}
             <h2>Use the {{ tool.name }}</h2>
             <p class="muted">
               Enter your inputs below and the results will update in the browser.
@@ -114,76 +89,71 @@ eleventyComputed:
             </div>
 
           {% elif tool.slug == "keyword-density-checker" %}
-            <div class="keyword-tool-layout">
-              <div class="keyword-input-card">
-                <div class="keyword-tool-head">
-                  <h3>Paste your content</h3>
-                  <span><span id="densityCharCount">0</span> characters</span>
+            <div class="task-workspace keyword-workspace" data-keyword-density>
+              <div class="task-workspace-heading">
+                <div>
+                  <span class="mini-label">Content analysis</span>
+                  <h2>Check repeated words in your draft</h2>
+                  <p>Paste content to see individual-word frequency and density as you type.</p>
                 </div>
-
-                <textarea id="densityText" class="tool-input keyword-tool-textarea" placeholder="Paste your article, blog post, product description, or landing page copy here..."></textarea>
-
-                <div class="keyword-tool-actions">
-                  <button id="densitySampleBtn" class="btn btn-primary" type="button">Load Example</button>
-                  <button id="densityClearBtn" class="btn btn-secondary" type="button">Clear Text</button>
-                </div>
+                <span class="task-live-indicator"><span aria-hidden="true"></span>Live</span>
               </div>
 
-              <div class="keyword-results-card">
-                <div class="keyword-signal-card">
-                  <div>
-                    <strong>SEO Signal</strong>
-                    <span id="densitySignal">Normal</span>
+              <div class="keyword-tool-layout">
+                <section class="keyword-input-panel" aria-labelledby="densityInputHeading">
+                  <div class="task-step-heading">
+                    <span aria-hidden="true">1</span>
+                    <div>
+                      <h3 id="densityInputHeading">Add your content</h3>
+                      <p>Article, landing page, product copy, or another draft.</p>
+                    </div>
                   </div>
-                  <div class="keyword-signal-meter" aria-hidden="true"><span id="densitySignalMeter"></span></div>
-                </div>
 
-                <div class="keyword-table-head">
-                  <h3>Keyword table</h3>
-                  <button id="densityCopyBtn" class="btn btn-secondary btn-sm" type="button">Copy Report</button>
-                </div>
+                  <div class="keyword-input-meta"><span id="densityCharCount">0</span> characters</div>
+                  <label class="task-field-label" for="densityText">Content to analyze</label>
+                  <textarea id="densityText" class="tool-input keyword-tool-textarea" aria-describedby="densityMethod" placeholder="Paste your content here..."></textarea>
 
-                <div class="keyword-table-wrap">
-                  <table class="keyword-results-table">
-                    <thead>
-                      <tr>
-                        <th>Keyword</th>
-                        <th>Count</th>
-                        <th>Density</th>
-                        <th>Signal</th>
-                      </tr>
-                    </thead>
-                    <tbody id="densityResults">
-                      <tr>
-                        <td colspan="4">Keyword results will appear here after you enter text.</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+                  <div class="task-actions keyword-tool-actions">
+                    <button id="densitySampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                    <button id="densityClearBtn" class="task-reset-button" type="button">Clear text</button>
+                  </div>
+                </section>
 
-            <div class="keyword-reasons-section">
-              <div class="section-head">
-                <span class="eyebrow">Why use this tool?</span>
-                <h2>Find keyword issues before readers do.</h2>
-              </div>
-              <div class="keyword-reason-grid">
-                <div class="keyword-reason-card">
-                  <span>01</span>
-                  <strong>Catch repetition</strong>
-                  <p>Spot terms that appear too often before the content feels forced.</p>
-                </div>
-                <div class="keyword-reason-card">
-                  <span>02</span>
-                  <strong>Check topic focus</strong>
-                  <p>See whether the main keyword and related terms support the page intent.</p>
-                </div>
-                <div class="keyword-reason-card">
-                  <span>03</span>
-                  <strong>Edit naturally</strong>
-                  <p>Use density as a signal, then improve clarity instead of stuffing keywords.</p>
-                </div>
+                <section class="keyword-results-panel" aria-labelledby="densityResultsHeading">
+                  <div class="task-result-heading">
+                    <div>
+                      <span class="mini-label">Results</span>
+                      <h3 id="densityResultsHeading">Repeated terms</h3>
+                    </div>
+                    <button id="densityCopyBtn" class="btn btn-primary btn-sm" type="button" disabled>Copy report</button>
+                  </div>
+
+                  <p id="densityStatus" class="task-status-message" role="status" aria-live="polite">Add content to start the analysis.</p>
+
+                  <dl class="keyword-stat-grid">
+                    <div class="keyword-stat-box"><dt>Total words</dt><dd id="densityWordCount">0</dd></div>
+                    <div class="keyword-stat-box"><dt>Distinct terms</dt><dd id="densityUniqueCount">0</dd></div>
+                    <div class="keyword-stat-box"><dt>Top term</dt><dd id="densityTopKeyword">-</dd></div>
+                    <div class="keyword-stat-box"><dt>Top density</dt><dd id="densityTopPercent">0%</dd></div>
+                  </dl>
+
+                  <div class="keyword-table-wrap">
+                    <table class="keyword-results-table">
+                      <thead>
+                        <tr>
+                          <th>Term</th>
+                          <th>Count</th>
+                          <th>Density</th>
+                        </tr>
+                      </thead>
+                      <tbody id="densityResults">
+                        <tr><td colspan="3">Results will appear after you add content.</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <p id="densityMethod" class="task-method-note">Method: counts individual words without case sensitivity. Common English function words are excluded. Phrases and SEO quality are not evaluated.</p>
+                </section>
               </div>
             </div>
 
@@ -581,139 +551,101 @@ eleventyComputed:
             </div>
 
           {% elif tool.slug == "utm-link-checker" %}
-            <div class="utm-checker" data-utm-checker>
-              <div class="utm-checker-modes" role="tablist" aria-label="UTM checker mode">
-                <button class="is-active" type="button" role="tab" aria-selected="true" data-utm-mode="single">Single link</button>
-                <button type="button" role="tab" aria-selected="false" data-utm-mode="batch">Batch check</button>
+            <div class="task-workspace utm-checker" data-utm-checker>
+              <div class="task-workspace-heading utm-checker-heading">
+                <div>
+                  <span class="mini-label">Campaign validation</span>
+                  <h2>Check a UTM link before publishing</h2>
+                  <p>Review required campaign fields, formatting, duplicates, and fragments without opening the destination.</p>
+                </div>
+                <div class="utm-checker-modes" role="tablist" aria-label="UTM checker mode">
+                  <button id="utmSingleTab" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="utmSinglePane" tabindex="0" data-utm-mode="single">Single link</button>
+                  <button id="utmBatchTab" type="button" role="tab" aria-selected="false" aria-controls="utmBatchPane" tabindex="-1" data-utm-mode="batch">Batch check</button>
+                </div>
               </div>
 
-              <section class="utm-checker-pane" data-utm-pane="single">
-                <div class="form-group">
-                  <label for="utmCheckUrl">Campaign URL</label>
-                  <textarea id="utmCheckUrl" class="tool-input utm-checker-input" rows="4" spellcheck="false" placeholder="https://example.com/offer/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=summer_launch"></textarea>
-                </div>
-
-                <div class="hero-actions utm-checker-actions">
-                  <button id="utmCheckBtn" class="btn btn-primary" type="button">Check Link</button>
-                  <button id="utmCheckSampleBtn" class="btn btn-secondary" type="button">Load Example</button>
-                  <button id="utmCheckClearBtn" class="btn btn-secondary" type="button">Clear</button>
-                </div>
-
-                <div class="results-grid utm-checker-summary" aria-live="polite">
-                  <div class="result-box">
-                    <strong id="utmCheckStatus">Not checked</strong>
-                    <span>Overall status</span>
-                  </div>
-                  <div class="result-box">
-                    <strong id="utmCheckRequired">0 / 3</strong>
-                    <span>Required fields</span>
-                  </div>
-                  <div class="result-box">
-                    <strong id="utmCheckIssues">0</strong>
-                    <span>Issues found</span>
-                  </div>
-                  <div class="result-box">
-                    <strong id="utmCheckWarnings">0</strong>
-                    <span>Warnings</span>
-                  </div>
-                </div>
-
-                <div id="utmCheckNotice" class="utm-checker-notice" data-tone="neutral" role="status">
-                  Paste a campaign URL and run the checker to see its UTM fields.
-                </div>
-
-                <div class="content-card utm-checker-report">
-                  <div class="utm-checker-section-head">
-                    <div>
-                      <span class="mini-label">Parameter report</span>
-                      <h3>UTM fields and recommendations</h3>
+              <section id="utmSinglePane" class="utm-checker-pane" role="tabpanel" aria-labelledby="utmSingleTab" data-utm-pane="single">
+                <div class="utm-checker-single-grid">
+                  <div class="utm-checker-input-panel">
+                    <div class="task-step-heading">
+                      <span aria-hidden="true">1</span>
+                      <div><h3>Add a campaign URL</h3><p>Paste the complete URL exactly as it will be published.</p></div>
                     </div>
-                    <button id="utmCopyReportBtn" class="btn btn-secondary btn-sm" type="button" disabled>Copy Report</button>
+                    <label class="task-field-label" for="utmCheckUrl">Campaign URL</label>
+                    <textarea id="utmCheckUrl" class="tool-input utm-checker-input" rows="5" spellcheck="false" aria-describedby="utmCheckHelp utmCheckNotice" placeholder="https://example.com/offer/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=summer_launch"></textarea>
+                    <p id="utmCheckHelp" class="task-field-hint">The checker accepts complete HTTP or HTTPS URLs.</p>
+                    <div class="task-actions utm-checker-actions">
+                      <button id="utmCheckBtn" class="btn btn-primary" type="button">Check link</button>
+                      <button id="utmCheckSampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                      <button id="utmCheckClearBtn" class="task-reset-button" type="button">Reset</button>
+                    </div>
                   </div>
+
+                  <div class="utm-checker-result-panel" data-checker-state="waiting">
+                    <div class="task-result-heading">
+                      <div><span class="mini-label">Result</span><h3>Campaign link status</h3></div>
+                      <span id="utmCheckStatus" class="task-result-state">Not checked</span>
+                    </div>
+                    <div id="utmCheckNotice" class="utm-checker-notice" data-tone="neutral" role="status" aria-live="polite">Paste a campaign URL and run the checker.</div>
+                    <dl class="utm-checker-summary">
+                      <div><dt>Required fields</dt><dd id="utmCheckRequired">0 / 3</dd></div>
+                      <div><dt>Issues</dt><dd id="utmCheckIssues">0</dd></div>
+                      <div><dt>Warnings</dt><dd id="utmCheckWarnings">0</dd></div>
+                    </dl>
+                    <label class="task-field-label" for="utmCheckOutput">Normalized URL</label>
+                    <textarea id="utmCheckOutput" class="tool-input" rows="4" readonly placeholder="A normalized URL will appear after validation."></textarea>
+                    <div class="utm-result-actions">
+                      <button id="utmCopyUrlBtn" class="btn btn-primary" type="button" disabled>Copy URL</button>
+                      <button id="utmCopyReportBtn" class="btn btn-secondary" type="button" disabled>Copy report</button>
+                    </div>
+                    <p class="task-method-note">Normalization lowercases UTM names and values and changes spaces to underscores. Non-UTM parameters are preserved.</p>
+                  </div>
+                </div>
+
+                <details class="utm-checker-details">
+                  <summary>View parameter report</summary>
                   <div class="utm-checker-table-wrap">
                     <table class="utm-checker-table">
-                      <thead>
-                        <tr>
-                          <th>Parameter</th>
-                          <th>Value</th>
-                          <th>Status</th>
-                          <th>Recommendation</th>
-                        </tr>
-                      </thead>
-                      <tbody id="utmCheckResults">
-                        <tr><td colspan="4">No link checked yet.</td></tr>
-                      </tbody>
+                      <thead><tr><th>Parameter</th><th>Value</th><th>Status</th><th>Recommendation</th></tr></thead>
+                      <tbody id="utmCheckResults"><tr><td colspan="4">No link checked yet.</td></tr></tbody>
                     </table>
                   </div>
-                </div>
-
-                <div class="content-card utm-checker-output-card">
-                  <div class="utm-checker-section-head">
-                    <div>
-                      <span class="mini-label">Normalized copy</span>
-                      <h3>Cleaned campaign URL</h3>
-                    </div>
-                    <button id="utmCopyUrlBtn" class="btn btn-secondary btn-sm" type="button" disabled>Copy URL</button>
-                  </div>
-                  <textarea id="utmCheckOutput" class="tool-input" rows="4" readonly placeholder="A normalized copy will appear here after validation."></textarea>
-                  <p class="muted utm-checker-note">Normalization trims UTM values, changes spaces to underscores, and lowercases UTM names and values. Existing non-UTM parameters are preserved.</p>
-                </div>
+                </details>
               </section>
 
-              <section class="utm-checker-pane" data-utm-pane="batch" hidden>
-                <div class="form-group">
-                  <label for="utmBatchUrls">Campaign URLs <span class="muted">(one per line, up to 100)</span></label>
-                  <textarea id="utmBatchUrls" class="tool-input utm-batch-input" rows="10" spellcheck="false" placeholder="https://example.com/email/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=launch&#10;https://example.com/ad/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=launch"></textarea>
-                </div>
-
-                <div class="hero-actions utm-checker-actions">
-                  <button id="utmBatchCheckBtn" class="btn btn-primary" type="button">Check URLs</button>
-                  <button id="utmBatchSampleBtn" class="btn btn-secondary" type="button">Load Example</button>
-                  <button id="utmBatchClearBtn" class="btn btn-secondary" type="button">Clear</button>
-                  <button id="utmBatchCsvBtn" class="btn btn-secondary" type="button" disabled>Download CSV</button>
-                </div>
-
-                <div class="results-grid utm-checker-summary" aria-live="polite">
-                  <div class="result-box">
-                    <strong id="utmBatchTotal">0</strong>
-                    <span>URLs checked</span>
-                  </div>
-                  <div class="result-box">
-                    <strong id="utmBatchValid">0</strong>
-                    <span>Ready</span>
-                  </div>
-                  <div class="result-box">
-                    <strong id="utmBatchReview">0</strong>
-                    <span>Need review</span>
-                  </div>
-                  <div class="result-box">
-                    <strong id="utmBatchInvalid">0</strong>
-                    <span>Invalid</span>
-                  </div>
-                </div>
-
-                <div class="content-card utm-checker-report">
-                  <div class="utm-checker-section-head">
-                    <div>
-                      <span class="mini-label">Batch report</span>
-                      <h3>Campaign URL validation results</h3>
+              <section id="utmBatchPane" class="utm-checker-pane" role="tabpanel" aria-labelledby="utmBatchTab" data-utm-pane="batch" hidden>
+                <div class="utm-batch-layout">
+                  <div class="utm-checker-input-panel">
+                    <div class="task-step-heading">
+                      <span aria-hidden="true">1</span>
+                      <div><h3>Add campaign URLs</h3><p>One complete URL per line, up to 100.</p></div>
+                    </div>
+                    <label class="task-field-label" for="utmBatchUrls">Campaign URLs</label>
+                    <textarea id="utmBatchUrls" class="tool-input utm-batch-input" rows="9" spellcheck="false" placeholder="https://example.com/email/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=launch&#10;https://example.com/ad/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=launch"></textarea>
+                    <div class="task-actions utm-checker-actions">
+                      <button id="utmBatchCheckBtn" class="btn btn-primary" type="button">Check URLs</button>
+                      <button id="utmBatchSampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                      <button id="utmBatchClearBtn" class="task-reset-button" type="button">Reset</button>
                     </div>
                   </div>
-                  <div class="utm-checker-table-wrap">
-                    <table class="utm-checker-table utm-batch-table">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>URL</th>
-                          <th>Status</th>
-                          <th>Required</th>
-                          <th>Issues</th>
-                        </tr>
-                      </thead>
-                      <tbody id="utmBatchResults">
-                        <tr><td colspan="5">Add one URL per line to create a batch report.</td></tr>
-                      </tbody>
-                    </table>
+
+                  <div class="utm-batch-results-panel">
+                    <div class="task-result-heading">
+                      <div><span class="mini-label">Batch result</span><h3>Validation summary</h3></div>
+                      <button id="utmBatchCsvBtn" class="btn btn-secondary btn-sm" type="button" disabled>Download CSV</button>
+                    </div>
+                    <dl class="utm-checker-summary" aria-live="polite">
+                      <div><dt>Checked</dt><dd id="utmBatchTotal">0</dd></div>
+                      <div><dt>Ready</dt><dd id="utmBatchValid">0</dd></div>
+                      <div><dt>Review</dt><dd id="utmBatchReview">0</dd></div>
+                      <div><dt>Invalid</dt><dd id="utmBatchInvalid">0</dd></div>
+                    </dl>
+                    <div class="utm-checker-table-wrap">
+                      <table class="utm-checker-table utm-batch-table">
+                        <thead><tr><th>#</th><th>URL</th><th>Status</th><th>Required</th><th>Issues</th></tr></thead>
+                        <tbody id="utmBatchResults"><tr><td colspan="5">Add one URL per line to create a batch report.</td></tr></tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -966,7 +898,7 @@ eleventyComputed:
         {% endif %}
       </div>
 
-      <aside{% if tool.slug == 'utm-builder' %} class="utm-builder-resources"{% endif %}>
+      <aside{% if tool.slug == 'utm-builder' %} class="utm-builder-resources"{% elif tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' %} class="task-tool-resources"{% endif %}>
         <div class="sidebar-card">
           <h3>Related tools</h3>
           <ul class="list-clean">

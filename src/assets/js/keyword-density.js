@@ -1,18 +1,22 @@
-const textInput = document.getElementById("densityText");
-const clearBtn = document.getElementById("densityClearBtn");
-const sampleBtn = document.getElementById("densitySampleBtn");
-const copyBtn = document.getElementById("densityCopyBtn");
-const charCountEl = document.getElementById("densityCharCount");
-const wordCountEl = document.getElementById("densityWordCount");
-const uniqueCountEl = document.getElementById("densityUniqueCount");
-const topKeywordEl = document.getElementById("densityTopKeyword");
-const topPercentEl = document.getElementById("densityTopPercent");
-const signalEl = document.getElementById("densitySignal");
-const signalMeterEl = document.getElementById("densitySignalMeter");
-const resultsEl = document.getElementById("densityResults");
+(function () {
+  "use strict";
 
-if (textInput) {
-  const stopWords = new Set([
+  var textInput = document.getElementById("densityText");
+  if (!textInput) return;
+
+  var clearBtn = document.getElementById("densityClearBtn");
+  var sampleBtn = document.getElementById("densitySampleBtn");
+  var copyBtn = document.getElementById("densityCopyBtn");
+  var charCountEl = document.getElementById("densityCharCount");
+  var wordCountEl = document.getElementById("densityWordCount");
+  var uniqueCountEl = document.getElementById("densityUniqueCount");
+  var topKeywordEl = document.getElementById("densityTopKeyword");
+  var topPercentEl = document.getElementById("densityTopPercent");
+  var resultsEl = document.getElementById("densityResults");
+  var statusEl = document.getElementById("densityStatus");
+  var lastAnalysis = null;
+
+  var stopWords = new Set([
     "the", "a", "an", "and", "or", "but", "if", "then", "else", "for", "on", "in", "at", "to", "from", "by", "with",
     "of", "is", "are", "was", "were", "be", "been", "being", "it", "its", "this", "that", "these", "those", "as",
     "i", "you", "he", "she", "we", "they", "them", "their", "our", "your", "my", "me", "his", "her", "not", "do",
@@ -20,119 +24,126 @@ if (textInput) {
     "over", "under", "again", "more", "most", "such", "no", "nor", "only", "own", "same", "other", "some", "any"
   ]);
 
-  function getSignal(percent) {
-    if (percent >= 7) return "Potential overuse";
-    if (percent >= 4) return "Getting high";
-    if (percent >= 1.5) return "Healthy range";
-    return "Normal";
+  function tokenize(value) {
+    return value.toLocaleLowerCase().match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu) || [];
   }
 
-  function getBarClass(percent) {
-    if (percent >= 7) return "is-over";
-    if (percent >= 4) return "is-high";
-    if (percent >= 1.5) return "is-healthy";
-    return "";
+  function analyze(value) {
+    var words = tokenize(value);
+    var usefulWords = words.filter(function (word) { return !stopWords.has(word); });
+    var counts = {};
+    usefulWords.forEach(function (word) { counts[word] = (counts[word] || 0) + 1; });
+    var sorted = Object.entries(counts).sort(function (a, b) { return b[1] - a[1] || a[0].localeCompare(b[0]); });
+    return { words: words, sorted: sorted, totalWords: words.length, distinctTerms: sorted.length };
   }
 
   function getKeywordRows(sorted, totalWords) {
-    return sorted.slice(0, 10).map(([word, count]) => {
-      const percent = totalWords ? (count / totalWords) * 100 : 0;
-      const width = Math.min(100, Math.max(6, percent * 11));
-      const signal = getSignal(percent);
-      const barClass = getBarClass(percent);
-
-      return `
-        <tr>
-          <td>${word}</td>
-          <td>${count}</td>
-          <td>
-            <div class="keyword-density-cell">
-              <span>${percent.toFixed(2)}%</span>
-              <span class="keyword-density-bar"><span class="${barClass}" style="width:${width}%"></span></span>
-            </div>
-          </td>
-          <td>${signal}</td>
-        </tr>
-      `;
+    return sorted.slice(0, 10).map(function (entry) {
+      var word = entry[0];
+      var count = entry[1];
+      var percent = totalWords ? (count / totalWords) * 100 : 0;
+      var width = Math.min(100, Math.max(4, percent));
+      return '<tr><td>' + word + '</td><td>' + count + '</td><td><div class="keyword-density-cell"><span>' +
+        percent.toFixed(2) + '%</span><span class="keyword-density-bar" aria-hidden="true"><span style="width:' +
+        width + '%"></span></span></div></td></tr>';
     }).join("");
   }
 
-  function analyzeText() {
-    const rawText = textInput.value.trim().toLowerCase();
-    const words = rawText.match(/\b[a-z0-9]+\b/g) || [];
-    const filteredWords = words.filter(word => word.length > 2 && !stopWords.has(word));
-
-    const counts = {};
-    filteredWords.forEach(word => {
-      counts[word] = (counts[word] || 0) + 1;
-    });
-
-    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-    const totalWords = words.length;
-    const uniqueWords = Object.keys(counts).length;
-
+  function renderAnalysis() {
+    lastAnalysis = analyze(textInput.value);
+    var sorted = lastAnalysis.sorted;
+    var totalWords = lastAnalysis.totalWords;
     charCountEl.textContent = textInput.value.length;
     wordCountEl.textContent = totalWords;
-    uniqueCountEl.textContent = uniqueWords;
+    uniqueCountEl.textContent = lastAnalysis.distinctTerms;
 
-    if (sorted.length === 0 || totalWords === 0) {
+    if (!totalWords || !sorted.length) {
       topKeywordEl.textContent = "-";
       topPercentEl.textContent = "0%";
-      signalEl.textContent = "Normal";
-      signalMeterEl.style.width = "8%";
-      resultsEl.innerHTML = '<tr><td colspan="4">Keyword results will appear here after you enter text.</td></tr>';
+      resultsEl.innerHTML = '<tr><td colspan="3">Results will appear after you add content.</td></tr>';
+      statusEl.textContent = totalWords ? "No terms remain after common words are excluded." : "Add content to start the analysis.";
+      copyBtn.disabled = true;
       return;
     }
 
-    const [topWord, topCount] = sorted[0];
-    const topPercent = (topCount / totalWords) * 100;
-
+    var topWord = sorted[0][0];
+    var topCount = sorted[0][1];
+    var topPercent = (topCount / totalWords) * 100;
     topKeywordEl.textContent = topWord;
-    topPercentEl.textContent = `${topPercent.toFixed(2)}%`;
-    signalEl.textContent = getSignal(topPercent);
-    signalMeterEl.style.width = `${Math.min(100, Math.max(8, topPercent * 10))}%`;
+    topPercentEl.textContent = topPercent.toFixed(2) + "%";
     resultsEl.innerHTML = getKeywordRows(sorted, totalWords);
+    statusEl.textContent = "Analyzed " + totalWords + " words and found " + lastAnalysis.distinctTerms + " distinct terms after exclusions.";
+    copyBtn.disabled = false;
   }
 
-  function copyReport() {
-    const rows = Array.from(resultsEl.querySelectorAll("tr"))
-      .map(row => Array.from(row.children).map(cell => cell.textContent.trim().replace(/\s+/g, " ")).join(" | "))
-      .join("\n");
-
-    const report = [
+  function buildReport() {
+    var rows = Array.from(resultsEl.querySelectorAll("tr")).map(function (row) {
+      return Array.from(row.children).map(function (cell) {
+        return cell.textContent.trim().replace(/\s+/g, " ");
+      }).join(" | ");
+    }).join("\n");
+    return [
       "Keyword Density Report",
-      `Words: ${wordCountEl.textContent}`,
-      `Unique terms: ${uniqueCountEl.textContent}`,
-      `Top keyword: ${topKeywordEl.textContent}`,
-      `Density: ${topPercentEl.textContent}`,
-      `SEO signal: ${signalEl.textContent}`,
+      "Total words: " + wordCountEl.textContent,
+      "Distinct terms: " + uniqueCountEl.textContent,
+      "Top term: " + topKeywordEl.textContent,
+      "Top density: " + topPercentEl.textContent,
+      "Method: individual words, case-insensitive, common English function words excluded",
       "",
       rows
     ].join("\n");
-
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(report);
-    }
-
-    copyBtn.textContent = "Copied";
-    window.setTimeout(() => {
-      copyBtn.textContent = "Copy Report";
-    }, 1200);
   }
 
-  clearBtn.addEventListener("click", () => {
+  function showCopyFeedback(label) {
+    copyBtn.textContent = label;
+    window.setTimeout(function () { copyBtn.textContent = "Copy report"; }, 1400);
+  }
+
+  function fallbackCopy(report) {
+    try {
+      var helper = document.createElement("textarea");
+      helper.value = report;
+      helper.setAttribute("readonly", "");
+      helper.style.position = "fixed";
+      helper.style.opacity = "0";
+      document.body.appendChild(helper);
+      helper.select();
+      var copied = document.execCommand("copy");
+      helper.remove();
+      showCopyFeedback(copied ? "Copied" : "Copy failed");
+      statusEl.textContent = copied ? "Report copied to clipboard." : "The report could not be copied. Try again.";
+    } catch (error) {
+      showCopyFeedback("Copy failed");
+      statusEl.textContent = "The report could not be copied. Try again.";
+    }
+  }
+
+  function copyReport() {
+    if (!lastAnalysis || !lastAnalysis.sorted.length) return;
+    var report = buildReport();
+    if (!navigator.clipboard || !navigator.clipboard.writeText) {
+      fallbackCopy(report);
+      return;
+    }
+    navigator.clipboard.writeText(report).then(function () {
+      showCopyFeedback("Copied");
+      statusEl.textContent = "Report copied to clipboard.";
+    }).catch(function () { fallbackCopy(report); });
+  }
+
+  clearBtn.addEventListener("click", function () {
     textInput.value = "";
-    analyzeText();
+    renderAnalysis();
     textInput.focus();
   });
 
-  sampleBtn.addEventListener("click", () => {
-    textInput.value = "Keyword density tools are useful for checking repeated terms in SEO content. A keyword density checker should help writers find overused words, review keyword balance, and improve content without keyword stuffing.";
-    analyzeText();
+  sampleBtn.addEventListener("click", function () {
+    textInput.value = "AI marketing tools help teams review campaigns. An AI keyword density checker shows repeated words, while clear campaign notes help teams use the results naturally.";
+    renderAnalysis();
     textInput.focus();
   });
 
   copyBtn.addEventListener("click", copyReport);
-  textInput.addEventListener("input", analyzeText);
-  analyzeText();
-}
+  textInput.addEventListener("input", renderAnalysis);
+  renderAnalysis();
+})();

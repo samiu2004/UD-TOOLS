@@ -28,6 +28,7 @@
   var batchInput = document.getElementById("utmBatchUrls");
   var batchResults = document.getElementById("utmBatchResults");
   var batchCsvButton = document.getElementById("utmBatchCsvBtn");
+  var singlePanel = root.querySelector("[data-checker-state]");
   var lastSingleResult = null;
   var lastBatchResults = [];
 
@@ -200,11 +201,13 @@
 
   function renderSingle(result) {
     lastSingleResult = result;
+    singlePanel.dataset.checkerState = !result.parsed ? "invalid" : result.errors.length ? "review" : result.warnings.length ? "warning" : "ready";
     singleStatus.textContent = result.status;
     singleRequired.textContent = result.requiredCount + " / 3";
     singleIssues.textContent = result.errors.length;
     singleWarnings.textContent = result.warnings.length;
     singleOutput.value = result.normalizedUrl;
+    singleInput.setAttribute("aria-invalid", result.parsed ? "false" : "true");
     copyReportButton.disabled = !result.parsed;
     copyUrlButton.disabled = !result.normalizedUrl;
     singleResults.textContent = "";
@@ -250,6 +253,23 @@
     }
   }
 
+  function invalidateSingleResult() {
+    if (!lastSingleResult) return;
+    lastSingleResult = null;
+    singlePanel.dataset.checkerState = "stale";
+    singleStatus.textContent = "Needs recheck";
+    singleRequired.textContent = "-";
+    singleIssues.textContent = "-";
+    singleWarnings.textContent = "-";
+    singleOutput.value = "";
+    copyReportButton.disabled = true;
+    copyUrlButton.disabled = true;
+    singleResults.innerHTML = '<tr><td colspan="4">The URL changed. Check it again to refresh this report.</td></tr>';
+    singleNotice.dataset.tone = "warning";
+    singleNotice.textContent = "The URL changed. Run the checker again before using the result.";
+    singleInput.removeAttribute("aria-invalid");
+  }
+
   function buildReport(result) {
     var lines = [
       "UTM Link Checker report",
@@ -269,22 +289,26 @@
 
   function copyText(text, button, successLabel) {
     if (!text) return;
-    var showSuccess = function () {
+    var showFeedback = function (label) {
       var original = button.textContent;
-      button.textContent = successLabel;
+      button.textContent = label;
       window.setTimeout(function () { button.textContent = original; }, 1400);
     };
     var fallbackCopy = function () {
-      var helper = document.createElement("textarea");
-      helper.value = text;
-      helper.setAttribute("readonly", "");
-      helper.style.position = "fixed";
-      helper.style.opacity = "0";
-      document.body.appendChild(helper);
-      helper.select();
-      document.execCommand("copy");
-      helper.remove();
-      showSuccess();
+      try {
+        var helper = document.createElement("textarea");
+        helper.value = text;
+        helper.setAttribute("readonly", "");
+        helper.style.position = "fixed";
+        helper.style.opacity = "0";
+        document.body.appendChild(helper);
+        helper.select();
+        var copied = document.execCommand("copy");
+        helper.remove();
+        showFeedback(copied ? successLabel : "Copy failed");
+      } catch (error) {
+        showFeedback("Copy failed");
+      }
     };
 
     if (!navigator.clipboard || !navigator.clipboard.writeText) {
@@ -292,7 +316,7 @@
       return;
     }
 
-    navigator.clipboard.writeText(text).then(showSuccess).catch(fallbackCopy);
+    navigator.clipboard.writeText(text).then(function () { showFeedback(successLabel); }).catch(fallbackCopy);
   }
 
   function renderBatch(results) {
@@ -325,12 +349,17 @@
       var requiredCell = document.createElement("td");
       var issuesCell = document.createElement("td");
       indexCell.textContent = index + 1;
+      indexCell.dataset.label = "#";
       urlCell.textContent = result.raw;
       urlCell.className = "utm-batch-url";
       urlCell.title = result.raw;
+      urlCell.dataset.label = "URL";
       statusCell.appendChild(createStatusBadge(result.status, !result.parsed || result.errors.length ? "error" : result.warnings.length ? "warning" : "good"));
+      statusCell.dataset.label = "Status";
       requiredCell.textContent = result.requiredCount + "/3";
+      requiredCell.dataset.label = "Required";
       issuesCell.textContent = result.errors.length + result.warnings.length;
+      issuesCell.dataset.label = "Issues";
       tr.append(indexCell, urlCell, statusCell, requiredCell, issuesCell);
       batchResults.appendChild(tr);
     });
@@ -365,19 +394,39 @@
     URL.revokeObjectURL(url);
   }
 
-  root.querySelectorAll("[data-utm-mode]").forEach(function (button) {
+  var modeButtons = Array.from(root.querySelectorAll("[data-utm-mode]"));
+
+  function activateMode(button, moveFocus) {
+    var mode = button.dataset.utmMode;
+    modeButtons.forEach(function (item) {
+      var active = item === button;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-selected", active ? "true" : "false");
+      item.tabIndex = active ? 0 : -1;
+    });
+    root.querySelectorAll("[data-utm-pane]").forEach(function (pane) {
+      pane.hidden = pane.dataset.utmPane !== mode;
+    });
+    if (moveFocus) button.focus();
+  }
+
+  modeButtons.forEach(function (button, index) {
     button.addEventListener("click", function () {
-      var mode = button.dataset.utmMode;
-      root.querySelectorAll("[data-utm-mode]").forEach(function (item) {
-        var active = item === button;
-        item.classList.toggle("is-active", active);
-        item.setAttribute("aria-selected", active ? "true" : "false");
-      });
-      root.querySelectorAll("[data-utm-pane]").forEach(function (pane) {
-        pane.hidden = pane.dataset.utmPane !== mode;
-      });
+      activateMode(button, false);
+    });
+    button.addEventListener("keydown", function (event) {
+      var targetIndex = index;
+      if (event.key === "ArrowRight") targetIndex = (index + 1) % modeButtons.length;
+      else if (event.key === "ArrowLeft") targetIndex = (index - 1 + modeButtons.length) % modeButtons.length;
+      else if (event.key === "Home") targetIndex = 0;
+      else if (event.key === "End") targetIndex = modeButtons.length - 1;
+      else return;
+      event.preventDefault();
+      activateMode(modeButtons[targetIndex], true);
     });
   });
+
+  singleInput.addEventListener("input", invalidateSingleResult);
 
   document.getElementById("utmCheckBtn").addEventListener("click", function () {
     renderSingle(analyzeUrl(singleInput.value));
@@ -391,6 +440,7 @@
   document.getElementById("utmCheckClearBtn").addEventListener("click", function () {
     singleInput.value = "";
     lastSingleResult = null;
+    singlePanel.dataset.checkerState = "waiting";
     singleStatus.textContent = "Not checked";
     singleRequired.textContent = "0 / 3";
     singleIssues.textContent = "0";
@@ -401,6 +451,8 @@
     singleResults.innerHTML = '<tr><td colspan="4">No link checked yet.</td></tr>';
     singleNotice.dataset.tone = "neutral";
     singleNotice.textContent = "Paste a campaign URL and run the checker to see its UTM fields.";
+    singleInput.removeAttribute("aria-invalid");
+    singleInput.focus();
   });
 
   copyReportButton.addEventListener("click", function () {
@@ -414,6 +466,10 @@
   document.getElementById("utmBatchCheckBtn").addEventListener("click", function () {
     var urls = batchInput.value.split(/\r?\n/).map(function (value) { return value.trim(); }).filter(Boolean).slice(0, 100);
     renderBatch(urls.map(analyzeUrl));
+  });
+
+  batchInput.addEventListener("input", function () {
+    if (lastBatchResults.length) renderBatch([]);
   });
 
   document.getElementById("utmBatchSampleBtn").addEventListener("click", function () {
