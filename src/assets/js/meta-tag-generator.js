@@ -11,6 +11,9 @@ const metaCanonicalStatus = document.getElementById("metaCanonicalStatus");
 const metaImageStatus = document.getElementById("metaImageStatus");
 const metaOutput = document.getElementById("metaOutput");
 const metaTips = document.getElementById("metaTips");
+const metaCopyBtn = document.getElementById("metaCopyBtn");
+const metaStatus = document.getElementById("metaStatus");
+const metaResultPanel = document.querySelector("[data-meta-state]");
 
 if (metaTitle) {
   function updateMetaTags() {
@@ -56,6 +59,14 @@ if (metaTitle) {
     }
 
     metaOutput.value = output.join("\n");
+
+    const hasPageSpecificTags = Boolean(title || description || canonical || image);
+    metaCopyBtn.disabled = !hasPageSpecificTags;
+    metaCopyBtn.textContent = "Copy tags";
+    metaResultPanel.dataset.metaState = hasPageSpecificTags ? "ready" : "waiting";
+    metaStatus.textContent = hasPageSpecificTags
+      ? "Generated tags are ready to review and copy."
+      : "Add a page title or description to create page-specific tags.";
 
     const tips = [];
 
@@ -110,12 +121,46 @@ if (metaTitle) {
     metaTitle.focus();
   }
 
+  function showCopyFeedback(label, message) {
+    metaCopyBtn.textContent = label;
+    metaStatus.textContent = message;
+    window.setTimeout(function () {
+      metaCopyBtn.textContent = "Copy tags";
+    }, 1400);
+  }
+
+  function fallbackCopy() {
+    try {
+      metaOutput.focus();
+      metaOutput.select();
+      const copied = document.execCommand("copy");
+      showCopyFeedback(
+        copied ? "Copied" : "Copy failed",
+        copied ? "Meta tags copied to your clipboard." : "Copy failed. Select the generated tags and copy them manually."
+      );
+    } catch (error) {
+      showCopyFeedback("Copy failed", "Copy failed. Select the generated tags and copy them manually.");
+    }
+  }
+
+  function copyMetaTags() {
+    if (metaCopyBtn.disabled || !metaOutput.value) return;
+    if (!navigator.clipboard || !navigator.clipboard.writeText) {
+      fallbackCopy();
+      return;
+    }
+    navigator.clipboard.writeText(metaOutput.value).then(function () {
+      showCopyFeedback("Copied", "Meta tags copied to your clipboard.");
+    }).catch(fallbackCopy);
+  }
+
   [metaTitle, metaDescription, metaCanonical, metaRobots, metaOgImage].forEach(field => {
     field.addEventListener("input", updateMetaTags);
   });
 
   metaClearBtn.addEventListener("click", clearMetaFields);
   metaSampleBtn.addEventListener("click", loadMetaExample);
+  metaCopyBtn.addEventListener("click", copyMetaTags);
 
   updateMetaTags();
 }

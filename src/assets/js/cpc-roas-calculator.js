@@ -16,6 +16,9 @@
   const roasPercentEl = document.getElementById("calcRoasPercent");
   const profitEl = document.getElementById("calcProfit");
   const summaryEl = document.getElementById("cpcSummary");
+  const stateEl = document.getElementById("cpcState");
+  const statusEl = document.getElementById("cpcStatus");
+  const resultPanel = document.querySelector("[data-roas-state]");
 
   function getNumber(value) {
     const num = parseFloat(value);
@@ -93,6 +96,25 @@
     roasPercentEl.textContent = percent(roasPercent);
     profitEl.textContent = money(profit);
 
+    const hasAnyInput = Boolean(spendInput.value || clicksInput.value || conversionsInput.value || revenueInput.value);
+    if (!hasAnyInput) {
+      resultPanel.dataset.roasState = "waiting";
+      stateEl.textContent = "Waiting";
+      statusEl.textContent = "Add campaign totals to calculate results.";
+    } else if (spend <= 0) {
+      resultPanel.dataset.roasState = "review";
+      stateEl.textContent = "Needs spend";
+      statusEl.textContent = "Add ad spend to calculate return on ad spend.";
+    } else if (revenueInput.value === "") {
+      resultPanel.dataset.roasState = "review";
+      stateEl.textContent = "Needs revenue";
+      statusEl.textContent = "Add campaign revenue to complete the ROAS calculation.";
+    } else {
+      resultPanel.dataset.roasState = "ready";
+      stateEl.textContent = "Calculated";
+      statusEl.textContent = "Campaign metrics are calculated from the values provided.";
+    }
+
     updateSummary(spend, clicks, conversions, revenue, cpc, cpa, convRate, roas, profit);
   }
 
@@ -102,6 +124,7 @@
     conversionsInput.value = "";
     revenueInput.value = "";
     calculate();
+    spendInput.focus();
   }
 
   function loadSample() {

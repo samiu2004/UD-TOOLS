@@ -10,9 +10,9 @@ eleventyComputed:
   description: "{{ tool.description }}"
 ---
 
-<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero task-tool-page-hero{% endif %}{% if tool.slug == 'utm-link-checker' %} task-tool-page-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-hero{% endif %}">
+<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero task-tool-page-hero{% endif %}{% if tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} task-tool-page-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-hero{% endif %}">
   <div class="container">
-    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' %} task-tool-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-hero{% endif %}">
+    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} task-tool-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-hero{% endif %}">
       <div>
         <span class="eyebrow">{{ tool.category }}</span>
         <h1>{{ tool.name }}</h1>
@@ -20,7 +20,7 @@ eleventyComputed:
           {{ tool.description }}
         </p>
       </div>
-      {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" %}
+      {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" and tool.slug != "meta-tag-generator" and tool.slug != "cpc-roas-calculator" %}
         <div class="tool-hero-note">
           <strong>Free to use</strong>
           <span>No account required. Built for quick browser workflows.</span>
@@ -30,12 +30,12 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="section-tight{% if tool.slug == 'utm-builder' %} utm-builder-section{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' %} task-tool-section{% endif %}">
+<section class="section-tight{% if tool.slug == 'utm-builder' %} utm-builder-section{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} task-tool-section{% endif %}">
   <div class="container">
-    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid task-tool-page-grid{% endif %}{% if tool.slug == 'utm-link-checker' %} task-tool-page-grid{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-grid{% endif %}">
+    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid task-tool-page-grid{% endif %}{% if tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} task-tool-page-grid{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-grid{% endif %}">
       <div>
-        <div class="tool-panel{% if tool.slug == 'utm-builder' %} utm-builder-panel{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' %} task-tool-panel{% endif %}">
-          {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" %}
+        <div class="tool-panel{% if tool.slug == 'utm-builder' %} utm-builder-panel{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} task-tool-panel{% endif %}">
+          {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" and tool.slug != "meta-tag-generator" and tool.slug != "cpc-roas-calculator" %}
             <h2>Use the {{ tool.name }}</h2>
             <p class="muted">
               Enter your inputs below and the results will update in the browser.
@@ -203,64 +203,96 @@ eleventyComputed:
             </div>
 
           {% elif tool.slug == "meta-tag-generator" %}
-            <div class="form-group">
-              <label for="metaTitle">Page title</label>
-              <input id="metaTitle" class="tool-input" type="text" placeholder="Example: Free Keyword Density Checker for SEO Content">
-            </div>
+            <div class="task-workspace phase-five-workspace meta-workspace" data-meta-generator>
+              <header class="task-workspace-heading">
+                <div>
+                  <span class="mini-label">Metadata workspace</span>
+                  <h2>Create page metadata</h2>
+                  <p>Write the search fields first, then add optional canonical and social settings.</p>
+                </div>
+                <span class="task-live-indicator"><span aria-hidden="true"></span>Live preview</span>
+              </header>
 
-            <div class="form-group">
-              <label for="metaDescription">Meta description</label>
-              <textarea id="metaDescription" class="tool-input" placeholder="Write a concise page description for search results and social previews..."></textarea>
-            </div>
+              <div class="phase-five-tool-layout meta-tool-layout">
+                <section class="phase-five-input-panel" aria-labelledby="metaInputHeading">
+                  <div class="task-step-heading">
+                    <span aria-hidden="true">1</span>
+                    <div>
+                      <h3 id="metaInputHeading">Describe the page</h3>
+                      <p>Use a unique title and an accurate summary.</p>
+                    </div>
+                  </div>
 
-            <div class="form-group">
-              <label for="metaCanonical">Canonical URL</label>
-              <input id="metaCanonical" class="tool-input" type="url" placeholder="https://example.com/page/">
-            </div>
+                  <div class="form-group">
+                    <div class="field-label-row">
+                      <label for="metaTitle">Page title</label>
+                      <span><strong id="metaTitleCount">0</strong> characters</span>
+                    </div>
+                    <input id="metaTitle" class="tool-input" type="text" aria-describedby="metaTitleHint" placeholder="Example: Free Keyword Density Checker for SEO Content">
+                    <p id="metaTitleHint" class="task-field-hint">Aim for a specific title that matches the page.</p>
+                  </div>
 
-            <div class="form-group">
-              <label for="metaRobots">Robots</label>
-              <input id="metaRobots" class="tool-input" type="text" value="index, follow" placeholder="index, follow">
-            </div>
+                  <div class="form-group">
+                    <div class="field-label-row">
+                      <label for="metaDescription">Meta description</label>
+                      <span><strong id="metaDescriptionCount">0</strong> characters</span>
+                    </div>
+                    <textarea id="metaDescription" class="tool-input meta-description-input" aria-describedby="metaDescriptionHint" placeholder="Write a concise page description for search results and social previews..."></textarea>
+                    <p id="metaDescriptionHint" class="task-field-hint">Summarize what visitors will find after they click.</p>
+                  </div>
 
-            <div class="form-group">
-              <label for="metaOgImage">Open Graph / Twitter image URL</label>
-              <input id="metaOgImage" class="tool-input" type="url" placeholder="https://example.com/og-image.jpg">
-            </div>
+                  <details class="phase-five-details">
+                    <summary>Canonical and social settings <small>Optional</small></summary>
+                    <div class="phase-five-details-body">
+                      <div class="form-group">
+                        <div class="field-label-row">
+                          <label for="metaCanonical">Canonical URL</label>
+                          <span id="metaCanonicalStatus">Missing</span>
+                        </div>
+                        <input id="metaCanonical" class="tool-input" type="url" placeholder="https://example.com/page/">
+                      </div>
 
-            <div class="hero-actions" style="margin-bottom:0;">
-              <button id="metaClearBtn" class="btn btn-secondary" type="button">Clear</button>
-              <button id="metaSampleBtn" class="btn btn-primary" type="button">Load Example</button>
-            </div>
+                      <div class="form-group">
+                        <label for="metaRobots">Robots directive</label>
+                        <input id="metaRobots" class="tool-input" type="text" value="index, follow" placeholder="index, follow">
+                      </div>
 
-            <div class="results-grid">
-              <div class="result-box">
-                <strong id="metaTitleCount">0</strong>
-                <span>Title length</span>
-              </div>
-              <div class="result-box">
-                <strong id="metaDescriptionCount">0</strong>
-                <span>Description length</span>
-              </div>
-              <div class="result-box">
-                <strong id="metaCanonicalStatus">-</strong>
-                <span>Canonical</span>
-              </div>
-              <div class="result-box">
-                <strong id="metaImageStatus">-</strong>
-                <span>Image</span>
-              </div>
-            </div>
+                      <div class="form-group">
+                        <div class="field-label-row">
+                          <label for="metaOgImage">Social image URL</label>
+                          <span id="metaImageStatus">Missing</span>
+                        </div>
+                        <input id="metaOgImage" class="tool-input" type="url" placeholder="https://example.com/og-image.jpg">
+                      </div>
+                    </div>
+                  </details>
 
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Generated meta tags</h3>
-              <textarea id="metaOutput" class="tool-input" rows="14" readonly placeholder="Your generated meta tags will appear here..."></textarea>
-            </div>
+                  <div class="task-actions">
+                    <button id="metaSampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                    <button id="metaClearBtn" class="task-reset-button" type="button">Reset</button>
+                  </div>
+                </section>
 
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Tag guidance</h3>
-              <div id="metaTips">
-                <p class="muted">Guidance will appear here as you fill in the fields.</p>
+                <section class="phase-five-result-panel meta-result-panel" data-meta-state="waiting" aria-labelledby="metaResultHeading">
+                  <div class="task-result-heading">
+                    <div>
+                      <span class="mini-label">Generated output</span>
+                      <h3 id="metaResultHeading">Meta tags</h3>
+                    </div>
+                    <button id="metaCopyBtn" class="btn btn-primary btn-sm" type="button" disabled>Copy tags</button>
+                  </div>
+
+                  <p id="metaStatus" class="task-status-message" role="status" aria-live="polite">Add a page title or description to create page-specific tags.</p>
+                  <label class="sr-only" for="metaOutput">Generated meta tags</label>
+                  <textarea id="metaOutput" class="tool-input meta-output" rows="14" readonly aria-describedby="metaStatus" placeholder="Your generated meta tags will appear here..."></textarea>
+
+                  <div class="phase-five-guidance">
+                    <h4>Review before publishing</h4>
+                    <div id="metaTips">
+                      <p class="muted">Guidance will appear here as you fill in the fields.</p>
+                    </div>
+                  </div>
+                </section>
               </div>
             </div>
 
@@ -334,62 +366,87 @@ eleventyComputed:
             </div>
 
           {% elif tool.slug == "cpc-roas-calculator" %}
-            <div class="form-group">
-              <label for="adSpend">Ad spend</label>
-              <input id="adSpend" class="tool-input" type="number" min="0" step="0.01" placeholder="1000">
-            </div>
+            <div class="task-workspace phase-five-workspace roas-workspace" data-roas-calculator>
+              <header class="task-workspace-heading">
+                <div>
+                  <span class="mini-label">Campaign calculator</span>
+                  <h2>Measure campaign efficiency</h2>
+                  <p>Use numbers from the same campaign period and currency for a useful comparison.</p>
+                </div>
+                <span class="task-live-indicator"><span aria-hidden="true"></span>Live results</span>
+              </header>
 
-            <div class="form-group">
-              <label for="clicks">Clicks</label>
-              <input id="clicks" class="tool-input" type="number" min="0" step="1" placeholder="500">
-            </div>
+              <div class="phase-five-tool-layout roas-tool-layout">
+                <section class="phase-five-input-panel" aria-labelledby="roasInputHeading">
+                  <div class="task-step-heading">
+                    <span aria-hidden="true">1</span>
+                    <div>
+                      <h3 id="roasInputHeading">Enter campaign totals</h3>
+                      <p>Spend and revenue calculate ROAS. Clicks and conversions add context.</p>
+                    </div>
+                  </div>
 
-            <div class="form-group">
-              <label for="conversions">Conversions</label>
-              <input id="conversions" class="tool-input" type="number" min="0" step="1" placeholder="25">
-            </div>
+                  <div class="roas-field-grid">
+                    <div class="form-group">
+                      <label for="adSpend">Ad spend</label>
+                      <input id="adSpend" class="tool-input" type="number" min="0" step="0.01" inputmode="decimal" placeholder="1000">
+                    </div>
 
-            <div class="form-group">
-              <label for="revenue">Revenue from ads</label>
-              <input id="revenue" class="tool-input" type="number" min="0" step="0.01" placeholder="4000">
-            </div>
+                    <div class="form-group">
+                      <label for="revenue">Revenue from ads</label>
+                      <input id="revenue" class="tool-input" type="number" min="0" step="0.01" inputmode="decimal" placeholder="4000">
+                    </div>
 
-            <div class="hero-actions" style="margin-bottom:0;">
-              <button id="cpcClearBtn" class="btn btn-secondary" type="button">Clear</button>
-              <button id="cpcSampleBtn" class="btn btn-primary" type="button">Load Example</button>
-            </div>
+                    <div class="form-group">
+                      <label for="clicks">Clicks</label>
+                      <input id="clicks" class="tool-input" type="number" min="0" step="1" inputmode="numeric" placeholder="500">
+                    </div>
 
-            <div class="results-grid">
-              <div class="result-box">
-                <strong id="calcCpc">0.00</strong>
-                <span>CPC</span>
-              </div>
-              <div class="result-box">
-                <strong id="calcCpa">0.00</strong>
-                <span>CPA</span>
-              </div>
-              <div class="result-box">
-                <strong id="calcConvRate">0%</strong>
-                <span>Conversion rate</span>
-              </div>
-              <div class="result-box">
-                <strong id="calcRoas">0x</strong>
-                <span>ROAS</span>
-              </div>
-              <div class="result-box">
-                <strong id="calcRoasPercent">0%</strong>
-                <span>ROAS %</span>
-              </div>
-              <div class="result-box">
-                <strong id="calcProfit">0.00</strong>
-                <span>Revenue minus spend</span>
-              </div>
-            </div>
+                    <div class="form-group">
+                      <label for="conversions">Conversions</label>
+                      <input id="conversions" class="tool-input" type="number" min="0" step="1" inputmode="numeric" placeholder="25">
+                    </div>
+                  </div>
 
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Performance summary</h3>
-              <div id="cpcSummary">
-                <p class="muted">Campaign guidance will appear here as you fill in the fields.</p>
+                  <p class="task-method-note">Use one currency consistently. Revenue minus spend does not include product, shipping, salary, or service-delivery costs.</p>
+
+                  <div class="task-actions">
+                    <button id="cpcSampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                    <button id="cpcClearBtn" class="task-reset-button" type="button">Reset</button>
+                  </div>
+                </section>
+
+                <section class="phase-five-result-panel roas-result-panel" data-roas-state="waiting" aria-labelledby="roasResultHeading">
+                  <div class="task-result-heading">
+                    <div>
+                      <span class="mini-label">Campaign result</span>
+                      <h3 id="roasResultHeading">Return on ad spend</h3>
+                    </div>
+                    <span id="cpcState" class="task-result-state">Waiting</span>
+                  </div>
+
+                  <p id="cpcStatus" class="task-status-message" role="status" aria-live="polite">Add campaign totals to calculate results.</p>
+
+                  <div class="roas-primary-result">
+                    <span>ROAS</span>
+                    <strong id="calcRoas">0.00x</strong>
+                    <small id="calcRoasPercent">0.00%</small>
+                  </div>
+
+                  <dl class="roas-metric-grid">
+                    <div><dt>Cost per click</dt><dd id="calcCpc">0.00</dd></div>
+                    <div><dt>Cost per acquisition</dt><dd id="calcCpa">0.00</dd></div>
+                    <div><dt>Conversion rate</dt><dd id="calcConvRate">0.00%</dd></div>
+                    <div><dt>Revenue minus spend</dt><dd id="calcProfit">0.00</dd></div>
+                  </dl>
+
+                  <div class="phase-five-guidance">
+                    <h4>Performance summary</h4>
+                    <div id="cpcSummary">
+                      <p class="muted">Campaign guidance will appear here as you fill in the fields.</p>
+                    </div>
+                  </div>
+                </section>
               </div>
             </div>
 
@@ -898,7 +955,7 @@ eleventyComputed:
         {% endif %}
       </div>
 
-      <aside{% if tool.slug == 'utm-builder' %} class="utm-builder-resources"{% elif tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' %} class="task-tool-resources"{% endif %}>
+      <aside{% if tool.slug == 'utm-builder' %} class="utm-builder-resources"{% elif tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} class="task-tool-resources"{% endif %}>
         <div class="sidebar-card">
           <h3>Related tools</h3>
           <ul class="list-clean">
@@ -936,11 +993,11 @@ eleventyComputed:
 {% elif tool.slug == "readability-checker" %}
   <script src="/assets/js/readability-checker.js"></script>
 {% elif tool.slug == "meta-tag-generator" %}
-  <script src="/assets/js/meta-tag-generator.js"></script>
+  <script src="/assets/js/meta-tag-generator.js?v=20260909-phase5"></script>
 {% elif tool.slug == "serp-snippet-preview" %}
   <script src="/assets/js/serp-snippet-preview.js"></script>
 {% elif tool.slug == "cpc-roas-calculator" %}
-  <script src="/assets/js/cpc-roas-calculator.js"></script>
+  <script src="/assets/js/cpc-roas-calculator.js?v=20260909-phase5"></script>
 {% elif tool.slug == "utm-builder" %}
   <script src="/assets/js/campaign-url-builder.js"></script>
 {% elif tool.slug == "utm-link-checker" %}

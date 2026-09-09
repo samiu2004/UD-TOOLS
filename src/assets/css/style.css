@@ -3839,6 +3839,238 @@ textarea.utm-batch-input {
   }
 }
 
+/* Phase 5: task-first Meta Tag and ROAS workspaces */
+.phase-five-tool-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+  align-items: stretch;
+}
+
+.phase-five-input-panel,
+.phase-five-result-panel {
+  min-width: 0;
+  padding: 24px;
+}
+
+.phase-five-result-panel {
+  border-left: 1px solid var(--line);
+  background: #f7faf9;
+}
+
+.phase-five-input-panel .task-step-heading {
+  margin-bottom: 18px;
+}
+
+.phase-five-input-panel .form-group {
+  margin-bottom: 16px;
+}
+
+.phase-five-input-panel textarea.tool-input {
+  min-height: 150px;
+}
+
+.phase-five-details {
+  margin-top: 18px;
+  border-block: 1px solid var(--line);
+}
+
+.phase-five-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 2px;
+  color: var(--text);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.phase-five-details summary small {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.phase-five-details summary:focus-visible {
+  outline: 3px solid rgba(47, 111, 218, 0.34);
+  outline-offset: 2px;
+}
+
+.phase-five-details-body {
+  padding: 3px 0 2px;
+}
+
+.meta-result-panel .task-result-heading {
+  align-items: center;
+}
+
+.meta-result-panel[data-meta-state="ready"] .task-status-message {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.meta-result-panel .btn:disabled {
+  background: #98a2b3;
+}
+
+textarea.meta-output {
+  min-height: 315px;
+  resize: vertical;
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.phase-five-guidance {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.phase-five-guidance h4 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+}
+
+.phase-five-guidance p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.phase-five-guidance p + p {
+  margin-top: 7px;
+}
+
+.roas-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 14px;
+}
+
+.roas-primary-result {
+  padding: 20px;
+  border-radius: 6px;
+  background: var(--text);
+  color: #fff;
+}
+
+.roas-primary-result span,
+.roas-primary-result strong,
+.roas-primary-result small {
+  display: block;
+}
+
+.roas-primary-result span {
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.roas-primary-result strong {
+  margin-top: 5px;
+  font-size: 2.35rem;
+  line-height: 1;
+}
+
+.roas-primary-result small {
+  margin-top: 8px;
+  color: #8ee4d6;
+  font-size: 0.94rem;
+  font-weight: 800;
+}
+
+.roas-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.roas-metric-grid > div {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.roas-metric-grid dt {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.roas-metric-grid dd {
+  overflow-wrap: anywhere;
+  margin: 4px 0 0;
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.roas-result-panel[data-roas-state="ready"] .task-result-state {
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+}
+
+.roas-result-panel[data-roas-state="review"] .task-result-state {
+  background: #fff1c7;
+  color: #865800;
+}
+
+@media (max-width: 980px) {
+  .phase-five-tool-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .phase-five-result-panel {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .phase-five-workspace .task-workspace-heading {
+    display: none;
+  }
+
+  .phase-five-input-panel,
+  .phase-five-result-panel {
+    padding: 18px;
+  }
+
+  textarea.meta-output {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 520px) {
+  .roas-field-grid,
+  .roas-metric-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .meta-result-panel .task-result-heading {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .phase-five-input-panel,
+  .phase-five-result-panel {
+    padding: 16px;
+  }
+
+  .meta-result-panel .task-result-heading .btn {
+    min-width: 104px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tool-directory-card,
   .tool-card-icon,
