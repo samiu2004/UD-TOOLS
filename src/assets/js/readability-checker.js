@@ -8,6 +8,10 @@ const fleschScore = document.getElementById("fleschScore");
 const gradeLevel = document.getElementById("gradeLevel");
 const readingLevelLabel = document.getElementById("readingLevelLabel");
 const readabilitySummary = document.getElementById("readabilitySummary");
+const readabilityInputCount = document.getElementById("readabilityInputCount");
+const readabilityStatus = document.getElementById("readabilityStatus");
+const readabilityCopyBtn = document.getElementById("readabilityCopyBtn");
+const readabilityResultPanel = document.querySelector("[data-readability-state]");
 
 if (readabilityText) {
   function countSyllables(word) {
@@ -39,6 +43,8 @@ if (readabilityText) {
     const sentenceCount = sentences.length || (text ? 1 : 0);
     const wordCount = words.length;
 
+    readabilityInputCount.textContent = readabilityText.value.length;
+
     let syllableCount = 0;
     words.forEach(word => {
       syllableCount += countSyllables(word);
@@ -53,6 +59,9 @@ if (readabilityText) {
       gradeLevel.textContent = "0";
       readingLevelLabel.textContent = "—";
       readabilitySummary.innerHTML = '<p class="muted">Readability guidance will appear here after you enter text.</p>';
+      readabilityCopyBtn.disabled = true;
+      readabilityResultPanel.dataset.readabilityState = "waiting";
+      readabilityStatus.textContent = "Add text to begin the analysis.";
       return;
     }
 
@@ -69,6 +78,9 @@ if (readabilityText) {
     fleschScore.textContent = roundedFlesch;
     gradeLevel.textContent = roundedGrade;
     readingLevelLabel.textContent = level;
+    readabilityCopyBtn.disabled = false;
+    readabilityResultPanel.dataset.readabilityState = "ready";
+    readabilityStatus.textContent = "Readability results are ready to review and copy.";
 
     let advice = "";
 
@@ -88,6 +100,31 @@ if (readabilityText) {
     `;
   }
 
+  async function copyReadabilityReport() {
+    if (readabilityCopyBtn.disabled) return;
+
+    const report = [
+      `Flesch Reading Ease: ${fleschScore.textContent}`,
+      `Reading level: ${readingLevelLabel.textContent}`,
+      `Flesch-Kincaid grade: ${gradeLevel.textContent}`,
+      `Words: ${readabilityWords.textContent}`,
+      `Sentences: ${readabilitySentences.textContent}`,
+      `Syllables: ${readabilitySyllables.textContent}`
+    ].join("\n");
+
+    try {
+      await navigator.clipboard.writeText(report);
+      readabilityCopyBtn.textContent = "Copied";
+      readabilityStatus.textContent = "Readability report copied to your clipboard.";
+      window.setTimeout(() => {
+        readabilityCopyBtn.textContent = "Copy report";
+      }, 1600);
+    } catch {
+      readabilityCopyBtn.textContent = "Copy failed";
+      readabilityStatus.textContent = "Copy failed. Review the results and try again.";
+    }
+  }
+
   readabilityClearBtn.addEventListener("click", () => {
     readabilityText.value = "";
     analyzeReadability();
@@ -101,5 +138,6 @@ if (readabilityText) {
   });
 
   readabilityText.addEventListener("input", analyzeReadability);
+  readabilityCopyBtn.addEventListener("click", copyReadabilityReport);
   analyzeReadability();
 }

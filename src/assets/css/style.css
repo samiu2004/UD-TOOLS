@@ -5508,3 +5508,216 @@ textarea.utm-checker-input {
     margin: 0 16px 16px;
   }
 }
+
+/* Phase 6: task-first writing and search preview workspaces */
+.phase-six-tool-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(410px, 0.96fr);
+  align-items: stretch;
+}
+
+.phase-six-input-panel,
+.phase-six-result-panel {
+  min-width: 0;
+  padding: 24px;
+}
+
+.phase-six-result-panel {
+  border-left: 1px solid var(--line);
+  background: #f7faf9;
+}
+
+.phase-six-input-panel .task-step-heading {
+  margin-bottom: 14px;
+}
+
+.phase-six-input-meta {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+textarea.phase-six-textarea {
+  min-height: 310px;
+}
+
+.phase-six-primary-result {
+  padding: 20px;
+  border-radius: 6px;
+  background: var(--text);
+  color: #fff;
+}
+
+.phase-six-primary-result > span,
+.phase-six-primary-result > strong,
+.phase-six-primary-result > small {
+  display: block;
+}
+
+.phase-six-primary-result > span {
+  color: #cbd5e1;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.phase-six-primary-result > strong {
+  margin-top: 5px;
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.phase-six-primary-result > small {
+  margin-top: 8px;
+  color: #8ee4d6;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.phase-six-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.phase-six-metric-grid > div {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.phase-six-metric-grid dt {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.phase-six-metric-grid dd {
+  overflow-wrap: anywhere;
+  margin: 4px 0 0;
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.phase-six-summary {
+  margin-top: 16px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+
+.phase-six-summary h4 {
+  margin: 0 0 9px;
+  font-size: 0.95rem;
+}
+
+.phase-six-summary p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.phase-six-summary p + p {
+  margin-top: 6px;
+}
+
+.task-workspace.serp-workspace {
+  display: block;
+  margin-top: 0;
+}
+
+.phase-six-workspace .serp-fields,
+.phase-six-workspace .serp-preview-panel {
+  padding: 24px;
+  border: 0;
+  border-radius: 0;
+}
+
+.phase-six-workspace .serp-fields {
+  background: var(--surface);
+}
+
+.phase-six-workspace .serp-preview-panel {
+  border-left: 1px solid var(--line);
+  background: #f7faf9;
+}
+
+.phase-six-preview-controls {
+  align-items: center;
+  margin-top: 14px;
+  padding-bottom: 12px;
+}
+
+.phase-six-preview-controls > span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.phase-six-workspace .serp-preview {
+  margin: 16px auto;
+  min-height: 225px;
+}
+
+.phase-six-workspace .serp-preview-note {
+  align-items: flex-start;
+}
+
+@media (max-width: 980px) {
+  .phase-six-tool-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .phase-six-result-panel,
+  .phase-six-workspace .serp-preview-panel {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .phase-six-workspace .task-workspace-heading {
+    display: none;
+  }
+
+  .phase-six-input-panel,
+  .phase-six-result-panel,
+  .phase-six-workspace .serp-fields,
+  .phase-six-workspace .serp-preview-panel {
+    padding: 18px;
+  }
+
+  textarea.phase-six-textarea {
+    min-height: 230px;
+  }
+}
+
+@media (max-width: 480px) {
+  .phase-six-input-panel,
+  .phase-six-result-panel,
+  .phase-six-workspace .serp-fields,
+  .phase-six-workspace .serp-preview-panel {
+    padding: 16px;
+  }
+
+  .phase-six-primary-result > strong {
+    font-size: 2.1rem;
+  }
+
+  .phase-six-preview-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .phase-six-preview-controls .serp-device-switch {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+}

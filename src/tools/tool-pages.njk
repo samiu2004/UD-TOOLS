@@ -10,9 +10,9 @@ eleventyComputed:
   description: "{{ tool.description }}"
 ---
 
-<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero task-tool-page-hero{% endif %}{% if tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} task-tool-page-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-hero{% endif %}">
+<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero task-tool-page-hero{% endif %}{% if tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} task-tool-page-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-hero{% endif %}">
   <div class="container">
-    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} task-tool-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-hero{% endif %}">
+    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} task-tool-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-hero{% endif %}">
       <div>
         <span class="eyebrow">{{ tool.category }}</span>
         <h1>{{ tool.name }}</h1>
@@ -20,7 +20,7 @@ eleventyComputed:
           {{ tool.description }}
         </p>
       </div>
-      {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" and tool.slug != "meta-tag-generator" and tool.slug != "cpc-roas-calculator" %}
+      {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" and tool.slug != "meta-tag-generator" and tool.slug != "cpc-roas-calculator" and tool.slug != "word-counter" and tool.slug != "readability-checker" and tool.slug != "serp-snippet-preview" %}
         <div class="tool-hero-note">
           <strong>Free to use</strong>
           <span>No account required. Built for quick browser workflows.</span>
@@ -30,12 +30,12 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="section-tight{% if tool.slug == 'utm-builder' %} utm-builder-section{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} task-tool-section{% endif %}">
+<section class="section-tight{% if tool.slug == 'utm-builder' %} utm-builder-section{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} task-tool-section{% endif %}">
   <div class="container">
-    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid task-tool-page-grid{% endif %}{% if tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} task-tool-page-grid{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-grid{% endif %}">
+    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid task-tool-page-grid{% endif %}{% if tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} task-tool-page-grid{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-grid{% endif %}">
       <div>
-        <div class="tool-panel{% if tool.slug == 'utm-builder' %} utm-builder-panel{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} task-tool-panel{% endif %}">
-          {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" and tool.slug != "meta-tag-generator" and tool.slug != "cpc-roas-calculator" %}
+        <div class="tool-panel{% if tool.slug == 'utm-builder' %} utm-builder-panel{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} task-tool-panel{% endif %}">
+          {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" and tool.slug != "meta-tag-generator" and tool.slug != "cpc-roas-calculator" and tool.slug != "word-counter" and tool.slug != "readability-checker" and tool.slug != "serp-snippet-preview" %}
             <h2>Use the {{ tool.name }}</h2>
             <p class="muted">
               Enter your inputs below and the results will update in the browser.
@@ -43,48 +43,52 @@ eleventyComputed:
           {% endif %}
 
           {% if tool.slug == "word-counter" %}
-            <div class="form-group">
-              <label for="textInput">Your text</label>
-              <textarea id="textInput" class="tool-input" placeholder="Paste your text here..."></textarea>
-            </div>
+            <div class="task-workspace phase-six-workspace word-workspace" data-word-counter>
+              <header class="task-workspace-heading">
+                <div>
+                  <span class="mini-label">Writing workspace</span>
+                  <h2>Count and review your draft</h2>
+                  <p>Paste text once and see useful length and timing metrics immediately.</p>
+                </div>
+                <span class="task-live-indicator"><span aria-hidden="true"></span>Live counts</span>
+              </header>
 
-            <div class="hero-actions" style="margin-bottom:0;">
-              <button id="clearBtn" class="btn btn-secondary" type="button">Clear Text</button>
-              <button id="sampleBtn" class="btn btn-primary" type="button">Load Example</button>
-            </div>
+              <div class="phase-six-tool-layout">
+                <section class="phase-six-input-panel" aria-labelledby="wordInputHeading">
+                  <div class="task-step-heading">
+                    <span aria-hidden="true">1</span>
+                    <div><h3 id="wordInputHeading">Add your text</h3><p>Article, landing page, email, essay, or social copy.</p></div>
+                  </div>
+                  <div class="phase-six-input-meta"><span id="wordInputCount">0</span> characters</div>
+                  <label class="task-field-label" for="textInput">Text to count</label>
+                  <textarea id="textInput" class="tool-input phase-six-textarea" aria-describedby="wordMethod" placeholder="Paste your draft here..."></textarea>
+                  <div class="task-actions">
+                    <button id="sampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                    <button id="clearBtn" class="task-reset-button" type="button">Reset</button>
+                  </div>
+                </section>
 
-            <div class="results-grid">
-              <div class="result-box">
-                <strong id="wordCount">0</strong>
-                <span>Words</span>
-              </div>
-              <div class="result-box">
-                <strong id="charCount">0</strong>
-                <span>Characters</span>
-              </div>
-              <div class="result-box">
-                <strong id="charNoSpaceCount">0</strong>
-                <span>Characters without spaces</span>
-              </div>
-              <div class="result-box">
-                <strong id="sentenceCount">0</strong>
-                <span>Sentences</span>
-              </div>
-              <div class="result-box">
-                <strong id="paragraphCount">0</strong>
-                <span>Paragraphs</span>
-              </div>
-              <div class="result-box">
-                <strong id="readingTime">0 min</strong>
-                <span>Reading time</span>
-              </div>
-              <div class="result-box">
-                <strong id="speakingTime">0 min</strong>
-                <span>Speaking time</span>
-              </div>
-              <div class="result-box">
-                <strong id="avgWordsPerSentence">0</strong>
-                <span>Avg. words / sentence</span>
+                <section class="phase-six-result-panel" data-word-state="waiting" aria-labelledby="wordResultsHeading">
+                  <div class="task-result-heading">
+                    <div><span class="mini-label">Document overview</span><h3 id="wordResultsHeading">Length and timing</h3></div>
+                    <button id="wordCopyBtn" class="btn btn-primary btn-sm" type="button" disabled>Copy report</button>
+                  </div>
+                  <p id="wordStatus" class="task-status-message" role="status" aria-live="polite">Add text to begin counting.</p>
+                  <div class="phase-six-primary-result">
+                    <span>Words</span>
+                    <strong id="wordCount">0</strong>
+                    <small><span id="readingTime">0 min</span> estimated reading time</small>
+                  </div>
+                  <dl class="phase-six-metric-grid">
+                    <div><dt>Characters</dt><dd id="charCount">0</dd></div>
+                    <div><dt>Without spaces</dt><dd id="charNoSpaceCount">0</dd></div>
+                    <div><dt>Sentences</dt><dd id="sentenceCount">0</dd></div>
+                    <div><dt>Paragraphs</dt><dd id="paragraphCount">0</dd></div>
+                    <div><dt>Speaking time</dt><dd id="speakingTime">0 min</dd></div>
+                    <div><dt>Average sentence</dt><dd><span id="avgWordsPerSentence">0</span> words</dd></div>
+                  </dl>
+                  <p id="wordMethod" class="task-method-note">Timing estimates use 200 words per minute for reading and 130 words per minute for speaking.</p>
+                </section>
               </div>
             </div>
 
@@ -158,47 +162,54 @@ eleventyComputed:
             </div>
 
           {% elif tool.slug == "readability-checker" %}
-            <div class="form-group">
-              <label for="readabilityText">Your text</label>
-              <textarea id="readabilityText" class="tool-input" placeholder="Paste your article, email, blog post, or landing page text here..."></textarea>
-            </div>
+            <div class="task-workspace phase-six-workspace readability-workspace" data-readability-checker>
+              <header class="task-workspace-heading">
+                <div>
+                  <span class="mini-label">Clarity workspace</span>
+                  <h2>Review how easy your draft is to read</h2>
+                  <p>Paste English text to estimate reading ease, grade level, and sentence complexity.</p>
+                </div>
+                <span class="task-live-indicator"><span aria-hidden="true"></span>Live analysis</span>
+              </header>
 
-            <div class="hero-actions" style="margin-bottom:0;">
-              <button id="readabilityClearBtn" class="btn btn-secondary" type="button">Clear Text</button>
-              <button id="readabilitySampleBtn" class="btn btn-primary" type="button">Load Example</button>
-            </div>
+              <div class="phase-six-tool-layout">
+                <section class="phase-six-input-panel" aria-labelledby="readabilityInputHeading">
+                  <div class="task-step-heading">
+                    <span aria-hidden="true">1</span>
+                    <div><h3 id="readabilityInputHeading">Add your text</h3><p>Use a complete paragraph for a more useful estimate.</p></div>
+                  </div>
+                  <div class="phase-six-input-meta"><span id="readabilityInputCount">0</span> characters</div>
+                  <label class="task-field-label" for="readabilityText">Text to analyze</label>
+                  <textarea id="readabilityText" class="tool-input phase-six-textarea" aria-describedby="readabilityMethod" placeholder="Paste your article, email, or landing page copy..."></textarea>
+                  <div class="task-actions">
+                    <button id="readabilitySampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                    <button id="readabilityClearBtn" class="task-reset-button" type="button">Reset</button>
+                  </div>
+                </section>
 
-            <div class="results-grid">
-              <div class="result-box">
-                <strong id="readabilityWords">0</strong>
-                <span>Words</span>
-              </div>
-              <div class="result-box">
-                <strong id="readabilitySentences">0</strong>
-                <span>Sentences</span>
-              </div>
-              <div class="result-box">
-                <strong id="readabilitySyllables">0</strong>
-                <span>Syllables</span>
-              </div>
-              <div class="result-box">
-                <strong id="fleschScore">0</strong>
-                <span>Flesch Reading Ease</span>
-              </div>
-              <div class="result-box">
-                <strong id="gradeLevel">0</strong>
-                <span>Flesch-Kincaid Grade</span>
-              </div>
-              <div class="result-box">
-                <strong id="readingLevelLabel">-</strong>
-                <span>Reading level</span>
-              </div>
-            </div>
-
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Readability summary</h3>
-              <div id="readabilitySummary">
-                <p class="muted">Readability guidance will appear here after you enter text.</p>
+                <section class="phase-six-result-panel readability-result-panel" data-readability-state="waiting" aria-labelledby="readabilityResultsHeading">
+                  <div class="task-result-heading">
+                    <div><span class="mini-label">Readability result</span><h3 id="readabilityResultsHeading">Reading ease</h3></div>
+                    <button id="readabilityCopyBtn" class="btn btn-primary btn-sm" type="button" disabled>Copy report</button>
+                  </div>
+                  <p id="readabilityStatus" class="task-status-message" role="status" aria-live="polite">Add text to begin the analysis.</p>
+                  <div class="phase-six-primary-result">
+                    <span>Flesch Reading Ease</span>
+                    <strong id="fleschScore">0</strong>
+                    <small id="readingLevelLabel">-</small>
+                  </div>
+                  <dl class="phase-six-metric-grid readability-metric-grid">
+                    <div><dt>Words</dt><dd id="readabilityWords">0</dd></div>
+                    <div><dt>Sentences</dt><dd id="readabilitySentences">0</dd></div>
+                    <div><dt>Syllables</dt><dd id="readabilitySyllables">0</dd></div>
+                    <div><dt>Grade level</dt><dd id="gradeLevel">0</dd></div>
+                  </dl>
+                  <div class="phase-six-summary">
+                    <h4>Readability summary</h4>
+                    <div id="readabilitySummary"><p class="muted">Guidance will appear after you enter text.</p></div>
+                  </div>
+                  <p id="readabilityMethod" class="task-method-note">Method: Flesch formulas use English sentence, word, and estimated syllable counts. Treat the result as editing guidance, not a quality score.</p>
+                </section>
               </div>
             </div>
 
@@ -297,8 +308,22 @@ eleventyComputed:
             </div>
 
           {% elif tool.slug == "serp-snippet-preview" %}
-            <div class="serp-workspace">
-              <div class="serp-fields">
+            <div class="task-workspace phase-six-workspace serp-workspace" data-serp-snippet>
+              <header class="task-workspace-heading">
+                <div>
+                  <span class="mini-label">Search preview workspace</span>
+                  <h2>Shape your search listing</h2>
+                  <p>Edit the title, description, and URL while reviewing the snippet beside them.</p>
+                </div>
+                <span class="task-live-indicator"><span aria-hidden="true"></span>Live preview</span>
+              </header>
+
+              <div class="phase-six-tool-layout serp-tool-layout">
+              <section class="phase-six-input-panel serp-fields" aria-labelledby="serpInputHeading">
+                <div class="task-step-heading">
+                  <span aria-hidden="true">1</span>
+                  <div><h3 id="serpInputHeading">Add search details</h3><p>Start with the title and description searchers will scan.</p></div>
+                </div>
                 <div class="form-group">
                   <div class="field-label-row">
                     <label for="serpTitle">Page title</label>
@@ -329,17 +354,19 @@ eleventyComputed:
                 </div>
 
                 <div class="hero-actions serp-actions">
-                  <button id="serpSampleBtn" class="btn btn-primary" type="button">Load Example</button>
-                  <button id="serpClearBtn" class="btn btn-secondary" type="button">Clear</button>
+                  <button id="serpSampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                  <button id="serpClearBtn" class="task-reset-button" type="button">Reset</button>
                 </div>
-              </div>
+              </section>
 
-              <div class="serp-preview-panel">
-                <div class="serp-preview-head">
-                  <div>
-                    <span class="eyebrow">Live preview</span>
-                    <h3>Google search snippet</h3>
-                  </div>
+              <section class="phase-six-result-panel serp-preview-panel" data-serp-state="waiting" aria-labelledby="serpResultHeading">
+                <div class="task-result-heading">
+                  <div><span class="mini-label">Generated preview</span><h3 id="serpResultHeading">Google search snippet</h3></div>
+                  <button id="serpCopyBtn" class="btn btn-primary btn-sm" type="button" disabled>Copy preview</button>
+                </div>
+                <p id="serpStatus" class="task-status-message" role="status" aria-live="polite">Add a title, description, or URL to create a page-specific preview.</p>
+                <div class="serp-preview-head phase-six-preview-controls">
+                  <span>Preview width</span>
                   <div class="serp-device-switch" aria-label="Preview size">
                     <button class="is-active" type="button" data-serp-device="desktop" aria-pressed="true">Desktop</button>
                     <button type="button" data-serp-device="mobile" aria-pressed="false">Mobile</button>
@@ -360,8 +387,8 @@ eleventyComputed:
 
                 <div class="serp-preview-note">
                   <p>Google may rewrite or shorten a snippet. Use this preview for editing, not as a guaranteed display.</p>
-                  <button id="serpCopyBtn" class="btn btn-secondary btn-sm" type="button">Copy Preview</button>
                 </div>
+              </section>
               </div>
             </div>
 
@@ -955,7 +982,7 @@ eleventyComputed:
         {% endif %}
       </div>
 
-      <aside{% if tool.slug == 'utm-builder' %} class="utm-builder-resources"{% elif tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' %} class="task-tool-resources"{% endif %}>
+      <aside{% if tool.slug == 'utm-builder' %} class="utm-builder-resources"{% elif tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} class="task-tool-resources"{% endif %}>
         <div class="sidebar-card">
           <h3>Related tools</h3>
           <ul class="list-clean">
@@ -987,15 +1014,15 @@ eleventyComputed:
 </section>
 
 {% if tool.slug == "word-counter" %}
-  <script src="/assets/js/word-counter.js"></script>
+  <script src="/assets/js/word-counter.js?v=20260909-phase6"></script>
 {% elif tool.slug == "keyword-density-checker" %}
   <script src="/assets/js/keyword-density.js?v=20260909-phase3"></script>
 {% elif tool.slug == "readability-checker" %}
-  <script src="/assets/js/readability-checker.js"></script>
+  <script src="/assets/js/readability-checker.js?v=20260909-phase6"></script>
 {% elif tool.slug == "meta-tag-generator" %}
   <script src="/assets/js/meta-tag-generator.js?v=20260909-phase5"></script>
 {% elif tool.slug == "serp-snippet-preview" %}
-  <script src="/assets/js/serp-snippet-preview.js"></script>
+  <script src="/assets/js/serp-snippet-preview.js?v=20260909-phase6"></script>
 {% elif tool.slug == "cpc-roas-calculator" %}
   <script src="/assets/js/cpc-roas-calculator.js?v=20260909-phase5"></script>
 {% elif tool.slug == "utm-builder" %}

@@ -13,6 +13,8 @@ const serpClearBtn = document.getElementById("serpClearBtn");
 const serpSampleBtn = document.getElementById("serpSampleBtn");
 const serpCopyBtn = document.getElementById("serpCopyBtn");
 const serpDeviceButtons = document.querySelectorAll("[data-serp-device]");
+const serpStatus = document.getElementById("serpStatus");
+const serpResultPanel = document.querySelector("[data-serp-state]");
 
 if (serpTitle) {
   const defaults = {
@@ -61,6 +63,13 @@ if (serpTitle) {
     serpPreviewTitle.textContent = title || defaults.title;
     serpPreviewDescription.textContent = description || defaults.description;
     serpPreviewUrl.textContent = formatUrl(url);
+
+    const hasInput = Boolean(title || description || url);
+    serpCopyBtn.disabled = !hasInput;
+    serpResultPanel.dataset.serpState = hasInput ? "ready" : "waiting";
+    serpStatus.textContent = hasInput
+      ? "The page-specific preview is ready to review and copy."
+      : "Add a title, description, or URL to create a page-specific preview.";
   }
 
   function setDevice(device) {
@@ -74,19 +83,21 @@ if (serpTitle) {
 
   async function copyPreview() {
     const report = [
-      `Title: ${serpTitle.value.trim() || defaults.title}`,
-      `Description: ${serpDescription.value.trim() || defaults.description}`,
-      `URL: ${serpUrl.value.trim() || defaults.url}`
+      `Title: ${serpTitle.value.trim() || "Not provided"}`,
+      `Description: ${serpDescription.value.trim() || "Not provided"}`,
+      `URL: ${serpUrl.value.trim() || "Not provided"}`
     ].join("\n");
 
     try {
       await navigator.clipboard.writeText(report);
       serpCopyBtn.textContent = "Copied";
+      serpStatus.textContent = "Preview details copied to your clipboard.";
       window.setTimeout(() => {
-        serpCopyBtn.textContent = "Copy Preview";
+        serpCopyBtn.textContent = "Copy preview";
       }, 1600);
     } catch {
       serpCopyBtn.textContent = "Copy failed";
+      serpStatus.textContent = "Copy failed. Review the preview and try again.";
     }
   }
 
