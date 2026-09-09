@@ -6,6 +6,7 @@ const vm = require("node:vm");
 
 const generatorScript = fs.readFileSync(path.join(__dirname, "../src/assets/js/qr-code-generator.js"), "utf8");
 const scannerScript = fs.readFileSync(path.join(__dirname, "../src/assets/js/qr-barcode-scanner.js"), "utf8");
+const headersTemplate = fs.readFileSync(path.join(__dirname, "../src/headers.njk"), "utf8");
 
 function element(id = "") {
   return {
@@ -192,6 +193,14 @@ test("QR Generator creates a ready preview and updates settings", () => {
   tool.change("qrErrorLevel", "H");
   assert.equal(tool.get("qrSelectedSize").textContent, "600");
   assert.equal(tool.get("qrSelectedLevel").textContent, "H");
+});
+
+test("production content security policy allows QuickChart QR previews", () => {
+  const sitePolicy = headersTemplate
+    .split(/\r?\n/)
+    .find(line => line.includes("script-src"));
+
+  assert.match(sitePolicy, /img-src[^;]*https:\/\/quickchart\.io(?:\s|;)/);
 });
 
 test("QR Generator reports a failed external preview honestly", () => {

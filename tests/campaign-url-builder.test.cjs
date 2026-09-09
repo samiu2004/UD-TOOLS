@@ -5,6 +5,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 const script = fs.readFileSync(path.join(__dirname, "../src/assets/js/campaign-url-builder.js"), "utf8");
+const toolTemplate = fs.readFileSync(path.join(__dirname, "../src/tools/tool-pages.njk"), "utf8");
 
 // Run the actual browser script and event handlers without a DOM dependency.
 function builder() {
@@ -46,6 +47,10 @@ test("plain HTTPS URL generates a ready campaign link", () => {
   assert.equal(b.output(), "https://example.com/offer?utm_source=newsletter&utm_medium=email&utm_campaign=launch");
   assert.equal(b.get("campaignRequiredStatus").textContent, "Ready");
   assert.match(b.get("campaignTips").innerHTML, /ready for campaign reporting/);
+});
+
+test("UTM Builder script is cache-versioned for production releases", () => {
+  assert.match(toolTemplate, /campaign-url-builder\.js\?v=[^"\s]+/);
 });
 
 test("allows HTTP and surrounding whitespace", () => {
