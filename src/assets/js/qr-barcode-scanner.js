@@ -6,6 +6,11 @@
   const result = document.getElementById("scannerResult");
   const tips = document.getElementById("scannerTips");
   const preview = document.getElementById("scannerImagePreview");
+  const uploadStage = document.getElementById("scannerUploadStage");
+  const copyBtn = document.getElementById("scannerCopyBtn");
+  const clearBtn = document.getElementById("scannerClearBtn");
+  const scannerStatus = document.getElementById("scannerStatus");
+  const resultPanel = document.querySelector("[data-scanner-state]");
 
   const supportStatus = document.getElementById("scannerSupportStatus");
   const cameraStatus = document.getElementById("scannerCameraStatus");
@@ -49,6 +54,12 @@
     tips.innerHTML = html;
   }
 
+  function setResultState(state, message) {
+    resultPanel.dataset.scannerState = state;
+    scannerStatus.textContent = message;
+    copyBtn.disabled = !result.value.trim();
+  }
+
   function setEmptyState() {
     setTips(
       [
@@ -72,12 +83,18 @@
 
     video.srcObject = null;
     cameraStatus.textContent = "Stopped";
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
   }
 
   function renderDetection(text, format, mode) {
     result.value = text || "";
     formatStatus.textContent = format || "Unknown";
     modeStatus.textContent = mode || "—";
+    setResultState(
+      text ? "ready" : "review",
+      text ? "Code decoded. Review or copy the result." : "No code was detected in this image."
+    );
   }
 
   async function detectFromVideo() {
@@ -97,6 +114,8 @@
           const first = barcodes[0];
           renderDetection(first.rawValue || "", first.format || "barcode", "Live camera");
           cameraStatus.textContent = "Detected";
+          startBtn.disabled = false;
+          stopBtn.disabled = false;
           return;
         }
       }
@@ -107,6 +126,8 @@
         if (qr) {
           renderDetection(qr.data || "", "qr_code", "Live camera");
           cameraStatus.textContent = "Detected";
+          startBtn.disabled = false;
+          stopBtn.disabled = false;
           return;
         }
       }
@@ -120,6 +141,7 @@
   async function startCamera() {
     if (!hasMediaDevices) {
       cameraStatus.textContent = "Unsupported";
+      setResultState("review", "Camera scanning is unavailable. Upload an image instead.");
       setTips(
         "<p><strong>Camera access:</strong> This browser does not support camera scanning here. Use the image upload option instead.</p>"
       );
@@ -127,6 +149,10 @@
     }
 
     try {
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
+      cameraStatus.textContent = "Requesting";
+      setResultState("scanning", "Waiting for camera permission.");
       stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: "environment" },
         audio: false
@@ -137,6 +163,7 @@
 
       cameraStatus.textContent = "Scanning";
       modeStatus.textContent = "Live camera";
+      setResultState("scanning", "Camera is scanning for a code.");
 
       setTips(
         [
@@ -148,6 +175,9 @@
       detectFromVideo();
     } catch (error) {
       cameraStatus.textContent = "Denied";
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+      setResultState("review", "Camera access was blocked. Upload an image instead.");
       setTips(
         "<p><strong>Permission:</strong> Camera access was blocked or unavailable. You can still scan a QR code from an uploaded image.</p>"
       );
@@ -174,6 +204,9 @@
     if (!file) return;
 
     try {
+      if (stream) stopCamera();
+      uploadStage.hidden = false;
+      setResultState("scanning", "Checking the uploaded image for a code.");
       const img = await readFileAsImage(file);
 
       preview.innerHTML = `
@@ -226,6 +259,7 @@
       result.value = "";
       formatStatus.textContent = "Error";
       modeStatus.textContent = "Uploaded image";
+      setResultState("review", "The image could not be processed. Try another file.");
       setTips(
         "<p><strong>Upload error:</strong> The image could not be processed. Try another PNG or JPG file.</p>"
       );
@@ -235,6 +269,36 @@
   startBtn.addEventListener("click", startCamera);
   stopBtn.addEventListener("click", stopCamera);
 
+  copyBtn.addEventListener("click", async function () {
+    if (!result.value.trim()) return;
+
+    try {
+      await navigator.clipboard.writeText(result.value);
+      copyBtn.textContent = "Copied";
+      scannerStatus.textContent = "Decoded result copied to your clipboard.";
+      window.setTimeout(() => {
+        copyBtn.textContent = "Copy result";
+      }, 1600);
+    } catch (error) {
+      copyBtn.textContent = "Copy failed";
+      scannerStatus.textContent = "Copy failed. Select the decoded value and try again.";
+    }
+  });
+
+  clearBtn.addEventListener("click", function () {
+    stopCamera();
+    fileInput.value = "";
+    result.value = "";
+    formatStatus.textContent = "-";
+    modeStatus.textContent = "-";
+    cameraStatus.textContent = "Idle";
+    uploadStage.hidden = true;
+    preview.innerHTML = "<p>Uploaded image preview</p>";
+    setEmptyState();
+    setResultState("waiting", "Start the camera or upload an image to scan.");
+    startBtn.focus();
+  });
+
   fileInput.addEventListener("change", function () {
     const file = fileInput.files && fileInput.files[0];
     if (file) {
@@ -243,6 +307,8 @@
   });
 
   setEmptyState();
+  stopBtn.disabled = true;
+  setResultState("waiting", "Start the camera or upload an image to scan.");
 
   window.addEventListener("beforeunload", stopCamera);
 })();

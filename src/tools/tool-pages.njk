@@ -10,9 +10,9 @@ eleventyComputed:
   description: "{{ tool.description }}"
 ---
 
-<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero task-tool-page-hero{% endif %}{% if tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} task-tool-page-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-hero{% endif %}">
+<section class="page-hero{% if tool.slug == 'keyword-density-checker' %} keyword-page-hero task-tool-page-hero{% endif %}{% if tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' or tool.slug == 'qr-code-generator' or tool.slug == 'qr-barcode-scanner' %} task-tool-page-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-hero{% endif %}">
   <div class="container">
-    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} task-tool-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-hero{% endif %}">
+    <div class="tool-hero{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' or tool.slug == 'qr-code-generator' or tool.slug == 'qr-barcode-scanner' %} task-tool-hero{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-hero{% endif %}">
       <div>
         <span class="eyebrow">{{ tool.category }}</span>
         <h1>{{ tool.name }}</h1>
@@ -20,7 +20,7 @@ eleventyComputed:
           {{ tool.description }}
         </p>
       </div>
-      {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" and tool.slug != "meta-tag-generator" and tool.slug != "cpc-roas-calculator" and tool.slug != "word-counter" and tool.slug != "readability-checker" and tool.slug != "serp-snippet-preview" %}
+      {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" and tool.slug != "meta-tag-generator" and tool.slug != "cpc-roas-calculator" and tool.slug != "word-counter" and tool.slug != "readability-checker" and tool.slug != "serp-snippet-preview" and tool.slug != "qr-code-generator" and tool.slug != "qr-barcode-scanner" %}
         <div class="tool-hero-note">
           <strong>Free to use</strong>
           <span>No account required. Built for quick browser workflows.</span>
@@ -30,12 +30,12 @@ eleventyComputed:
   </div>
 </section>
 
-<section class="section-tight{% if tool.slug == 'utm-builder' %} utm-builder-section{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} task-tool-section{% endif %}">
+<section class="section-tight{% if tool.slug == 'utm-builder' %} utm-builder-section{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' or tool.slug == 'qr-code-generator' or tool.slug == 'qr-barcode-scanner' %} task-tool-section{% endif %}">
   <div class="container">
-    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid task-tool-page-grid{% endif %}{% if tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} task-tool-page-grid{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-grid{% endif %}">
+    <div class="page-grid{% if tool.slug == 'keyword-density-checker' %} keyword-page-grid task-tool-page-grid{% endif %}{% if tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' or tool.slug == 'qr-code-generator' or tool.slug == 'qr-barcode-scanner' %} task-tool-page-grid{% endif %}{% if tool.slug == 'utm-builder' %} utm-builder-page-grid{% endif %}">
       <div>
-        <div class="tool-panel{% if tool.slug == 'utm-builder' %} utm-builder-panel{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} task-tool-panel{% endif %}">
-          {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" and tool.slug != "meta-tag-generator" and tool.slug != "cpc-roas-calculator" and tool.slug != "word-counter" and tool.slug != "readability-checker" and tool.slug != "serp-snippet-preview" %}
+        <div class="tool-panel{% if tool.slug == 'utm-builder' %} utm-builder-panel{% endif %}{% if tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' or tool.slug == 'qr-code-generator' or tool.slug == 'qr-barcode-scanner' %} task-tool-panel{% endif %}">
+          {% if tool.slug != "utm-builder" and tool.slug != "keyword-density-checker" and tool.slug != "utm-link-checker" and tool.slug != "meta-tag-generator" and tool.slug != "cpc-roas-calculator" and tool.slug != "word-counter" and tool.slug != "readability-checker" and tool.slug != "serp-snippet-preview" and tool.slug != "qr-code-generator" and tool.slug != "qr-barcode-scanner" %}
             <h2>Use the {{ tool.name }}</h2>
             <p class="muted">
               Enter your inputs below and the results will update in the browser.
@@ -736,138 +736,154 @@ eleventyComputed:
             </div>
 
           {% elif tool.slug == "qr-code-generator" %}
-            <div class="form-group">
-              <label for="qrContent">Content to encode</label>
-              <textarea id="qrContent" class="tool-input" placeholder="Enter a URL, message, phone number, email, or campaign link..."></textarea>
-            </div>
+            <div class="task-workspace phase-seven-workspace qr-generator-workspace" data-qr-generator>
+              <header class="task-workspace-heading">
+                <div>
+                  <span class="mini-label">QR workspace</span>
+                  <h2>Create a QR code</h2>
+                  <p>Add content, review the preview, then download the format you need.</p>
+                </div>
+                <span class="task-live-indicator"><span aria-hidden="true"></span>Live preview</span>
+              </header>
 
-            <div class="form-group">
-              <label for="qrSize">QR size</label>
-              <select id="qrSize" class="tool-input">
-                <option value="200">200 x 200</option>
-                <option value="300" selected>300 x 300</option>
-                <option value="400">400 x 400</option>
-                <option value="600">600 x 600</option>
-              </select>
-            </div>
+              <div class="phase-seven-tool-layout">
+                <section class="phase-seven-input-panel" aria-labelledby="qrInputHeading">
+                  <div class="task-step-heading">
+                    <span aria-hidden="true">1</span>
+                    <div><h3 id="qrInputHeading">Add content</h3><p>Encode a URL, campaign link, contact detail, or short message.</p></div>
+                  </div>
+                  <div class="phase-seven-input-meta"><span id="qrInputCount">0</span> characters</div>
+                  <label class="task-field-label" for="qrContent">Content to encode</label>
+                  <textarea id="qrContent" class="tool-input phase-seven-textarea" aria-describedby="qrPrivacyNote" placeholder="https://example.com/campaign/"></textarea>
+                  <div class="task-actions">
+                    <button id="qrSampleBtn" class="btn btn-secondary" type="button">Load Example</button>
+                    <button id="qrClearBtn" class="task-reset-button" type="button">Reset</button>
+                  </div>
 
-            <div class="form-group">
-              <label for="qrErrorLevel">Error correction</label>
-              <select id="qrErrorLevel" class="tool-input">
-                <option value="L">Low (7%)</option>
-                <option value="M" selected>Medium (15%)</option>
-                <option value="Q">Quartile (25%)</option>
-                <option value="H">High (30%)</option>
-              </select>
-            </div>
+                  <details class="phase-seven-settings">
+                    <summary>QR settings</summary>
+                    <div class="phase-seven-settings-grid">
+                      <div class="form-group">
+                        <label for="qrSize">Image size</label>
+                        <select id="qrSize" class="tool-input">
+                          <option value="200">200 x 200</option>
+                          <option value="300" selected>300 x 300</option>
+                          <option value="400">400 x 400</option>
+                          <option value="600">600 x 600</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="qrErrorLevel">Error correction</label>
+                        <select id="qrErrorLevel" class="tool-input">
+                          <option value="L">Low (7%)</option>
+                          <option value="M" selected>Medium (15%)</option>
+                          <option value="Q">Quartile (25%)</option>
+                          <option value="H">High (30%)</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="qrMargin">Quiet zone</label>
+                        <select id="qrMargin" class="tool-input">
+                          <option value="1">1 module</option>
+                          <option value="2">2 modules</option>
+                          <option value="4" selected>4 modules</option>
+                          <option value="8">8 modules</option>
+                        </select>
+                      </div>
+                    </div>
+                  </details>
+                  <p id="qrPrivacyNote" class="task-method-note">The content is sent to QuickChart to generate the preview and download files.</p>
+                </section>
 
-            <div class="form-group">
-              <label for="qrMargin">Quiet zone / margin</label>
-              <select id="qrMargin" class="tool-input">
-                <option value="1">1 module</option>
-                <option value="2">2 modules</option>
-                <option value="4" selected>4 modules</option>
-                <option value="8">8 modules</option>
-              </select>
-            </div>
-
-            <div class="hero-actions" style="margin-bottom:0;">
-              <button id="qrClearBtn" class="btn btn-secondary" type="button">Clear</button>
-              <button id="qrSampleBtn" class="btn btn-primary" type="button">Load Example</button>
-            </div>
-
-            <div class="results-grid">
-              <div class="result-box">
-                <strong id="qrContentStatus">-</strong>
-                <span>Content</span>
-              </div>
-              <div class="result-box">
-                <strong id="qrSelectedSize">300</strong>
-                <span>Size</span>
-              </div>
-              <div class="result-box">
-                <strong id="qrSelectedLevel">M</strong>
-                <span>Error correction</span>
-              </div>
-              <div class="result-box">
-                <strong id="qrSelectedMargin">4</strong>
-                <span>Margin</span>
-              </div>
-            </div>
-
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Generated QR code</h3>
-              <div id="qrPreview" class="preview-box" style="min-height:320px;">
-                <p class="muted">Your QR code preview will appear here.</p>
-              </div>
-            </div>
-
-            <div class="hero-actions" style="margin-top:24px; margin-bottom:0;">
-              <button id="qrDownloadPngBtn" class="btn btn-primary" type="button">Download PNG</button>
-              <button id="qrDownloadSvgBtn" class="btn btn-secondary" type="button">Download SVG</button>
-            </div>
-
-            <div class="content-card" style="margin-top:24px;">
-              <h3>QR guidance</h3>
-              <div id="qrTips">
-                <p class="muted">QR best-practice guidance will appear here as you fill in the fields.</p>
+                <section class="phase-seven-result-panel" data-qr-state="waiting" aria-labelledby="qrResultHeading">
+                  <div class="task-result-heading">
+                    <div><span class="mini-label">Generated result</span><h3 id="qrResultHeading">QR code preview</h3></div>
+                  </div>
+                  <p id="qrStatus" class="task-status-message" role="status" aria-live="polite">Add content to generate a QR code.</p>
+                  <div id="qrPreview" class="phase-seven-qr-preview">
+                    <p class="muted">Your QR code will appear here.</p>
+                  </div>
+                  <div class="task-actions phase-seven-download-actions">
+                    <button id="qrDownloadPngBtn" class="btn btn-primary" type="button" disabled>Download PNG</button>
+                    <button id="qrDownloadSvgBtn" class="btn btn-secondary" type="button" disabled>Download SVG</button>
+                  </div>
+                  <dl class="phase-seven-compact-metrics" aria-label="Selected QR settings">
+                    <div><dt>Content</dt><dd id="qrContentStatus">Empty</dd></div>
+                    <div><dt>Size</dt><dd><span id="qrSelectedSize">300</span> px</dd></div>
+                    <div><dt>Correction</dt><dd id="qrSelectedLevel">M</dd></div>
+                    <div><dt>Margin</dt><dd><span id="qrSelectedMargin">4</span> modules</dd></div>
+                  </dl>
+                  <div id="qrTips" class="phase-seven-guidance">
+                    <p class="muted">Use strong contrast and test the code before publishing.</p>
+                  </div>
+                </section>
               </div>
             </div>
 
           {% elif tool.slug == "qr-barcode-scanner" %}
-            <div class="hero-actions" style="margin-bottom:24px;">
-              <button id="scannerStartBtn" class="btn btn-primary" type="button">Start Camera</button>
-              <button id="scannerStopBtn" class="btn btn-secondary" type="button">Stop Camera</button>
-            </div>
+            <div class="task-workspace phase-seven-workspace scanner-workspace" data-qr-scanner>
+              <header class="task-workspace-heading">
+                <div>
+                  <span class="mini-label">Scanner workspace</span>
+                  <h2>Scan a QR code or barcode</h2>
+                  <p>Use your camera or upload a clear image, then copy the decoded result.</p>
+                </div>
+                <span class="task-live-indicator"><span aria-hidden="true"></span>On-device scan</span>
+              </header>
 
-            <div class="form-group">
-              <label for="scannerFileInput">Upload image (QR or barcode)</label>
-              <input id="scannerFileInput" class="tool-input" type="file" accept="image/*">
-            </div>
+              <div class="phase-seven-tool-layout scanner-tool-layout">
+                <section class="phase-seven-input-panel scanner-input-panel" aria-labelledby="scannerInputHeading">
+                  <div class="task-step-heading">
+                    <span aria-hidden="true">1</span>
+                    <div><h3 id="scannerInputHeading">Choose a scan method</h3><p>Camera works over HTTPS; image upload is the reliable fallback.</p></div>
+                  </div>
 
-            <div class="results-grid">
-              <div class="result-box">
-                <strong id="scannerSupportStatus">Checking…</strong>
-                <span>Browser support</span>
-              </div>
-              <div class="result-box">
-                <strong id="scannerCameraStatus">Idle</strong>
-                <span>Camera</span>
-              </div>
-              <div class="result-box">
-                <strong id="scannerDetectedFormat">-</strong>
-                <span>Format</span>
-              </div>
-              <div class="result-box">
-                <strong id="scannerDetectionMode">-</strong>
-                <span>Detection mode</span>
-              </div>
-            </div>
+                  <div class="scanner-method-block">
+                    <span class="task-field-label">Camera</span>
+                    <div class="task-actions scanner-camera-actions">
+                      <button id="scannerStartBtn" class="btn btn-primary" type="button">Start Camera</button>
+                      <button id="scannerStopBtn" class="btn btn-secondary" type="button" disabled>Stop Camera</button>
+                    </div>
+                  </div>
 
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Live scanner</h3>
-              <div style="position:relative; overflow:hidden; border-radius:16px; background:#000;">
-                <video id="scannerVideo" playsinline muted style="width:100%; min-height:280px; background:#000;"></video>
-              </div>
-              <p class="muted" style="margin-top:12px;">Point your camera at a QR code or supported barcode once scanning starts.</p>
-            </div>
+                  <div class="scanner-method-divider"><span>or</span></div>
 
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Uploaded image preview</h3>
-              <div id="scannerImagePreview" class="preview-box" style="min-height:220px;">
-                <p class="muted">Upload an image to scan a QR code or barcode without using the camera.</p>
-              </div>
-            </div>
+                  <div class="form-group scanner-upload-field">
+                    <label for="scannerFileInput">Upload an image</label>
+                    <input id="scannerFileInput" class="tool-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+                    <small>PNG, JPG, WebP, or GIF with a clear QR code or barcode.</small>
+                  </div>
 
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Decoded result</h3>
-              <textarea id="scannerResult" class="tool-input" rows="6" readonly placeholder="Scanned content will appear here..."></textarea>
-            </div>
+                  <div id="scannerCameraStage" class="scanner-stage">
+                    <video id="scannerVideo" playsinline muted></video>
+                    <p>Point the camera at a code after scanning starts.</p>
+                  </div>
+                  <div id="scannerUploadStage" class="scanner-stage" hidden>
+                    <div id="scannerImagePreview"><p>Uploaded image preview</p></div>
+                  </div>
+                </section>
 
-            <div class="content-card" style="margin-top:24px;">
-              <h3>Scanner guidance</h3>
-              <div id="scannerTips">
-                <p class="muted">Scanner tips and support notes will appear here.</p>
+                <section class="phase-seven-result-panel scanner-result-panel" data-scanner-state="waiting" aria-labelledby="scannerResultHeading">
+                  <div class="task-result-heading">
+                    <div><span class="mini-label">Decoded result</span><h3 id="scannerResultHeading">Scanned content</h3></div>
+                    <button id="scannerCopyBtn" class="btn btn-primary btn-sm" type="button" disabled>Copy result</button>
+                  </div>
+                  <p id="scannerStatus" class="task-status-message" role="status" aria-live="polite">Start the camera or upload an image to scan.</p>
+                  <label class="task-field-label" for="scannerResult">Decoded value</label>
+                  <textarea id="scannerResult" class="tool-input scanner-result-output" rows="7" readonly placeholder="Scanned content will appear here..."></textarea>
+                  <button id="scannerClearBtn" class="task-reset-button" type="button">Clear result</button>
+
+                  <dl class="phase-seven-compact-metrics scanner-metrics">
+                    <div><dt>Browser</dt><dd id="scannerSupportStatus">Checking...</dd></div>
+                    <div><dt>Camera</dt><dd id="scannerCameraStatus">Idle</dd></div>
+                    <div><dt>Format</dt><dd id="scannerDetectedFormat">-</dd></div>
+                    <div><dt>Method</dt><dd id="scannerDetectionMode">-</dd></div>
+                  </dl>
+                  <div id="scannerTips" class="phase-seven-guidance">
+                    <p class="muted">Use good lighting and keep the complete code inside the frame.</p>
+                  </div>
+                  <p class="task-method-note">Camera frames and uploaded images are processed in your browser.</p>
+                </section>
               </div>
             </div>
 
@@ -982,7 +998,7 @@ eleventyComputed:
         {% endif %}
       </div>
 
-      <aside{% if tool.slug == 'utm-builder' %} class="utm-builder-resources"{% elif tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' %} class="task-tool-resources"{% endif %}>
+      <aside{% if tool.slug == 'utm-builder' %} class="utm-builder-resources"{% elif tool.slug == 'keyword-density-checker' or tool.slug == 'utm-link-checker' or tool.slug == 'meta-tag-generator' or tool.slug == 'cpc-roas-calculator' or tool.slug == 'word-counter' or tool.slug == 'readability-checker' or tool.slug == 'serp-snippet-preview' or tool.slug == 'qr-code-generator' or tool.slug == 'qr-barcode-scanner' %} class="task-tool-resources"{% endif %}>
         <div class="sidebar-card">
           <h3>Related tools</h3>
           <ul class="list-clean">
@@ -1030,10 +1046,10 @@ eleventyComputed:
 {% elif tool.slug == "utm-link-checker" %}
   <script src="/assets/js/utm-link-checker.js?v=20260909-phase3"></script>
 {% elif tool.slug == "qr-code-generator" %}
-  <script src="/assets/js/qr-code-generator.js"></script>
+  <script src="/assets/js/qr-code-generator.js?v=20260909-phase7"></script>
 {% elif tool.slug == "qr-barcode-scanner" %}
   <script src="https://unpkg.com/jsqr/dist/jsQR.js"></script>
-  <script src="/assets/js/qr-barcode-scanner.js"></script>
+  <script src="/assets/js/qr-barcode-scanner.js?v=20260909-phase7"></script>
 {% endif %}
 
 <script type="application/ld+json">

@@ -12,11 +12,14 @@
   const downloadSvgBtn = document.getElementById("qrDownloadSvgBtn");
 
   const statusEl = document.getElementById("qrContentStatus");
+  const inputCountEl = document.getElementById("qrInputCount");
+  const workspaceStatusEl = document.getElementById("qrStatus");
   const sizeEl = document.getElementById("qrSelectedSize");
   const levelEl = document.getElementById("qrSelectedLevel");
   const marginEl = document.getElementById("qrSelectedMargin");
   const previewEl = document.getElementById("qrPreview");
   const tipsEl = document.getElementById("qrTips");
+  const resultPanel = document.querySelector("[data-qr-state]");
 
   function escapeHtml(value) {
     return value
@@ -74,6 +77,7 @@
     const level = levelInput.value;
     const margin = marginInput.value;
 
+    inputCountEl.textContent = contentInput.value.length;
     statusEl.textContent = content ? "Ready" : "Empty";
     sizeEl.textContent = size;
     levelEl.textContent = level;
@@ -81,6 +85,10 @@
 
     if (!content) {
       previewEl.innerHTML = '<p class="muted">Your QR code preview will appear here.</p>';
+      resultPanel.dataset.qrState = "waiting";
+      workspaceStatusEl.textContent = "Add content to generate a QR code.";
+      downloadPngBtn.disabled = true;
+      downloadSvgBtn.disabled = true;
       renderTips(content, size, level, margin);
       return;
     }
@@ -99,6 +107,34 @@
       />
       <p class="muted" style="margin-top:16px; text-align:center; word-break:break-word;">${escapeHtml(content)}</p>
     `;
+
+    const previewImage = previewEl.querySelector("img");
+    resultPanel.dataset.qrState = "loading";
+    workspaceStatusEl.textContent = "Generating the QR code preview.";
+    downloadPngBtn.disabled = true;
+    downloadSvgBtn.disabled = true;
+
+    function markPreviewReady() {
+      resultPanel.dataset.qrState = "ready";
+      workspaceStatusEl.textContent = "The QR code is ready to review and download.";
+      downloadPngBtn.disabled = false;
+      downloadSvgBtn.disabled = false;
+    }
+
+    function markPreviewError() {
+      resultPanel.dataset.qrState = "error";
+      workspaceStatusEl.textContent = "The QR service could not generate a preview. Check your connection and try again.";
+      downloadPngBtn.disabled = true;
+      downloadSvgBtn.disabled = true;
+    }
+
+    if (previewImage.complete) {
+      if (previewImage.naturalWidth > 0) markPreviewReady();
+      else markPreviewError();
+    } else {
+      previewImage.addEventListener("load", markPreviewReady, { once: true });
+      previewImage.addEventListener("error", markPreviewError, { once: true });
+    }
 
     renderTips(content, size, level, margin);
   }
@@ -119,6 +155,7 @@
     levelInput.value = "M";
     marginInput.value = "4";
     renderPreview();
+    contentInput.focus();
   }
 
   function loadSample() {
@@ -127,6 +164,7 @@
     levelInput.value = "M";
     marginInput.value = "4";
     renderPreview();
+    contentInput.focus();
   }
 
   [contentInput, sizeInput, levelInput, marginInput].forEach((element) => {
