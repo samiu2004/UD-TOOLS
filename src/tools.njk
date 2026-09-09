@@ -6,74 +6,48 @@ permalink: /tools/
 ---
 {% from "partials/tool-icon.njk" import toolCard %}
 
-<section class="page-hero tools-hero tools-hero-clean">
-  <div class="container">
-    <div class="tools-hero-grid">
-      <div class="tools-hero-copy">
-        <span class="eyebrow">Tools Directory</span>
-        <h1>Free tools for SEO, content, and campaign work.</h1>
-        <p>
-          Browser-based tools for tracking links, reviewing content, creating metadata, measuring campaigns, and finishing everyday marketing tasks.
-        </p>
-        <form class="tool-finder" role="search" data-tool-finder>
-          <label class="sr-only" for="tool-search">Find a marketing tool</label>
-          <input id="tool-search" type="search" placeholder="Try: check keyword density" autocomplete="off" data-tool-search>
-          <button class="btn btn-accent" type="submit">Find a Tool</button>
-        </form>
-        <div class="tool-task-links" aria-label="Popular tasks">
-          <a href="/tools/keyword-density-checker/">Analyze content</a>
-          <a href="/tools/utm-builder/">Build a tracking URL</a>
-          <a href="/tools/utm-link-checker/">Check a UTM link</a>
-          <a href="/tools/cpc-roas-calculator/">Calculate ROAS</a>
-        </div>
-      </div>
-
-      <aside class="tools-quick-panel" aria-label="Popular marketing tools">
-        <div class="tools-quick-head">
-          <strong>Quick access</strong>
-          <span>Popular marketing workflows</span>
-        </div>
-        <div class="tools-quick-list">
-          <a class="tools-quick-item" href="/tools/utm-builder/">
-            <span><strong>UTM Builder</strong><small>Build campaign tracking links</small></span>
-            <em>Open</em>
-          </a>
-          <a class="tools-quick-item" href="/tools/keyword-density-checker/">
-            <span><strong>Keyword Density Checker</strong><small>Review repeated SEO terms</small></span>
-            <em>Open</em>
-          </a>
-          <a class="tools-quick-item" href="/tools/utm-link-checker/">
-            <span><strong>UTM Link Checker</strong><small>Validate campaign parameters</small></span>
-            <em>Open</em>
-          </a>
-        </div>
-        <div class="tools-quick-summary">
-          <span><strong>{{ tools | length }}</strong> live tools</span>
-          <span><strong>{{ articles | length }}</strong> guides</span>
-          <span><strong>0</strong> signup steps</span>
-        </div>
-      </aside>
+<section class="directory-hero">
+  <div class="container directory-hero-inner">
+    <div class="directory-hero-copy">
+      <span class="eyebrow">Tools Directory</span>
+      <h1>Free tools for SEO, content, and campaign work.</h1>
+      <p>Browser-based tools for tracking links, reviewing content, creating metadata, measuring campaigns, and finishing everyday marketing tasks.</p>
     </div>
+
+    <form class="directory-search" role="search" data-tool-finder>
+      <label for="tool-search">Find a marketing tool</label>
+      <div class="directory-search-row">
+        <input id="tool-search" type="search" placeholder="Try: check keyword density" autocomplete="off" data-tool-search>
+        <button class="btn btn-accent" type="submit">Find tool</button>
+      </div>
+    </form>
+
+    <nav class="directory-shortcuts" aria-label="Popular tools">
+      <span>Popular:</span>
+      <a href="/tools/utm-builder/">UTM Builder</a>
+      <a href="/tools/keyword-density-checker/">Keyword Density Checker</a>
+      <a href="/tools/utm-link-checker/">UTM Link Checker</a>
+    </nav>
   </div>
 </section>
 
-<section id="all-tools" class="section tools-directory-section">
+<section id="all-tools" class="section directory-workspace tools-directory-section" aria-labelledby="all-tools-title">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">All Tools</span>
-      <h2 class="section-title">Choose the job you need to finish.</h2>
-      <p class="section-desc">
-        Each tool has a focused interface, a clean URL, and supporting guidance so visitors can act quickly.
-      </p>
+    <div class="directory-heading">
+      <div>
+        <span class="eyebrow">All Tools</span>
+        <h2 id="all-tools-title">Choose the job you need to finish.</h2>
+      </div>
+      <p>Filter by workflow or search by task. Every tool runs in your browser without signup.</p>
     </div>
 
     <div class="tool-filter-bar" aria-label="Filter tools by category" data-tool-filters>
-      <button class="is-active" type="button" data-tool-filter="all">All tools</button>
-      <button type="button" data-tool-filter="writing">Writing</button>
-      <button type="button" data-tool-filter="seo">SEO</button>
-      <button type="button" data-tool-filter="metadata">Metadata</button>
-      <button type="button" data-tool-filter="campaign">Campaigns</button>
-      <button type="button" data-tool-filter="utility">QR utilities</button>
+      <button class="is-active" type="button" data-tool-filter="all" aria-pressed="true">All tools</button>
+      <button type="button" data-tool-filter="writing" aria-pressed="false">Writing</button>
+      <button type="button" data-tool-filter="seo" aria-pressed="false">SEO</button>
+      <button type="button" data-tool-filter="metadata" aria-pressed="false">Metadata</button>
+      <button type="button" data-tool-filter="campaign" aria-pressed="false">Campaigns</button>
+      <button type="button" data-tool-filter="utility" aria-pressed="false">QR utilities</button>
     </div>
     <p class="tool-filter-status" aria-live="polite" data-tool-status>{{ tools | length }} tools available</p>
 
@@ -81,6 +55,76 @@ permalink: /tools/
       {% for tool in tools %}
         {{ toolCard(tool) }}
       {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section directory-topics" aria-labelledby="tool-guides-title">
+  <div class="container">
+    <div class="directory-heading directory-heading-compact">
+      <div>
+        <span class="eyebrow">Connected Guides</span>
+        <h2 id="tool-guides-title">Learn the workflow behind each tool.</h2>
+      </div>
+      <p>Open a tool first, or use these focused guides when you need more context.</p>
+    </div>
+
+    <div class="directory-topic-grid">
+      <section class="directory-topic">
+        <span class="mini-label">Campaign URLs</span>
+        <h3>Build and check UTM links</h3>
+        <p>Create reliable campaign URLs and validate their parameters before launch.</p>
+        <div class="directory-link-list">
+          <a href="/tools/utm-builder/">Open UTM Builder</a>
+          <a href="/tools/utm-link-checker/">Open UTM Link Checker</a>
+          <a href="/articles/utm-parameter-validation-rules/">UTM Validation Rules</a>
+          <a href="/articles/what-is-utm-tracking/">What Is UTM Tracking?</a>
+          <a href="/articles/what-are-utm-parameters/">What Are UTM Parameters?</a>
+          <a href="/articles/how-to-create-a-tracking-url/">How to Create a Tracking URL</a>
+          <a href="/articles/how-to-use-utm-builder-for-google-analytics/">Track UTM Campaigns in GA4</a>
+        </div>
+      </section>
+
+      <section class="directory-topic">
+        <span class="mini-label">SEO Content</span>
+        <h3>Review keyword use</h3>
+        <p>Check keyword frequency and understand natural use without relying on rigid targets.</p>
+        <div class="directory-link-list">
+          <a href="/tools/keyword-density-checker/">Open Keyword Density Checker</a>
+          <a href="/articles/what-is-keyword-density/">What Is Keyword Density?</a>
+          <a href="/articles/good-keyword-density-for-seo/">Good Keyword Density for SEO</a>
+          <a href="/articles/how-to-calculate-keyword-density/">Calculate Keyword Density</a>
+          <a href="/articles/how-to-check-keyword-density/">How to Check Keyword Density</a>
+          <a href="/articles/keyword-density-vs-keyword-stuffing/">Keyword Density vs Keyword Stuffing</a>
+        </div>
+      </section>
+
+      <section class="directory-topic">
+        <span class="mini-label">Search Snippets</span>
+        <h3>Create and preview metadata</h3>
+        <p>Prepare titles, descriptions, canonical tags, and cleaner search previews.</p>
+        <div class="directory-link-list">
+          <a href="/tools/meta-tag-generator/">Open Meta Tag Generator</a>
+          <a href="/tools/serp-snippet-preview/">Open SERP Snippet Preview</a>
+          <a href="/articles/serp-snippet-preview-guide/">SERP Snippet Preview Guide</a>
+          <a href="/articles/meta-title-length/">Meta Title Length</a>
+          <a href="/articles/meta-description-length/">Meta Description Length</a>
+          <a href="/articles/how-to-use-meta-tag-generator-for-seo/">Use a Meta Tag Generator for SEO</a>
+          <a href="/articles/meta-tags-guide/">Meta Titles and Descriptions</a>
+        </div>
+      </section>
+
+      <section class="directory-topic">
+        <span class="mini-label">Ad Metrics</span>
+        <h3>Measure campaign returns</h3>
+        <p>Calculate return on ad spend and understand the numbers behind campaign performance.</p>
+        <div class="directory-link-list">
+          <a href="/tools/cpc-roas-calculator/">Open ROAS Calculator</a>
+          <a href="/articles/how-to-calculate-roas/">How to Calculate ROAS</a>
+          <a href="/articles/good-roas/">What Is a Good ROAS?</a>
+          <a href="/articles/roas-vs-roi/">ROAS vs ROI</a>
+        </div>
+      </section>
     </div>
   </div>
 </section>
@@ -116,7 +160,9 @@ permalink: /tools/
       if (!button) return;
       activeFilter = button.dataset.toolFilter;
       filterBar.querySelectorAll("button").forEach(function (item) {
-        item.classList.toggle("is-active", item === button);
+        const isActive = item === button;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", isActive ? "true" : "false");
       });
       updateTools();
     });
@@ -125,100 +171,9 @@ permalink: /tools/
     searchForm.addEventListener("submit", function (event) {
       event.preventDefault();
       updateTools();
-      document.querySelector("#all-tools").scrollIntoView({ behavior: "smooth" });
+      document.querySelector("#all-tools").scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+      });
     });
   })();
 </script>
-
-<section class="section section-tight">
-  <div class="container">
-    <div class="cluster-panel cluster-panel-compact">
-      <div class="cluster-copy">
-        <span class="eyebrow">Campaign URLs</span>
-        <h2>Build and check reliable UTM campaign links.</h2>
-        <p>
-          Create a trackable link, validate its parameters before launch, then use the guides to review naming and Google Analytics reporting.
-        </p>
-      </div>
-
-      <div class="cluster-links">
-        <a href="/tools/utm-builder/">Open UTM Builder</a>
-        <a href="/tools/utm-link-checker/">Open UTM Link Checker</a>
-        <a href="/articles/utm-parameter-validation-rules/">UTM Validation Rules</a>
-        <a href="/articles/what-is-utm-tracking/">What Is UTM Tracking?</a>
-        <a href="/articles/what-are-utm-parameters/">What Are UTM Parameters?</a>
-        <a href="/articles/how-to-create-a-tracking-url/">How to Create a Tracking URL</a>
-        <a href="/articles/how-to-use-utm-builder-for-google-analytics/">Track UTM Campaigns in GA4</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-tight">
-  <div class="container">
-    <div class="cluster-panel cluster-panel-compact">
-      <div class="cluster-copy">
-        <span class="eyebrow">SEO Content</span>
-        <h2>Use the Keyword Density Checker with practical SEO writing guides.</h2>
-        <p>
-          Check keyword frequency, then use the guides to understand density, natural keyword use, and keyword stuffing risks.
-        </p>
-      </div>
-
-      <div class="cluster-links">
-        <a href="/tools/keyword-density-checker/">Open Keyword Density Checker</a>
-        <a href="/articles/what-is-keyword-density/">What Is Keyword Density?</a>
-        <a href="/articles/good-keyword-density-for-seo/">Good Keyword Density for SEO</a>
-        <a href="/articles/how-to-calculate-keyword-density/">Calculate Keyword Density</a>
-        <a href="/articles/how-to-check-keyword-density/">How to Check Keyword Density</a>
-        <a href="/articles/keyword-density-vs-keyword-stuffing/">Keyword Density vs Keyword Stuffing</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-tight">
-  <div class="container">
-    <div class="cluster-panel cluster-panel-compact">
-      <div class="cluster-copy">
-        <span class="eyebrow">Search Snippets</span>
-        <h2>Use the Meta Tag Generator with practical metadata guides.</h2>
-        <p>
-          Create SEO titles, meta descriptions, canonical tags, and social preview markup, then review the guides before publishing.
-        </p>
-      </div>
-
-      <div class="cluster-links">
-        <a href="/tools/meta-tag-generator/">Open Meta Tag Generator</a>
-        <a href="/tools/serp-snippet-preview/">Open SERP Snippet Preview</a>
-        <a href="/articles/serp-snippet-preview-guide/">SERP Snippet Preview Guide</a>
-        <a href="/articles/meta-title-length/">Meta Title Length</a>
-        <a href="/articles/meta-description-length/">Meta Description Length</a>
-        <a href="/articles/how-to-use-meta-tag-generator-for-seo/">Use a Meta Tag Generator for SEO</a>
-        <a href="/articles/meta-tags-guide/">Meta Titles and Descriptions</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-tight">
-  <div class="container">
-    <div class="cluster-panel cluster-panel-compact">
-      <div class="cluster-copy">
-        <span class="eyebrow">Ad Metrics</span>
-        <h2>Use the ROAS Calculator with paid campaign guides.</h2>
-        <p>
-          Calculate return on ad spend, then use the guides to understand the ROAS formula, campaign benchmarks, and ROAS vs ROI.
-        </p>
-      </div>
-
-      <div class="cluster-links">
-        <a href="/tools/cpc-roas-calculator/">Open ROAS Calculator</a>
-        <a href="/articles/how-to-calculate-roas/">How to Calculate ROAS</a>
-        <a href="/articles/good-roas/">What Is a Good ROAS?</a>
-        <a href="/articles/roas-vs-roi/">ROAS vs ROI</a>
-        <a href="/articles/good-roas/">Good ROAS Benchmarks</a>
-      </div>
-    </div>
-  </div>
-</section>

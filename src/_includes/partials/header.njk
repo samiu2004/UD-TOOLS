@@ -25,11 +25,11 @@
     </button>
 
     <nav class="nav" id="site-nav" aria-label="Main navigation" data-nav>
-      <a href="/" class="{{ 'active' if page.url == '/' else '' }}">Home</a>
-      <a href="/tools/" class="{{ 'active' if page.url == '/tools/' else ('active' if '/tools/' in page.url else '') }}">Tools</a>
-      <a href="/articles/" class="{{ 'active' if page.url == '/articles/' else ('active' if '/articles/' in page.url else '') }}">Articles</a>
-      <a href="/about/" class="{{ 'active' if page.url == '/about/' else '' }}">About</a>
-      <a href="/contact/" class="{{ 'active' if page.url == '/contact/' else '' }}">Contact</a>
+      {% for item in navigation.main %}
+        {% set isSection = item.url == '/tools/' or item.url == '/articles/' %}
+        {% set isActive = page.url == item.url or (isSection and item.url in page.url) %}
+        <a href="{{ item.url }}" class="{{ 'active' if isActive else '' }}"{% if isActive %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
     </nav>
   </div>
 </header>
@@ -44,6 +44,21 @@
       const isOpen = nav.classList.toggle("is-open");
       button.setAttribute("aria-expanded", isOpen ? "true" : "false");
       button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+
+    nav.addEventListener("click", function (event) {
+      if (!event.target.closest("a")) return;
+      nav.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Open menu");
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape" || !nav.classList.contains("is-open")) return;
+      nav.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Open menu");
+      button.focus();
     });
   })();
 </script>

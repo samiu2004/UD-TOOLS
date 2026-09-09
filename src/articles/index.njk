@@ -5,141 +5,181 @@ description: Read practical SEO, content writing, keyword density, UTM tracking,
 permalink: /articles/
 ---
 
-<section class="page-hero page-hero-compact">
-  <div class="container">
-    <div class="page-hero-copy">
+<section class="directory-hero directory-hero-articles">
+  <div class="container directory-hero-inner">
+    <div class="directory-hero-copy">
       <span class="page-kicker">Articles</span>
       <h1>Practical marketing guides for SEO and campaign tracking.</h1>
-      <p class="page-hero-lead">
-        Explore simple, actionable articles designed to work together with the tools on UD Marketing Tools.
-      </p>
+      <p>Explore simple, actionable articles designed to work together with the tools on UD Marketing Tools.</p>
     </div>
+
+    <form class="directory-search" role="search" data-article-finder>
+      <label for="article-search">Find a marketing guide</label>
+      <div class="directory-search-row">
+        <input id="article-search" type="search" placeholder="Try: UTM tracking" autocomplete="off" data-article-search>
+        <button class="btn btn-accent" type="submit">Find guide</button>
+      </div>
+    </form>
   </div>
 </section>
 
-<section class="section section-tight">
+<section class="section directory-workspace articles-index-section" aria-labelledby="all-articles-title">
   <div class="container">
-    <div class="cluster-panel cluster-panel-compact">
-      <div class="cluster-copy">
-        <span class="eyebrow">Featured Cluster</span>
-        <h2>Campaign tracking guides</h2>
-        <p>
-          Learn how UTM tracking works, what UTM parameters mean, and how to create tracking URLs for Google Analytics campaigns.
-        </p>
-      </div>
-
-      <div class="cluster-links">
-        <a href="/tools/utm-builder/">Free UTM Builder</a>
-        <a href="/articles/what-is-utm-tracking/">What Is UTM Tracking?</a>
-        <a href="/articles/what-are-utm-parameters/">What Are UTM Parameters?</a>
-        <a href="/articles/how-to-create-a-tracking-url/">How to Create a Tracking URL</a>
-        <a href="/articles/how-to-use-utm-builder-for-google-analytics/">How to Track UTM Campaigns in GA4</a>
-        <a href="/articles/utm-builder-vs-campaign-url-builder/">UTM Builder vs Campaign URL Builder</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-tight">
-  <div class="container">
-    <div class="cluster-panel cluster-panel-compact">
-      <div class="cluster-copy">
-        <span class="eyebrow">SEO Writing Guides</span>
-        <h2>Keyword density guides</h2>
-        <p>
-          Learn how keyword density works, how to check it, and how to avoid keyword stuffing while keeping blog posts natural.
-        </p>
-      </div>
-
-      <div class="cluster-links">
-        <a href="/tools/keyword-density-checker/">Free Keyword Density Checker</a>
-        <a href="/articles/what-is-keyword-density/">What Is Keyword Density?</a>
-        <a href="/articles/good-keyword-density-for-seo/">What Is a Good Keyword Density for SEO?</a>
-        <a href="/articles/how-to-calculate-keyword-density/">How to Calculate Keyword Density</a>
-        <a href="/articles/how-to-check-keyword-density/">How to Check Keyword Density in Content</a>
-        <a href="/articles/keyword-density-vs-keyword-stuffing/">Keyword Density vs Keyword Stuffing</a>
-        <a href="/articles/how-to-use-keywords-naturally/">How to Use Keywords Naturally in Blog Posts</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-tight">
-  <div class="container">
-    <div class="cluster-panel cluster-panel-compact">
-      <div class="cluster-copy">
-        <span class="eyebrow">Metadata Guides</span>
-        <h2>Meta tag generator guides</h2>
-        <p>
-          Learn how to write search snippets, create metadata, and prepare cleaner social previews for important pages.
-        </p>
-      </div>
-
-      <div class="cluster-links">
-        <a href="/tools/meta-tag-generator/">Free Meta Tag Generator</a>
-        <a href="/tools/serp-snippet-preview/">SERP Snippet Preview</a>
-        <a href="/articles/serp-snippet-preview-guide/">SERP Snippet Preview Guide</a>
-        <a href="/articles/meta-title-length/">Meta Title Length</a>
-        <a href="/articles/meta-description-length/">Meta Description Length</a>
-        <a href="/articles/how-to-use-meta-tag-generator-for-seo/">How to Use a Meta Tag Generator for SEO</a>
-        <a href="/articles/meta-tags-guide/">Meta Titles and Descriptions</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-tight">
-  <div class="container">
-    <div class="cluster-panel cluster-panel-compact">
-      <div class="cluster-copy">
-        <span class="eyebrow">Paid Ads Guides</span>
-        <h2>ROAS calculator guides</h2>
-        <p>
-          Learn how to calculate ROAS, understand the formula, compare ROAS with ROI, and judge whether a campaign result is actually healthy.
-        </p>
-      </div>
-
-      <div class="cluster-links">
-        <a href="/tools/cpc-roas-calculator/">Free ROAS Calculator</a>
-        <a href="/articles/how-to-calculate-roas/">How to Calculate ROAS</a>
-        <a href="/articles/good-roas/">What Is a Good ROAS?</a>
-        <a href="/articles/roas-vs-roi/">ROAS vs ROI</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-tight articles-index-section">
-  <div class="container">
-    <div class="section-head section-head-split">
+    <div class="directory-heading">
       <div>
-        <span class="mini-label">Latest guides</span>
-        <h2 class="section-title">All articles</h2>
+        <span class="eyebrow">All Articles</span>
+        <h2 id="all-articles-title">Choose a guide and keep moving.</h2>
       </div>
-      <p class="section-desc">
-        Browse practical writing, SEO, and content optimization guides pulled automatically from your articles data.
-      </p>
+      <p>Filter by topic or search for the task you are working on.</p>
     </div>
 
-    <div class="feature-grid articles-grid">
+    <div class="tool-filter-bar" aria-label="Filter articles by topic" data-article-filters>
+      <button class="is-active" type="button" data-article-filter="all" aria-pressed="true">All guides</button>
+      <button type="button" data-article-filter="campaign" aria-pressed="false">Campaigns</button>
+      <button type="button" data-article-filter="seo" aria-pressed="false">SEO writing</button>
+      <button type="button" data-article-filter="metadata" aria-pressed="false">Metadata</button>
+      <button type="button" data-article-filter="advertising" aria-pressed="false">Advertising</button>
+      <button type="button" data-article-filter="general" aria-pressed="false">General</button>
+    </div>
+    <p class="tool-filter-status" aria-live="polite" data-article-status>{{ articles | length }} guides available</p>
+
+    <div class="article-directory-list" data-article-list>
       {% for article in articles | reverse %}
-      <article class="feature-card article-card article-card-archive">
-        <div class="feature-top">
-          <span class="article-card-kind">Practical guide</span>
-          <time class="feature-meta" datetime="{{ article.date }}">{{ article.date | displayDate }}</time>
-        </div>
-
-        <div class="feature-body">
-          <h3>{{ article.title }}</h3>
+        {% set articleTopic = "general" %}
+        {% if "utm" in article.slug or "tracking-url" in article.slug %}
+          {% set articleTopic = "campaign" %}
+        {% elif "keyword" in article.slug or "readability" in article.slug %}
+          {% set articleTopic = "seo" %}
+        {% elif "meta" in article.slug or "serp" in article.slug %}
+          {% set articleTopic = "metadata" %}
+        {% elif "roas" in article.slug %}
+          {% set articleTopic = "advertising" %}
+        {% endif %}
+        <article class="article-directory-item" data-article-card data-article-category="{{ articleTopic }}" data-article-search-text="{{ article.title }} {{ article.description }}">
+          <div class="article-directory-meta">
+            <span>{{ articleTopic | replace('seo', 'SEO writing') | replace('campaign', 'Campaigns') | replace('metadata', 'Metadata') | replace('advertising', 'Advertising') | replace('general', 'General') }}</span>
+            <time datetime="{{ article.date }}">{{ article.date | displayDate }}</time>
+          </div>
+          <h3><a href="/articles/{{ article.slug }}/">{{ article.title }}</a></h3>
           <p>{{ article.description }}</p>
-        </div>
-
-        <div class="feature-bottom">
-          <span class="article-card-author">By {{ site.author.name }}</span>
-          <a class="article-read-link" href="/articles/{{ article.slug }}/">Read guide <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </article>
+          <a class="article-read-link" href="/articles/{{ article.slug }}/" aria-label="Read {{ article.title }}">Read guide <span aria-hidden="true">&rarr;</span></a>
+        </article>
       {% endfor %}
     </div>
   </div>
 </section>
+
+<section class="section directory-topics" aria-labelledby="article-topics-title">
+  <div class="container">
+    <div class="directory-heading directory-heading-compact">
+      <div>
+        <span class="eyebrow">Browse by Workflow</span>
+        <h2 id="article-topics-title">Pair practical guides with the right tool.</h2>
+      </div>
+      <p>Start with a focused workflow when you already know the result you need.</p>
+    </div>
+
+    <div class="directory-topic-grid">
+      <section class="directory-topic">
+        <span class="mini-label">Campaign Tracking</span>
+        <h3>Build measurable links</h3>
+        <div class="directory-link-list">
+          <a href="/tools/utm-builder/">Free UTM Builder</a>
+          <a href="/articles/what-is-utm-tracking/">What Is UTM Tracking?</a>
+          <a href="/articles/what-are-utm-parameters/">What Are UTM Parameters?</a>
+          <a href="/articles/how-to-create-a-tracking-url/">How to Create a Tracking URL</a>
+          <a href="/articles/how-to-use-utm-builder-for-google-analytics/">How to Track UTM Campaigns in GA4</a>
+          <a href="/articles/utm-builder-vs-campaign-url-builder/">UTM Builder vs Campaign URL Builder</a>
+        </div>
+      </section>
+
+      <section class="directory-topic">
+        <span class="mini-label">SEO Writing</span>
+        <h3>Use keywords naturally</h3>
+        <div class="directory-link-list">
+          <a href="/tools/keyword-density-checker/">Free Keyword Density Checker</a>
+          <a href="/articles/what-is-keyword-density/">What Is Keyword Density?</a>
+          <a href="/articles/good-keyword-density-for-seo/">What Is a Good Keyword Density for SEO?</a>
+          <a href="/articles/how-to-calculate-keyword-density/">How to Calculate Keyword Density</a>
+          <a href="/articles/how-to-check-keyword-density/">How to Check Keyword Density in Content</a>
+          <a href="/articles/keyword-density-vs-keyword-stuffing/">Keyword Density vs Keyword Stuffing</a>
+          <a href="/articles/how-to-use-keywords-naturally/">How to Use Keywords Naturally</a>
+        </div>
+      </section>
+
+      <section class="directory-topic">
+        <span class="mini-label">Metadata</span>
+        <h3>Improve search snippets</h3>
+        <div class="directory-link-list">
+          <a href="/tools/meta-tag-generator/">Free Meta Tag Generator</a>
+          <a href="/tools/serp-snippet-preview/">SERP Snippet Preview</a>
+          <a href="/articles/serp-snippet-preview-guide/">SERP Snippet Preview Guide</a>
+          <a href="/articles/meta-title-length/">Meta Title Length</a>
+          <a href="/articles/meta-description-length/">Meta Description Length</a>
+          <a href="/articles/how-to-use-meta-tag-generator-for-seo/">How to Use a Meta Tag Generator</a>
+          <a href="/articles/meta-tags-guide/">Meta Titles and Descriptions</a>
+        </div>
+      </section>
+
+      <section class="directory-topic">
+        <span class="mini-label">Paid Ads</span>
+        <h3>Understand campaign returns</h3>
+        <div class="directory-link-list">
+          <a href="/tools/cpc-roas-calculator/">Free ROAS Calculator</a>
+          <a href="/articles/how-to-calculate-roas/">How to Calculate ROAS</a>
+          <a href="/articles/good-roas/">What Is a Good ROAS?</a>
+          <a href="/articles/roas-vs-roi/">ROAS vs ROI</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const searchForm = document.querySelector("[data-article-finder]");
+    const searchInput = document.querySelector("[data-article-search]");
+    const filterBar = document.querySelector("[data-article-filters]");
+    const cards = Array.from(document.querySelectorAll("[data-article-card]"));
+    const status = document.querySelector("[data-article-status]");
+    if (!searchForm || !searchInput || !filterBar || !cards.length || !status) return;
+
+    let activeFilter = "all";
+
+    function updateArticles() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+
+      cards.forEach(function (card) {
+        const matchesCategory = activeFilter === "all" || card.dataset.articleCategory === activeFilter;
+        const matchesSearch = !query || card.dataset.articleSearchText.toLowerCase().includes(query);
+        const shouldShow = matchesCategory && matchesSearch;
+        card.hidden = !shouldShow;
+        if (shouldShow) visible += 1;
+      });
+
+      status.textContent = visible === 1 ? "1 guide available" : visible + " guides available";
+    }
+
+    filterBar.addEventListener("click", function (event) {
+      const button = event.target.closest("[data-article-filter]");
+      if (!button) return;
+      activeFilter = button.dataset.articleFilter;
+      filterBar.querySelectorAll("button").forEach(function (item) {
+        const isActive = item === button;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+      updateArticles();
+    });
+
+    searchInput.addEventListener("input", updateArticles);
+    searchForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      updateArticles();
+      document.querySelector("#all-articles-title").scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+      });
+    });
+  })();
+</script>
